@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a2cdf6271dea47f0a864825fab438f3, type: 3}
+  m_Name: don't want to spend any time
+  m_EditorClassIdentifier: 
+  dialogueText: player1, it seems like you really don't want to spend any time with
+    me. Is that true?
+  options:
+  - optionText: I have been trying to get you to go away this whole time.
+    response: {fileID: 0}
+    triggersFPS: 1
+    isWinningChoice: 0
+    causesRelationship: 0
+  - optionText: I just wanna play video games. Not hang out with people.
+    response: {fileID: 0}
+    triggersFPS: 0
+    isWinningChoice: 1
+    causesRelationship: 0
+  - optionText: Maybe ask me in a few days?
+    response: {fileID: 0}
+    triggersFPS: 0
+    isWinningChoice: 1
+    causesRelationship: 0
+  - optionText: No. Sorry. I was just playing hard to get. I think you're cute.
+    response: {fileID: 0}
+    triggersFPS: 0
+    isWinningChoice: 0
+    causesRelationship: 1

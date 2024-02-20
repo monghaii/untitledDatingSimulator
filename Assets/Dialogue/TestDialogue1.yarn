@@ -1,6 +1,6 @@
 title: Start
 tags:
-position: -44,-204
+position: -21,-174
 ---
 Narrator: Oh, hello!
     -> Hi, where am I?
@@ -9,19 +9,11 @@ Narrator: Oh, hello!
                 Narrator: Hello!
                 <<jump Start>>
             -> Oh.
-            <<jump Oh>>
-            -> How did I get here?
-            <<jump Unity>>
+                <<jump Oh>>
 ===
 
 title: Oh
-position: -151,12
+position: -152,38
 ---
 Narrator: Yeah, fun, right?
-===
-
-title: Unity
-position: 119,12
----
-Narrator: Someone read the Beginner's Guide!
 ===

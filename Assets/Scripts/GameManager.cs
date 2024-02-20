@@ -51,10 +51,6 @@ public class GameManager : MonoBehaviour
     public static void SetSprite(string characterName) {
         Debug.Log($"switching to {characterName}");
     }
-    
-    public static void testYarnUnityIntegration() {
-        Debug.Log($"I am called from yarn :)");
-    }
 
     public void ReloadGame()
     {

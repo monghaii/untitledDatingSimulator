@@ -41,7 +41,17 @@ public class GameManager : MonoBehaviour
     }
     
     // boilerplate to expose a method to yarn runtime
-    [YarnCommand("testYarnUnityIntegration")]
+    // https://docs.yarnspinner.dev/using-yarnspinner-with-unity/creating-commands-functions
+    [YarnCommand("TestYarnUnityIntegration")]
+    public static void TestYarnUnityIntegration() {
+        Debug.Log($"I am called from yarn :)");
+    }
+    
+    [YarnCommand("SetSprite")]
+    public static void SetSprite(string characterName) {
+        Debug.Log($"switching to {characterName}");
+    }
+    
     public static void testYarnUnityIntegration() {
         Debug.Log($"I am called from yarn :)");
     }

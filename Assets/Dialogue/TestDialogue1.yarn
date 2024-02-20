@@ -1,6 +1,6 @@
 title: Start
 tags:
-position: -21,-174
+position: -4,-133
 ---
 Narrator: Oh, hello!
     -> Hi, where am I?
@@ -9,12 +9,13 @@ Narrator: Oh, hello!
                 Narrator: Hello!
                 <<jump Start>>
             -> Call test method
-                <<testYarnUnityIntegration>>
+                <<TestYarnUnityIntegration>>
+                <<SetSprite name!>>
                 <<jump Oh>>
 ===
 
 title: Oh
-position: -152,38
+position: -140,105
 ---
 Narrator: Yeah, fun, right?
 ===

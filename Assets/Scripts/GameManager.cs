@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,12 +26,6 @@ public class GameManager : MonoBehaviour
         fpsMode.SetActive(false);
         fpsCamera.enabled = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public void StartFPS()
     {
@@ -43,6 +38,12 @@ public class GameManager : MonoBehaviour
         fpsMode.SetActive(false);
         datingSimMode.enabled = true;
         ShowDatingSimCamera();
+    }
+    
+    // boilerplate to expose a method to yarn runtime
+    [YarnCommand("testYarnUnityIntegration")]
+    public static void testYarnUnityIntegration() {
+        Debug.Log($"I am called from yarn :)");
     }
 
     public void ReloadGame()

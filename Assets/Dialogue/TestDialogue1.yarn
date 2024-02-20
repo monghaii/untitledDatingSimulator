@@ -8,7 +8,8 @@ Narrator: Oh, hello!
             -> hello
                 Narrator: Hello!
                 <<jump Start>>
-            -> Oh.
+            -> Call test method
+                <<testYarnUnityIntegration>>
                 <<jump Oh>>
 ===
 

@@ -10,7 +10,7 @@ Narrator: Oh, hello!
                 <<jump Start>>
             -> Call test method
                 <<TestYarnUnityIntegration>>
-                <<SetSprite name!>>
+                <<SetSprite GameManager test2>>
                 <<jump Oh>>
 ===
 

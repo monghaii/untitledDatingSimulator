@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class GameManager : MonoBehaviour
     [Header("CameraManagement")] 
     public Camera datingSimCamera;
     public Camera fpsCamera;
+    
+    [Header("Characters")] 
+    public Image characterImage;
+    public Characters characterSO;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -48,8 +54,19 @@ public class GameManager : MonoBehaviour
     }
     
     [YarnCommand("SetSprite")]
-    public static void SetSprite(string characterName) {
-        Debug.Log($"switching to {characterName}");
+    public void SetSprite(string characterName) 
+    {
+        Debug.Log($"Switching to {characterName}");
+        // Find the character in the CharacterList by name
+        Character character = characterSO.CharacterList.Find(c => c.CharacterName == characterName);
+        if (character != null)
+        {
+            characterImage.sprite = character.CharacterImage;
+        }
+        else
+        {
+            Debug.LogWarning($"Character '{characterName}' not found.");
+        }
     }
 
     public void ReloadGame()

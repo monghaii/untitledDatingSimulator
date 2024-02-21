@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2417275882	Play_Test_SFX			\Default Work Unit\Play_Test_SFX	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	477901944	Test_SFX	C:\Users\giaar\Documents\untitledDatingSimulator\untitledDatingSimulator_WwiseProject\.cache\Windows\SFX\Test_SFX_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Test_SFX		359520
+

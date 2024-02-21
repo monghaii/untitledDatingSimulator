@@ -33,6 +33,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
+        AkSoundEngine.PostEvent("Play_Test_SFX" , this.gameObject);
         muzzleFlash.Play();
         
         RaycastHit hit;

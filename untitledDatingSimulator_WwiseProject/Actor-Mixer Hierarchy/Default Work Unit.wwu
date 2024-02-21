@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{FEE3ABD5-8A5A-47B8-A58C-F67843F4586F}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{FEE3ABD5-8A5A-47B8-A58C-F67843F4586F}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Test_SFX" ID="{B004A7A4-2B1D-4869-8BCC-58390C2F30F1}" ShortID="6231641">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E033473E-6C97-4F9C-BDB2-572FC2FA910D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9A8DEAAE-168B-469F-A91C-0E2986FCB45D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Test_SFX" ID="{FE340C85-76F6-4348-9C30-4C3D56FD4A2D}">
+							<Language>SFX</Language>
+							<AudioFile>Test_SFX.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="477901944"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Test_SFX" ID="{FE340C85-76F6-4348-9C30-4C3D56FD4A2D}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

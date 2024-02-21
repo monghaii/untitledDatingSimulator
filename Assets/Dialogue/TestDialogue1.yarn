@@ -1,0 +1,21 @@
+title: Start
+tags:
+position: -4,-133
+---
+Narrator: Oh, hello!
+    -> Hi, where am I?
+        Narrator: You're in Unity!
+            -> hello
+                Narrator: Hello!
+                <<jump Start>>
+            -> Call test method
+                <<TestYarnUnityIntegration>>
+                <<SetSprite GameManager test2>>
+                <<jump Oh>>
+===
+
+title: Oh
+position: -140,105
+---
+Narrator: Yeah, fun, right?
+===

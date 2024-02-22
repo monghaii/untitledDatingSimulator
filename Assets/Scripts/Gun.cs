@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public Camera fpsCam;
+
+    [Header("Stats")]
     public float damage = 10f;
     public float range = 100f;
-    public float impactForce = 30f;
+    public float knockbackForce = 30f;
     public float fireRate = 15f;
+    private float nextTimeToFire = 0f;
+    private List<GameObject> bulletPool;    //this is for if we want actual bullets, rn its just playing an effect at hit location :')
     
-    public Camera fpsCam;
+    [Header("Effects")]
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
-    
-    private List<GameObject> bulletPool;
-    private float nextTimeToFire = 0f;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,25 +30,28 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
+        // play effects
         AkSoundEngine.PostEvent("Play_Test_SFX" , this.gameObject);
         muzzleFlash.Play();
         
+        // check if hit target
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
-
-            Damageable classmate = hit.transform.GetComponent<Damageable>();
-            if (classmate && classmate.gameObject.tag != "Player")
+            // apply damage
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            if (enemy)
             {
-                classmate.TakeDamage(damage);
+                enemy.TakeDamage(damage);
             }
-
+            
+            // optional knockback
             if (hit.rigidbody != null)
             {
-                hit.rigidbody.AddForce(hit.normal * impactForce);
+                hit.rigidbody.AddForce(hit.normal * knockbackForce);
             }
 
+            // more effects
             GameObject vfxImpact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(vfxImpact, 0.2f);
         }

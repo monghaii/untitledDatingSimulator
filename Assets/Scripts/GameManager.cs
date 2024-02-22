@@ -7,43 +7,46 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("DatingSim")] 
-    public Canvas datingSimMode;
-    
-    [Header("FPS")] 
-    public GameObject fpsMode;
-
-    [Header("CameraManagement")] 
-    public Camera datingSimCamera;
-    public Camera fpsCamera;
+    [Header("Scene Management")] 
+    public Canvas datingSimInterface;
+    private bool fpsLoaded = false;
     
     [Header("Characters")] 
     public Image characterImage;
     public Characters characterSO;
     
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        // dating sim enabled at the beginning
-        datingSimCamera.enabled = true;
-        
-        // fps mode disabled at the beginning
-        fpsMode.SetActive(false);
-        fpsCamera.enabled = false;
+
+    void Update()
+    { 
+        // this is just for testing additive scene loading
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (fpsLoaded) EndFPS();
+            else StartFPS();
+        }
     }
     
     public void StartFPS()
     {
-        fpsMode.SetActive(true);
-        datingSimMode.enabled = false;
-        ShowFPSCamera();
+        fpsLoaded = true;
+        
+        // hides dating sim ui
+        datingSimInterface.enabled = false;
+
+        // load in fps scene
+        Cursor.lockState = CursorLockMode.Locked; // also done in the FirstPersonCamera script but here again just in case
+        SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
     }
     public void EndFPS()
     {
-        fpsMode.SetActive(false);
-        datingSimMode.enabled = true;
-        ShowDatingSimCamera();
+        fpsLoaded = false;
+        
+        // enable dating sim ui
+        datingSimInterface.enabled = true;
+
+        // unload fps scene
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.UnloadSceneAsync("FPSScene");
     }
     
     // boilerplate to expose a method to yarn runtime
@@ -72,17 +75,5 @@ public class GameManager : MonoBehaviour
     public void ReloadGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void ShowDatingSimCamera()
-    {
-        datingSimCamera.enabled = true;
-        fpsCamera.enabled = false;
-    }
-
-    public void ShowFPSCamera()
-    {
-        datingSimCamera.enabled = false;
-        fpsCamera.enabled = true;
     }
 }

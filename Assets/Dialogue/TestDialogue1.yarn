@@ -12,6 +12,10 @@ Narrator: Oh, hello!
                 <<TestYarnUnityIntegration>>
                 <<SetSprite GameManager test2>>
                 <<jump Oh>>
+            -> Change to FPS mode
+                <<ChangeMode GameManager true>>
+            -> Show end-game screen
+                <<ShowEndScreen GameManager "winning">>
 ===
 
 title: Oh

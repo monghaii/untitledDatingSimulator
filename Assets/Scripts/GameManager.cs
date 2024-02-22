@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,11 +21,9 @@ public class GameManager : MonoBehaviour
     public Characters characterSO;
 
     // This should be populated in Unity Editor
-    // Variable to store different ending screens
-    // string: The name of the ending screen (for function call)
-    // GameObject: The actual object of the ending screen (like an image)
-    [Header("EndScreens")] public Dictionary<string, GameObject> EndScreens;
-    
+    [Header("EndScreens")] public GameObject winningScreen;
+
+
     void Update()
     { 
         // this is just for testing additive scene loading
@@ -105,9 +105,10 @@ public class GameManager : MonoBehaviour
     [YarnCommand("ShowEndScreen")]
     public void ShowEndScreen(string screenName)
     {
-        if (EndScreens.TryGetValue(screenName, out var screenObj))
+        if (screenName == "winning")
         {
-            screenObj.SetActive(true);
+            characterImage.enabled = false;
+            winningScreen.SetActive(true);
         }
     }
     

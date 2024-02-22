@@ -2,20 +2,59 @@ title: Start
 tags:
 position: -4,-133
 ---
-Narrator: Oh, hello!
-    -> Hi, where am I?
-        Narrator: You're in Unity!
-            -> hello
-                Narrator: Hello!
-                <<jump Start>>
-            -> Call test method
-                <<TestYarnUnityIntegration>>
-                <<SetSprite GameManager test2>>
-                <<jump Oh>>
+<<SetSprite GameManager animegirl>>
+animegirl: Oh, hello!
+    -> Gross, go away
+        animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
+            -> I can't date you, I'm in love with Sasuke
+                animegirl: Oh damn my bad. I'm a proud ally, I would never get in the way of your love
+                (( wait what's going on))
+                <<jump Sasuke>>
+            -> cash me outside how bout that
+                <<SetBackground GameManager courtyard>>
+                <<jump Outside>>
+    -> Hello m'lady
+        animegirl: Oh ew no
+        <<StartFPS GameManager>>
+    -> ...
+        animegirl: Wow, the strong silent type. This actually makes me like you more
+            -> ...
+                animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight
+                -> damn
+                    animegirl: we're going to have an amazing rest of our lives together :3
+                -> at least let me see them titties
+                    <<jump Oh>>
+            -> *fart*
+                animegirl: nvm you nasty
+                <<StartFPS GameManager>>
 ===
 
 title: Oh
 position: -140,105
 ---
-Narrator: Yeah, fun, right?
+<<SetSprite GameManager animegirl 1>>
+animegirl: This is all you deserve you creep
+===
+
+title: Outside
+position: -140,105
+---
+animegirl: Wow so you were just rude to me because you were embarrassed?
+animegirl: And now you're confessing your love to me in the courtyard :3
+    -> Oh no
+        animegirl: too bad! we're meeting my parents tonight
+    -> can i at least see some titties
+        <<jump Oh>>
+
+===
+
+title: Sasuke
+position: -140,105
+---
+<<SetSprite GameManager sasuke>>
+sasuke: Where the fuck am I
+    -> Do you want to go out with me Sasuke
+        sasuke: Sure why not
+    -> I told animegirl I liked you just so she would leave me alone
+        sasuke: Lol i feel that
 ===

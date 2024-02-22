@@ -1860,9 +1860,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c0051aeb331f1419372965c4a3d141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  datingSimInterface: {fileID: 0}
-  characterImage: {fileID: 0}
-  characterSO: {fileID: 0}
+  datingSimInterface: {fileID: 160800582}
+  datingSimEventSystem: {fileID: 1497172646}
+  characterImage: {fileID: 148983988}
+  characterSO: {fileID: 11400000, guid: afc98ce7d87324ceea542285ba1c4fb8, type: 2}
+  winningScreen: {fileID: 1417805701}
 --- !u!1 &985339901
 GameObject:
   m_ObjectHideFlags: 0

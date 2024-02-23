@@ -21,7 +21,7 @@ public class Character
     private string characterName;
     
     [SerializeField]
-    private Sprite characterImage;
+    private Sprite[] characterImage;
 
     public string CharacterName
     {
@@ -29,9 +29,8 @@ public class Character
         set { characterName = value; }
     }
 
-    public Sprite CharacterImage
+    public Sprite CharacterImage(int index)
     {
-        get { return characterImage; }
-        set { characterImage = value; }
+        return characterImage[index];
     }
 }

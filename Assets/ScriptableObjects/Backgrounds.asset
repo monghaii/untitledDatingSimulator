@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d886279dd7c41c4fbf97c5551abed97, type: 3}
+  m_Name: Backgrounds
+  m_EditorClassIdentifier: 
+  backgroundList:
+  - backgroundName: classroom
+    backgroundImage: {fileID: 21300000, guid: 81432ca36b2839740962636ba1f1387d, type: 3}
+  - backgroundName: courtyard
+    backgroundImage: {fileID: 21300000, guid: 5f388605a75c7a0499706ef1f9aaa6d8, type: 3}

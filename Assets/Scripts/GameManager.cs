@@ -24,6 +24,20 @@ public class GameManager : MonoBehaviour
     [Header("EndScreens")] public GameObject winningScreen;
 
 
+    [Header("Background")]
+    public Image backgroundImage;
+    public Backgrounds backgroundSO;
+
+    private IEnumerator Start()
+    {
+        var loaded = false;
+        var loadedLevel = Application.LoadLevelAdditiveAsync("UI");
+        yield return loadedLevel;
+        loaded = true;
+        datingSimInterface = GameObject.Find("DatingCanvas").GetComponent<Canvas>();
+        characterImage = GameObject.Find("CharacterSprite").GetComponent<Image>();
+        backgroundImage = GameObject.Find("BackgroundSprite").GetComponent<Image>();
+    }
     void Update()
     { 
         // this is just for testing additive scene loading
@@ -33,7 +47,8 @@ public class GameManager : MonoBehaviour
             else StartFPS();
         }
     }
-    
+
+    [YarnCommand("StartFPS")]
     public void StartFPS()
     {
         fpsLoaded = true;
@@ -71,16 +86,16 @@ public class GameManager : MonoBehaviour
     public static void TestYarnUnityIntegration() {
         Debug.Log($"I am called from yarn :)");
     }
-    
+
     [YarnCommand("SetSprite")]
-    public void SetSprite(string characterName) 
+    public void SetSprite(string characterName, int spriteIndex = 0)
     {
         Debug.Log($"Switching to {characterName}");
         // Find the character in the CharacterList by name
         Character character = characterSO.CharacterList.Find(c => c.CharacterName == characterName);
         if (character != null)
         {
-            characterImage.sprite = character.CharacterImage;
+            characterImage.sprite = character.CharacterImage(spriteIndex);
         }
         else
         {
@@ -112,6 +127,22 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    [YarnCommand("SetBackground")]
+    public void SetBackground(string backgroundName)
+    {
+        Debug.Log($"Switching to {backgroundName}");
+        // Find the character in the CharacterList by name
+        Background background = backgroundSO.BackgroundList.Find(b => b.BackgroundName == backgroundName);
+        if (background != null)
+        {
+            backgroundImage.sprite = background.BackgroundImage;
+        }
+        else
+        {
+            Debug.LogWarning($"Background '{backgroundName}' not found.");
+        }
+    }
+
     public void ReloadGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Characters
   m_EditorClassIdentifier: 
   characterList:
-  - characterName: test1
-    characterImage: {fileID: 21300000, guid: 84042ce76712242c393e8d3c386451ea, type: 3}
-  - characterName: test2
-    characterImage: {fileID: 21300000, guid: 68dc4df986057134b97a16e2543a8494, type: 3}
+  - characterName: animegirl
+    characterImage:
+    - {fileID: 21300000, guid: 84042ce76712242c393e8d3c386451ea, type: 3}
+    - {fileID: 21300000, guid: 68dc4df986057134b97a16e2543a8494, type: 3}
+  - characterName: sasuke
+    characterImage:
+    - {fileID: 21300000, guid: a1ea425971f34da41ab291b323df9b5f, type: 3}

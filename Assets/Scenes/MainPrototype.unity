@@ -524,7 +524,7 @@ MonoBehaviour:
   backgroundSO: {fileID: 11400000, guid: 9750abeeaf819fa488a9ab9f77ba0630, type: 2}
   backgroundSO: {fileID: 11400000, guid: 9750abeeaf819fa488a9ab9f77ba0630, type: 2}
 --- !u!1 &985339901
-GameObject:
+GameObject: 
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour
     [Header("Health")] 
     public float maxHealth = 100f;
     public float currentHealth;
+    public HealthBar healthBar;
     
     
     void Awake()
@@ -90,6 +92,9 @@ public class Enemy : MonoBehaviour
                 break;
             }
         }
+
+        //update healthBar
+        healthBar.SetHealthPercentage(maxHealth, currentHealth);
     }
 
     /// <summary>

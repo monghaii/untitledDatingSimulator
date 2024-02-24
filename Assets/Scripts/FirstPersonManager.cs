@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FirstPersonManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class FirstPersonManager : MonoBehaviour
     public float currentHealth;
     public bool isDead = false;
     // also need to connect this to the UI
+    public HealthBar healthBar;
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class FirstPersonManager : MonoBehaviour
         {
             //Todo: death behavior and switching back to dating sim mode?
         }
+        healthBar.SetHealthPercentage(maxHealth, currentHealth);
     }
     
     public void TakeDamage(float dmg)

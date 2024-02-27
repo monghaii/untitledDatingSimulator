@@ -31,7 +31,6 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         // play effects
-        AkSoundEngine.PostEvent("Play_Test_SFX" , this.gameObject);
         muzzleFlash.Play();
         
         // check if hit target

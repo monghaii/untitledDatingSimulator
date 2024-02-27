@@ -6,58 +6,55 @@ position: -4,-133
 animegirl: Oh, hello!
     -> Gross, go away
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
-            -> I'm already taken, I'm with otheranimegirl
-                animegirl: My bad. I thought you were single.
-                (Wow that was close)
-                <<jump otheranimegirl>>
-            -> Uh...I gotta go outside
+            -> I can't date you, I'm in love with Sasuke
+                animegirl: Oh damn my bad. I'm a proud ally, I would never get in the way of your love
+                (( wait what's going on))
+                <<jump Sasuke>>
+            -> cash me outside how bout that
                 <<SetBackground GameManager courtyard>>
                 <<jump Outside>>
     -> Hello m'lady
-        animegirl: Oh ew no.
+        animegirl: Oh ew no
         <<StartFPS GameManager>>
     -> ...
-        animegirl: Wow, the strong silent type. This actually makes me like you more!
+        animegirl: Wow, the strong silent type. This actually makes me like you more
             -> ...
-                animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight!
-                -> Ugh, fine...
-                    animegirl: We're going to have an amazing rest of our lives together :3
-                -> I would never date you, you foul creature!
-                    animegirl: I won't stand for this...
-                    <<StartFPS GameManager>>
+                animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight
+                -> damn
+                    animegirl: we're going to have an amazing rest of our lives together :3
+                -> at least let me see them titties
+                    <<jump Oh>>
             -> *fart*
-                animegirl: You're disgusting...I won't stand for this.
+                animegirl: nvm you nasty
                 <<StartFPS GameManager>>
-            -> Sorry, I was thinking about my extensive collection of banana peels
-                animegirl: ...Okay. Gotta go! Nice seeing you!
+===
+
+title: Oh
+position: -140,105
+---
+<<SetSprite GameManager animegirl 1>>
+animegirl: This is all you deserve you creep
 ===
 
 title: Outside
 position: -140,105
 ---
-animegirl: Wow, so by "I gotta go outside" you meant you wanted to talk to me in private?
-animegirl: And now you're confessing to me in the courtyard :3
-    -> Oh no!
-        animegirl: Too bad! We're meeting my parents tonight :3
-    -> Yeah, I'm confessing that you're annoying
-        animegirl: I've had it with you!
-        <<StartFPS GameManager>>
-    -> No, I wanted to be alone...my goldfish died
-        animegirl: Oh, I'm so sorry...I'll leave you alone.
-        animegirl: For now...
+animegirl: Wow so you were just rude to me because you were embarrassed?
+animegirl: And now you're confessing your love to me in the courtyard :3
+    -> Oh no
+        animegirl: too bad! we're meeting my parents tonight
+    -> can i at least see some titties
+        <<jump Oh>>
 
 ===
 
-title: otheranimegirl
+title: Sasuke
 position: -140,105
 ---
-<<SetSprite GameManager otheranimegirl>>
-otheranimegirl: I heard you told animegirl that we were dating...is that true?
-    -> I was just trying to get her away from me. I can't stand her.
-        otheranimegirl: She's actually my best friend and I take that personally.
-        <<StartFPS GameManager>>
-    -> Uh...yeah?
-        otheranimegirl: Cool! I like you too! We'll be together forever!
-    -> I'm a compulsive liar, I can't control it, I need help, please help me
-        otheranimegirl: Not my circus not my monkeys, I'm gonna leave now.
+<<SetSprite GameManager sasuke>>
+sasuke: Where the fuck am I
+    -> Do you want to go out with me Sasuke
+        sasuke: Sure why not
+    -> I told animegirl I liked you just so she would leave me alone
+        sasuke: Lol i feel that
 ===

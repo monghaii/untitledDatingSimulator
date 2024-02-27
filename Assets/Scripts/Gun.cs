@@ -30,6 +30,9 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
+        //play sfx
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.sfx_GunFire, this.gameObject);
+        
         // play effects
         muzzleFlash.Play();
         

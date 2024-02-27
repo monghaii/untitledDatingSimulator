@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         datingSimInterface = GameObject.Find("DatingCanvas").GetComponent<Canvas>();
         characterImage = GameObject.Find("CharacterSprite").GetComponent<Image>();
         backgroundImage = GameObject.Find("BackgroundSprite").GetComponent<Image>();
+        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
     }
     void Update()
     { 
@@ -46,6 +47,11 @@ public class GameManager : MonoBehaviour
             if (fpsLoaded) EndFPS();
             else StartFPS();
         }
+    }
+
+    public bool GetFpsLoaded()
+    {
+        return fpsLoaded;
     }
 
     [YarnCommand("StartFPS")]
@@ -63,6 +69,9 @@ public class GameManager : MonoBehaviour
         // load in fps scene
         Cursor.lockState = CursorLockMode.Locked; // also done in the FirstPersonCamera script but here again just in case
         SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
+        
+        //switch music
+        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
     }
     public void EndFPS()
     {

@@ -184,6 +184,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         currentHealth -= dmg;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.sfx_HurtVocal, this.gameObject);
         if (currentHealth <= 0f)
         {
             currentState = EnemyState.Dead;

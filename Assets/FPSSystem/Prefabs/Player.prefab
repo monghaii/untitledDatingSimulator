@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 9200354457996823433}
   - component: {fileID: 6232229985428472415}
   - component: {fileID: 7416819270052500419}
-  - component: {fileID: 4476854940423062584}
-  - component: {fileID: 6527326381968959000}
   m_Layer: 0
   m_Name: FirstPersonCamera
   m_TagString: MainCamera
@@ -101,42 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 883172836805715273}
   mouseSensitivity: 200
---- !u!114 &4476854940423062584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 942074868159629113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928612286301caa418df980d6f208803, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
---- !u!114 &6527326381968959000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 942074868159629113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94bf0310e2060ce45bdb418269d44f26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
 --- !u!1 &1962279018230444870
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +225,7 @@ GameObject:
   - component: {fileID: 3337511304927409625}
   - component: {fileID: 6126302687611233873}
   - component: {fileID: 6784354302010055402}
+  - component: {fileID: 7599224653473258731}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -326,9 +289,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffccdb5e89dd3df42ad0abaa003982c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamemanager: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
   isDead: 0
+  healthBar: {fileID: 0}
 --- !u!114 &6784354302010055402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +315,14 @@ MonoBehaviour:
     m_Bits: 64
   speed: 12
   jumpHeight: 3
+--- !u!81 &7599224653473258731
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751904740615804725}
+  m_Enabled: 1
 --- !u!1 &4298157026642354616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,8 +5225,6 @@ GameObject:
   - component: {fileID: 7344909986453366851}
   - component: {fileID: 3212144226686891913}
   - component: {fileID: 6476881073894698442}
-  - component: {fileID: 9183256079198197991}
-  - component: {fileID: 1092478098323415256}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -5367,62 +5338,6 @@ MonoBehaviour:
   fireRate: 15
   muzzleFlash: {fileID: 4139445977759392408}
   impactEffect: {fileID: 1904537726723634772, guid: 02eea58266a03634bb22eb4e6730903d, type: 3}
---- !u!114 &9183256079198197991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7137203461247322022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928612286301caa418df980d6f208803, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
---- !u!114 &1092478098323415256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7137203461247322022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b2ad7ee1fccca44b8186d23ce7d0a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 246e031d1c2dc2a4c9adc752f075e850, type: 2}
-  useCallbacks: 0
-  Callbacks: []
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
-  MultiPositionType: 1
-  multiPositionTypeLabel: 0
-  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
-  LargeModePositions: []
-  multiPositionArray: []
 --- !u!1 &9148487808957007893
 GameObject:
   m_ObjectHideFlags: 0

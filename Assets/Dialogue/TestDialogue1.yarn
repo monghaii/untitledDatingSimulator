@@ -5,6 +5,7 @@ position: -4,-133
 <<SetSprite GameManager animegirl>>
 animegirl: Oh, hello!
     -> Gross, go away
+        <<dialogueReact AudioManager>>
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
             -> I can't date you, I'm in love with Sasuke
                 animegirl: Oh damn my bad. I'm a proud ally, I would never get in the way of your love
@@ -17,6 +18,7 @@ animegirl: Oh, hello!
         animegirl: Oh ew no
         <<StartFPS GameManager>>
     -> ...
+        <<dialogueReact AudioManager>>
         animegirl: Wow, the strong silent type. This actually makes me like you more
             -> ...
                 animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight

@@ -15,8 +15,8 @@ MonoBehaviour:
   characterList:
   - characterName: animegirl
     characterImage:
-    - {fileID: 21300000, guid: 84042ce76712242c393e8d3c386451ea, type: 3}
-    - {fileID: 21300000, guid: 68dc4df986057134b97a16e2543a8494, type: 3}
-  - characterName: sasuke
+    - {fileID: 21300000, guid: a3aa6469f55c5df478b788af50ddeed0, type: 3}
+    - {fileID: 21300000, guid: a3aa6469f55c5df478b788af50ddeed0, type: 3}
+  - characterName: otheranimegirl
     characterImage:
-    - {fileID: 21300000, guid: a1ea425971f34da41ab291b323df9b5f, type: 3}
+    - {fileID: 21300000, guid: ae1b0fd9aaa72c84b973a6f230223007, type: 3}

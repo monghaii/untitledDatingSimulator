@@ -2,7 +2,7 @@ title: Start
 tags:
 position: -4,-133
 ---
-<<SetSprite GameManager animegirl>>
+<<SetCharacter GameManager animegirl>>
 animegirl: Oh, hello!
     -> Gross, go away
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
@@ -51,7 +51,7 @@ animegirl: And now you're confessing to me in the courtyard :3
 title: otheranimegirl
 position: -140,105
 ---
-<<SetSprite GameManager otheranimegirl>>
+<<SetCharacter GameManager otheranimegirl>>
 otheranimegirl: I heard you told animegirl that we were dating...is that true?
     -> I was just trying to get her away from me. I can't stand her.
         otheranimegirl: She's actually my best friend and I take that personally.

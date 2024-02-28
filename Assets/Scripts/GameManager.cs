@@ -88,16 +88,9 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         SceneManager.UnloadSceneAsync("FPSScene");
     }
-    
-    // boilerplate to expose a method to yarn runtime
-    // https://docs.yarnspinner.dev/using-yarnspinner-with-unity/creating-commands-functions
-    [YarnCommand("TestYarnUnityIntegration")]
-    public static void TestYarnUnityIntegration() {
-        Debug.Log($"I am called from yarn :)");
-    }
 
-    [YarnCommand("SetSprite")]
-    public void SetSprite(string characterName, int spriteIndex = 0)
+    [YarnCommand("SetCharacter")]
+    public void SetCharacter(string characterName, int spriteIndex = 0)
     {
         Debug.Log($"Switching to {characterName}");
         // Find the character in the CharacterList by name
@@ -112,7 +105,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Function that can be called by Yarn to change game view
+    // Function that can be called by Yarn to change between FPS/Dialogue mode
     [YarnCommand("ChangeMode")]
     public void ChangeMode(bool fpsMode)
     {

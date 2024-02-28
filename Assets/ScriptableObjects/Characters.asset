@@ -20,3 +20,6 @@ MonoBehaviour:
   - characterName: otheranimegirl
     characterImage:
     - {fileID: 21300000, guid: ae1b0fd9aaa72c84b973a6f230223007, type: 3}
+  - characterName: me
+    characterImage:
+    - {fileID: 0}

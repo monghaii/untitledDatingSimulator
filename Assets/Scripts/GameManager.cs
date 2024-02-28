@@ -94,6 +94,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Switching to {characterName}");
         // Find the character in the CharacterList by name
+
+        characterImage.gameObject.SetActive(characterName != "me");
+        
         Character character = characterSO.CharacterList.Find(c => c.CharacterName == characterName);
         if (character != null)
         {

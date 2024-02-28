@@ -2,6 +2,16 @@ title: Start
 tags:
 position: -4,-133
 ---
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+summer's over already?
+i can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Edition again..
+ok playerName, just take it one day at a time. Just avoid all the girls so you can get home safe.
+WITH NO RELATIONSHIP.
+well... here goes nothing...
+
+<<SetBackground GameManager classroom>>
+...
 <<SetCharacter GameManager animegirl>>
 animegirl: Oh, hello!
     -> Gross, go away

@@ -1,11 +1,20 @@
 title: Start
 tags:
-position: -4,-133
+position: 33,-574
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 summer's over already?
 i can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Edition again..
+<<jump BeginDay>>
+===
+
+title: BeginDay
+tags:
+position: 38,-363
+---
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
 ok playerName, just take it one day at a time. Just avoid all the girls so you can get home safe.
 WITH NO RELATIONSHIP.
 well... here goes nothing...
@@ -32,6 +41,7 @@ animegirl: Oh, hello!
                 animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight!
                 -> Ugh, fine...
                     animegirl: We're going to have an amazing rest of our lives together :3
+                    <<jump badDream>>
                 -> I would never date you, you foul creature!
                     animegirl: I won't stand for this...
                     <<StartFPS GameManager>>
@@ -43,12 +53,13 @@ animegirl: Oh, hello!
 ===
 
 title: Outside
-position: -140,105
+position: 144,-130
 ---
 animegirl: Wow, so by "I gotta go outside" you meant you wanted to talk to me in private?
 animegirl: And now you're confessing to me in the courtyard :3
     -> Oh no!
         animegirl: Too bad! We're meeting my parents tonight :3
+        <<jump badDream>>
     -> Yeah, I'm confessing that you're annoying
         animegirl: I've had it with you!
         <<StartFPS GameManager>>
@@ -59,7 +70,7 @@ animegirl: And now you're confessing to me in the courtyard :3
 ===
 
 title: otheranimegirl
-position: -140,105
+position: -96,-134
 ---
 <<SetCharacter GameManager otheranimegirl>>
 otheranimegirl: I heard you told animegirl that we were dating...is that true?
@@ -68,6 +79,20 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
         <<StartFPS GameManager>>
     -> Uh...yeah?
         otheranimegirl: Cool! I like you too! We'll be together forever!
+        <<jump badDream>>
     -> I'm a compulsive liar, I can't control it, I need help, please help me
         otheranimegirl: Not my circus not my monkeys, I'm gonna leave now.
+===
+
+title: badDream
+position: 22,157
+---
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+...
+GASP
+omg, what happened?
+what a nightmare... I got into a relationship??
+I hope that never happens again...
+<<jump BeginDay>>
 ===

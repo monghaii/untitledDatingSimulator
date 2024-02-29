@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -817,7 +817,8 @@ GameObject:
   - component: {fileID: 1388987521}
   - component: {fileID: 1388987520}
   - component: {fileID: 1388987524}
-  m_Layer: 0
+  - component: {fileID: 1388987525}
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,6 +923,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307aada28e933f24ab3984fa07a5443a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &1388987525
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388987519}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1432506595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1122,8 @@ GameObject:
   - component: {fileID: 1711472651}
   - component: {fileID: 1711472650}
   - component: {fileID: 1711472654}
-  m_Layer: 0
+  - component: {fileID: 1711472655}
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1210,6 +1228,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307aada28e933f24ab3984fa07a5443a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &1711472655
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711472649}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1747111812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1599,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3590797856672237776, guid: f52edf9f79121984cb7000b017d70b0c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1736,6 +1774,26 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1710815088}
+    - target: {fileID: 6784354302010055402, guid: fea609c69fa179c449c63e653faa58ff, type: 3}
+      propertyPath: walkSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784354302010055402, guid: fea609c69fa179c449c63e653faa58ff, type: 3}
+      propertyPath: crouchScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784354302010055402, guid: fea609c69fa179c449c63e653faa58ff, type: 3}
+      propertyPath: crouchSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784354302010055402, guid: fea609c69fa179c449c63e653faa58ff, type: 3}
+      propertyPath: sprintSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416819270052500419, guid: fea609c69fa179c449c63e653faa58ff, type: 3}
+      propertyPath: mouseSensitivity
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9183256079198197991, guid: fea609c69fa179c449c63e653faa58ff, type: 3}
     - {fileID: 1092478098323415256, guid: fea609c69fa179c449c63e653faa58ff, type: 3}

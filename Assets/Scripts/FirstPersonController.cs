@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,20 +7,40 @@ public class FirstPersonController : MonoBehaviour
 {
     public CharacterController controller;
 
+    public enum MoveState
+    {
+        Walk,
+        Sprint,
+        Crouch,
+        InAir
+    }
+    
     [Header("Gravity")] 
     public float gravity;
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
     private bool isGrounded;
+
+    [Header("Movement")] 
+    public MoveState moveState;
+    public float walkSpeed = 12f;
+    public float crouchSpeed = 10f;
+    public float crouchScale;
+    private float startScale;
+    public float sprintSpeed = 15f;
     
-    [Header("Movement")]
-    public float speed;
+    private float speed;
     private Vector3 velocity;
     private Vector3 move;
     public float jumpHeight;
-    
 
+
+    void Start()
+    {
+        startScale = transform.localScale.y;
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -27,10 +48,39 @@ public class FirstPersonController : MonoBehaviour
         GravityUpdate();
         Movement();
         Jump();
+        Crouch();
+        CheckState();
         
         // apply updates to player controller
         controller.Move(move * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void CheckState()
+    {
+        if (isGrounded && (Input.GetKey(KeyCode.LeftShift)))
+        { 
+            // SPRINTING (hold)
+            moveState = MoveState.Sprint;
+            speed = sprintSpeed;
+        }
+        else if (isGrounded && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            // CROUCHING (hold)
+            moveState = MoveState.Crouch;
+            speed = crouchSpeed;
+        }
+        else if (isGrounded)
+        {
+            // WALKING
+            moveState = MoveState.Walk;
+            speed = walkSpeed;
+        }
+        else
+        { 
+            // IN AIR?? FROM JUMPING???
+            moveState = MoveState.InAir;
+        }
     }
 
     void Movement()
@@ -47,6 +97,21 @@ public class FirstPersonController : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+    }
+
+    void Crouch()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
+            transform.position -= Vector3.down * startScale * crouchScale;
+            //this.GetComponent<Rigidbody>().AddForce(Vector3.down * 3f, ForceMode.Impulse);
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startScale, transform.localScale.z);
+        }
+        
     }
 
     void GravityUpdate()

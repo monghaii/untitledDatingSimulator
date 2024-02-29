@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -18,11 +20,12 @@ public class Enemy : MonoBehaviour
 
     [Header("State Machine")]
     public EnemyState currentState = EnemyState.Chase;
+    public bool canSeePlayer = true;
     
     [Header("Movement")]
     public NavMeshAgent agent;
     public Transform player;
-    public LayerMask groundMask, playerMask;
+    public LayerMask groundMask, playerMask, obstacleMask;
     public float speed;
     public float rageSpeedMultiplier;
     
@@ -56,10 +59,22 @@ public class Enemy : MonoBehaviour
     {
         // TODO: check for rage mode from game manager???
         
+        // check if player in sight
+        RaycastHit hit;
+        Vector3 directionToCast = player.transform.position - transform.position;
+        if (Physics.Raycast(transform.position, directionToCast, out hit, Mathf.Infinity, obstacleMask))
+        {
+            canSeePlayer = false;
+        }
+        else
+        {
+            canSeePlayer = true;
+        }
+        
         // check ranges
         playerInMeleeRange = Physics.CheckSphere(transform.position, meleeRange, playerMask);
         playerInRangedRange = Physics.CheckSphere(transform.position, rangedRange, playerMask);
-        if (playerInMeleeRange || playerInRangedRange)
+        if ((playerInMeleeRange || playerInRangedRange) && canSeePlayer)
         {
             currentState = EnemyState.Attack;
         }

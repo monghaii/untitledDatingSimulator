@@ -32,8 +32,18 @@ public class GameManager : MonoBehaviour
     // NOTE: naming convention for different day dialogues
     // dialogueDay + Number
     // e.g. dialogueDay2
-    public float currentHealth = 100.0f;
-    public float currentLikability = 50.0f;
+    
+    public float currentHealth { get; set; }
+    public const float StartingHealth = 100.0f;
+    public float currentLikability { get; set; }
+    public const float StartingLikability = 60.0f;
+    public const float LosingLikabilityThreshold = 20.0f;
+    
+    // This section is used to store data at the beginning of the day
+    // used for sending the player back to the start
+    [Header("SavedDayData")] 
+    public float dayStart_health;
+    public float dayStart_likability;
 
     [Header("Background")]
     public Image backgroundImage;
@@ -52,6 +62,12 @@ public class GameManager : MonoBehaviour
         // This may not be the best practice...
         dialogueRunnerInstance = FindAnyObjectByType<DialogueRunner>();
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
+        
+        // Initializing attributes
+        currentHealth = StartingHealth;
+        currentLikability = StartingLikability;
+        dayStart_health = currentHealth;
+        dayStart_likability = currentLikability;
     }
     void Update()
     { 
@@ -62,7 +78,8 @@ public class GameManager : MonoBehaviour
             else StartFPS();
         }
     }
-
+    
+    
     public bool GetFpsLoaded()
     {
         return fpsLoaded;
@@ -140,7 +157,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    // I am making this changing likability by a delta...
+    [YarnCommand("UpdateLikability")]
+    public void UpdateLikability(float delta)
+    {
+        currentLikability += delta;
+        if (currentLikability < LosingLikabilityThreshold)
+        {
+            dialogueRunnerInstance.StartDialogue("dialogueDay" + currentDay);
+            currentHealth = dayStart_health;
+            currentLikability = dayStart_likability;
+        }
+    }
+    
     [YarnCommand("ProgressDay")]
     public void ProgressDay()
     {
@@ -153,6 +182,8 @@ public class GameManager : MonoBehaviour
         else
         {
             currentDay++;
+            dayStart_health = currentHealth;
+            dayStart_likability = currentLikability;
             dialogueRunnerInstance.StartDialogue("dialogueDay" + currentDay);
         }
     }

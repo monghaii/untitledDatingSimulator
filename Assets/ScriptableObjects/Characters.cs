@@ -25,6 +25,12 @@ public class Character
 
     [SerializeField]
     private float characterAffection = 50.0f;
+    private float defaultAffection = 50.0f;
+
+    public void InitializeCharacter()
+    {
+        characterAffection = defaultAffection;
+    }
 
     public string CharacterName
     {

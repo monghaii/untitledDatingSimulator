@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
+        foreach(Character c in characterSO.CharacterList) {
+            c.InitializeCharacter();
+        }
         var loaded = false;
         var loadedLevel = SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
         yield return loadedLevel;

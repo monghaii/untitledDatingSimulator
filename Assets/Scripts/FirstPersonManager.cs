@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class FirstPersonManager : MonoBehaviour
 {
-    public GameManager gamemanager;
+    public GameManager gm;
+    public Enemy enemyInstance;
     
     [Header("Health")] 
     public float maxHealth = 100f;
@@ -18,15 +19,32 @@ public class FirstPersonManager : MonoBehaviour
     void Start()
     {
         // Todo: have it read from the game manager instead??
-        currentHealth = maxHealth;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        enemyInstance = GameObject.Find("Enemy").GetComponent<Enemy>();
+        if (gm != null)
+        {
+            currentHealth = gm.currentHealth;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Determine if is dead (enemy or player)
+        if (currentHealth <= 0.0f || enemyInstance.currentHealth <= 0.0f)
+        {
+            isDead = true;
+        }
+        
         if (isDead)
         {
-            //Todo: death behavior and switching back to dating sim mode?
+            //TODO: different death behavior for enemy dead and player dead
+            gm.EndFPS();
         }
         healthBar.SetHealthPercentage(maxHealth, currentHealth);
     }

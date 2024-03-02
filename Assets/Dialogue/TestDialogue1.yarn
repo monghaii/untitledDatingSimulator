@@ -96,3 +96,17 @@ what a nightmare... I got into a relationship??
 I hope that never happens again...
 <<jump BeginDay>>
 ===
+
+
+title: transitionBack
+position: -453,-189
+---
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+...
+GASP
+omg, what happened?
+what a nightmare... I remembered fighting something??
+That's probably just a bad dream... Anyways I should get back!
+<<jump BeginDay>>
+===

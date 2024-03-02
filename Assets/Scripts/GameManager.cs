@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Scene Management")] 
     public Canvas datingSimInterface;
     public EventSystem datingSimEventSystem;
+    public DialogueRunner dialogueRunnerInstance;
     private bool fpsLoaded = false;
     
     [Header("Characters")] 
@@ -21,8 +22,13 @@ public class GameManager : MonoBehaviour
     public Characters characterSO;
 
     // This should be populated in Unity Editor
-    [Header("EndScreens")] public GameObject winningScreen;
+    [Header("EndScreens")] 
+    public GameObject winningScreen;
 
+    // Magic numbers here are placeholders
+    [Header("Attributes")] 
+    public float currentHealth = 100.0f;
+    public float currentLikability = 50.0f;
 
     [Header("Background")]
     public Image backgroundImage;
@@ -31,12 +37,15 @@ public class GameManager : MonoBehaviour
     private IEnumerator Start()
     {
         var loaded = false;
-        var loadedLevel = Application.LoadLevelAdditiveAsync("UI");
+        var loadedLevel = SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
         yield return loadedLevel;
         loaded = true;
         datingSimInterface = GameObject.Find("DatingCanvas").GetComponent<Canvas>();
         characterImage = GameObject.Find("CharacterSprite").GetComponent<Image>();
         backgroundImage = GameObject.Find("BackgroundSprite").GetComponent<Image>();
+        
+        // This may not be the best practice...
+        dialogueRunnerInstance = FindAnyObjectByType<DialogueRunner>();
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
     }
     void Update()
@@ -84,6 +93,9 @@ public class GameManager : MonoBehaviour
         // handles event system control back
         datingSimEventSystem.enabled = true;
         
+        // trigger transition back dialogue
+        dialogueRunnerInstance.StartDialogue("transitionBack");
+        
         // unload fps scene
         Cursor.lockState = CursorLockMode.None;
         SceneManager.UnloadSceneAsync("FPSScene");
@@ -92,7 +104,7 @@ public class GameManager : MonoBehaviour
     [YarnCommand("SetCharacter")]
     public void SetCharacter(string characterName, int spriteIndex = 0)
     {
-        Debug.Log($"Switching to {characterName}");
+        Debug.Log($"Switching to character: {characterName}");
         // Find the character in the CharacterList by name
 
         characterImage.gameObject.SetActive(characterName != "me");
@@ -135,7 +147,7 @@ public class GameManager : MonoBehaviour
     [YarnCommand("SetBackground")]
     public void SetBackground(string backgroundName)
     {
-        Debug.Log($"Switching to {backgroundName}");
+        Debug.Log($"Switching to background: {backgroundName}");
         // Find the character in the CharacterList by name
         Background background = backgroundSO.BackgroundList.Find(b => b.BackgroundName == backgroundName);
         if (background != null)

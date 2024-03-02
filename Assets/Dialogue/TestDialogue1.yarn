@@ -21,18 +21,60 @@ well... here goes nothing...
 
 <<SetBackground GameManager classroom>>
 ...
-<<SetCharacter GameManager animegirl>>
+<<SetCharacter GameManager animegirl 2>>
 animegirl: Oh, hello!
     -> Gross, go away
+        <<SetCharacter GameManager animegirl 3>>
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
             -> I'm already taken, I'm with otheranimegirl
+                <<SetCharacter GameManager animegirl 1>>
                 animegirl: My bad. I thought you were single.
                 (Wow that was close)
                 <<jump otheranimegirl>>
+            -> I'm busy not hanging out with losers like you.
+                <<ChangeAffection GameManager animegirl -10>>
+                animegirl: Oh, I see how it is.
+                <<SetCharacter GameManager animegirl 4>>
+                animegirl: You're...trying to fight, then?
+                (This might be bad.)
+                -> I'm just trying to be left alone. I meant no harm.
+                    <<SetCharacter GameManager animegirl 3>>
+                    animegirl: Really? Because those insults sounded a little too natural coming out of your mouth.
+                    <<TakeDamage GameManager 10>>
+                    animegirl shoves you.
+                    animegirl: I'm not going to let some silly little boy talk to me like that.
+                        -> You're right, I'm a silly little boy. I'm so silly.
+                            animegirl: That's what I thought.
+                            <<SetCharacter GameManager animegirl 1>>
+                            animegirl: I won't fight you, but I will say this...I don't respect you at all. I'm going to tell everyone I know what a spineless little worm you are.
+                            (I hope this doesn't have any repercussions for me...)
+                        -> Well, I'm not gonna let a dumb little girl tell me what to do!
+                            <<SetCharacter GameManager animegirl 4>>
+                            <<ChangeAffection GameManager animegirl -10>>
+                            animegirl: I am going to MESS YOU UP.
+                            <<StartFPS GameManager>>
+                        -> I'm sorry, I was rude. I'm just having a really bad day.
+                            <<SetCharacter GameManager animegirl 0>>
+                            <<ChangeAffection GameManager animegirl 20>>
+                            animegirl: Mmm...well, that's okay, I guess.
+                            animegirl: I think an argument every now and then is key to a healthy relationship.
+                            (Uh oh...)
+                            <<SetCharacter GameManager animegirl 2>>
+                            animegirl: I'll text you tonight, okay? You can tell me all about your bad day!
+                -> Look, I drank two gallons of expired milk and I'm about to blast off.
+                    <<ChangeAffection GameManager animegirl -10>>
+                    <<SetCharacter GameManager animegirl 1>>
+                    animegirl: Ewww. Why were you drinking expired milk??? Oh god, I can smell it.
+                    animegirl: You're kind of gross, you know that? What's wrong with you?
+                    animegirl: I'm gonna tell everyone how gross you are. You'll never live this down.
+                    <<AddGrossnessBuff GameManager>>
+                    (My pride is wounded but my body is safe.)
+                    (I am now considered Gross. People will hate me easily, but they'll also be too disgusted to hit me hard...)
             -> Uh...I gotta go outside
                 <<SetBackground GameManager courtyard>>
                 <<jump Outside>>
     -> Hello m'lady
+        <<SetCharacter GameManager animegirl 4>>
         animegirl: Oh ew no.
         <<StartFPS GameManager>>
     -> ...
@@ -43,27 +85,34 @@ animegirl: Oh, hello!
                     animegirl: We're going to have an amazing rest of our lives together :3
                     <<jump badDream>>
                 -> I would never date you, you foul creature!
+                    <<SetCharacter GameManager animegirl 4>>
                     animegirl: I won't stand for this...
                     <<StartFPS GameManager>>
             -> *fart*
+                <<SetCharacter GameManager animegirl 4>>
                 animegirl: You're disgusting...I won't stand for this.
                 <<StartFPS GameManager>>
             -> Sorry, I was thinking about my extensive collection of banana peels
+                <<SetCharacter GameManager animegirl 1>>
                 animegirl: ...Okay. Gotta go! Nice seeing you!
 ===
 
 title: Outside
 position: 144,-130
 ---
+<<SetCharacter GameManager animegirl 2>>
 animegirl: Wow, so by "I gotta go outside" you meant you wanted to talk to me in private?
 animegirl: And now you're confessing to me in the courtyard :3
     -> Oh no!
+        <<SetCharacter GameManager animegirl 0>>
         animegirl: Too bad! We're meeting my parents tonight :3
         <<jump badDream>>
     -> Yeah, I'm confessing that you're annoying
+        <<SetCharacter GameManager animegirl 4>>
         animegirl: I've had it with you!
         <<StartFPS GameManager>>
     -> No, I wanted to be alone...my goldfish died
+        <<SetCharacter GameManager animegirl 1>>
         animegirl: Oh, I'm so sorry...I'll leave you alone.
         animegirl: For now...
 
@@ -72,15 +121,20 @@ animegirl: And now you're confessing to me in the courtyard :3
 title: otheranimegirl
 position: -96,-134
 ---
-<<SetCharacter GameManager otheranimegirl>>
+<<SetCharacter GameManager otheranimegirl 2>>
 otheranimegirl: I heard you told animegirl that we were dating...is that true?
     -> I was just trying to get her away from me. I can't stand her.
+        <<SetCharacter GameManager otheranimegirl 4>>
+        <<ChangeAffection GameManager otheranimegirl -20>>
         otheranimegirl: She's actually my best friend and I take that personally.
         <<StartFPS GameManager>>
     -> Uh...yeah?
+        <<ChangeAffection GameManager otheranimegirl 100>>
         otheranimegirl: Cool! I like you too! We'll be together forever!
         <<jump badDream>>
     -> I'm a compulsive liar, I can't control it, I need help, please help me
+        <<SetCharacter GameManager otheranimegirl 3>>
+        <<ChangeAffection GameManager otheranimegirl -10>>
         otheranimegirl: Not my circus not my monkeys, I'm gonna leave now.
 ===
 

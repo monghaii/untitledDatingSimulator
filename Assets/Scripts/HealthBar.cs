@@ -7,6 +7,10 @@ public class HealthBar : MonoBehaviour
 {
     public Image healthBar;
     public Text healthValue;
+
+    [SerializeField]
+    private GameObject buffs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +26,11 @@ public class HealthBar : MonoBehaviour
     {
         healthBar.fillAmount = currHealth / maxHealth;
         healthValue.text = currHealth.ToString() + "/" + maxHealth.ToString();
+    }
+
+    public void DisplayBuff(string buffname)
+    {
+        Transform child = buffs.transform.Find(buffname);
+        child.gameObject.SetActive(true);
     }
 }

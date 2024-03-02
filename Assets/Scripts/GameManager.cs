@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public HealthBar healthBar;
 
     public float currentHealth { get; set; }
-    public const float StartingHealth = 100.0f;
+    public float StartingHealth = 100.0f;
     public float currentLikability { get; set; }
     public const float StartingLikability = 60.0f;
     public const float LosingLikabilityThreshold = 20.0f;
@@ -195,6 +195,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [YarnCommand("TakeDamage")]
+    public void TakeDamage(float damageAmount)
+    {
+        currentHealth -= damageAmount;
+        healthBar.SetHealthPercentage(StartingHealth, currentHealth);
+    }
     // Function that can be called by Yarn to change between FPS/Dialogue mode
     [YarnCommand("ChangeMode")]
     public void ChangeMode(bool fpsMode)
@@ -218,6 +224,20 @@ public class GameManager : MonoBehaviour
             dialogueRunnerInstance.StartDialogue("dialogueDay" + currentDay);
             currentHealth = dayStart_health;
             currentLikability = dayStart_likability;
+        }
+    }
+
+    [YarnCommand("ChangeAffection")]
+    public void ChangeAffection(string characterName, float amount)
+    {
+        Character character = characterSO.CharacterList.Find(c => c.CharacterName == characterName);
+        if (character != null)
+        {
+            character.ChangeAffection(amount);
+        }
+        else
+        {
+            Debug.LogWarning($"Character '{characterName}' not found.");
         }
     }
     
@@ -283,5 +303,26 @@ public class GameManager : MonoBehaviour
         datingSimEventSystem.enabled = false;
 
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    // Display and apply buffs earned through dialogue
+    [YarnCommand("AddHealthBuff")]
+    public void AddHealthBuff()
+    {
+        StartingHealth += 20.0f;
+        healthBar.DisplayBuff("Health");
+    }
+
+    [YarnCommand("AddDamageBuff")]
+    public void AddDamageBuff()
+    {
+        healthBar.DisplayBuff("Damage");
+    }
+
+    [YarnCommand("AddGrossnessBuff")]
+    public void AddGrossnessBuff()
+    {
+        currentLikability -= 20.0f;
+        healthBar.DisplayBuff("Grossness");
     }
 }

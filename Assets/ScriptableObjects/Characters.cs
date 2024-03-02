@@ -23,6 +23,9 @@ public class Character
     [SerializeField]
     private Sprite[] characterImage;
 
+    [SerializeField]
+    private float characterAffection = 50.0f;
+
     public string CharacterName
     {
         get { return characterName; }
@@ -32,5 +35,10 @@ public class Character
     public Sprite CharacterImage(int index)
     {
         return characterImage[index];
+    }
+
+    public void ChangeAffection(float amount)
+    {
+        characterAffection += amount;
     }
 }

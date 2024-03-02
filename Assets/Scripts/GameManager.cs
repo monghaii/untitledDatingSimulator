@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     public Image backgroundImage;
     public Backgrounds backgroundSO;
 
+    //for exit dialogue in FPS mode
+    public int FPScounter = 0;
+
     private void Awake()
     {
         instance = this;
@@ -100,6 +103,11 @@ public class GameManager : MonoBehaviour
     public void StartFPS()
     {
         fpsLoaded = true;
+        if(FPScounter >= 2)
+        {
+            EndFPS();
+        }
+        FPScounter++;
         
         // hides dating sim ui
         characterImage.enabled = false;
@@ -108,17 +116,50 @@ public class GameManager : MonoBehaviour
         dialogueRunnerInstance.Stop();
         // load in fps scene
         SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
-        
+
+
         //switch music
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
         dialogueRunnerInstance.StartDialogue("EnterFPS");
         isGamePaused = true;
     }
 
+    public void ExitDialogue()
+    {
+        dialogueRunnerInstance.StartDialogue("ExitFPS");
+    }
+
+    /*[YarnCommand("TriggerHarderMode")]
+    public void TriggerHarderMode()
+    {
+        fpsLoaded = true;
+
+        // hides dating sim ui
+        characterImage.enabled = false;
+        backgroundImage.enabled = false;
+
+        dialogueRunnerInstance.Stop();
+        // load in fps scene
+        SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
+
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.damage *= 2;
+        }
+
+        //switch music
+        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
+        dialogueRunnerInstance.StartDialogue("EnterFPS");
+        isGamePaused = true;
+    }*/
+
     [YarnCommand("EndFPS")]
     public void EndFPS()
     {
         fpsLoaded = false;
+        FPScounter = 0;
         
         // enable dating sim ui
         datingSimInterface.enabled = true;

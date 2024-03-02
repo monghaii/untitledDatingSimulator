@@ -41,7 +41,11 @@ public class FirstPersonManager : MonoBehaviour
     void Update()
     {
         //Determine if is dead (enemy or player)
-        if (currentHealth <= 0.0f || enemyInstance.currentHealth <= 0.0f)
+        if (currentHealth <= 0.0f)
+        {
+            GameManager.instance.ExitDialogue();
+        }
+        if (enemyInstance.currentHealth <= 0.0f)
         {
             isDead = true;
         }

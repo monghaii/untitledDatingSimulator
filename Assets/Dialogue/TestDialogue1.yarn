@@ -118,3 +118,12 @@ What's wrong with this girl...?
 Next Line
  <<ResumeFPS GameManager>>
 ===
+
+title: ExitFPS
+---
+animegirl: Do you know you are a rubbish?
+    -> Of course I do.
+        <<jump transitionBack>>
+    -> As long as you're happy, I can be anything. Please, give me one more chance.
+        <<StartFPS GameManager>>
+===

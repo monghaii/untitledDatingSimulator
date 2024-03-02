@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class FirstPersonManager : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class FirstPersonManager : MonoBehaviour
     public float currentHealth;
     public bool isDead = false;
     // also need to connect this to the UI
-    public HealthBar healthBar;
-    
+    private HealthBar healthBar;
+
+    public DialogueRunner dialogueRunnerInstance;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Time.timeScale = 0;
         // Todo: have it read from the game manager instead??
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         enemyInstance = GameObject.Find("Enemy").GetComponent<Enemy>();
@@ -29,7 +33,8 @@ public class FirstPersonManager : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        
+        healthBar = GameManager.instance.healthBar;
+
     }
 
     // Update is called once per frame
@@ -57,4 +62,7 @@ public class FirstPersonManager : MonoBehaviour
             isDead = true;
         }
     }
+
+
+  
 }

@@ -41,11 +41,13 @@ public class Enemy : MonoBehaviour
     private bool alreadyAttacked;
     private bool playerInMeleeRange, playerInRangedRange;
     public GameObject projectilePrefab;
+    public float damage = 10f;
 
     [Header("Health")] 
     public float maxHealth = 100f;
     public float currentHealth;
     public HealthBar healthBar;
+
     
     
     void Awake()
@@ -57,6 +59,10 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
+        if(GameManager.isGamePaused)
+        {
+            return;
+        }
         // TODO: check for rage mode from game manager???
         
         // check if player in sight
@@ -117,7 +123,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     void Chase()
     {
-        agent.SetDestination(player.position);
+        //agent.SetDestination(player.position);
     }
 
     /// <summary>
@@ -156,6 +162,7 @@ public class Enemy : MonoBehaviour
     {
         // spawn projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        projectile.GetComponent<Projectile>().enemy = this;
         Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
         
         // shoot towards player
@@ -241,4 +248,5 @@ public class Enemy : MonoBehaviour
             walkPointSet = true;
         }
     }
+
 }

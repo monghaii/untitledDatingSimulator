@@ -110,3 +110,11 @@ what a nightmare... I remembered fighting something??
 That's probably just a bad dream... Anyways I should get back!
 <<jump BeginDay>>
 ===
+
+title: EnterFPS
+---
+...
+What's wrong with this girl...?
+Next Line
+ <<ResumeFPS GameManager>>
+===

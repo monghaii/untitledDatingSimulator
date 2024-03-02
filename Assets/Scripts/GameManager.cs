@@ -11,11 +11,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [Header("Scene Management")] 
     public Canvas datingSimInterface;
     public EventSystem datingSimEventSystem;
     public DialogueRunner dialogueRunnerInstance;
     private bool fpsLoaded = false;
+    public static bool isGamePaused = false;
     
     [Header("Characters")] 
     public Image characterImage;
@@ -32,7 +35,10 @@ public class GameManager : MonoBehaviour
     // NOTE: naming convention for different day dialogues
     // dialogueDay + Number
     // e.g. dialogueDay2
-    
+
+    [Header("HealthBar")]
+    public HealthBar healthBar;
+
     public float currentHealth { get; set; }
     public const float StartingHealth = 100.0f;
     public float currentLikability { get; set; }
@@ -49,6 +55,10 @@ public class GameManager : MonoBehaviour
     public Image backgroundImage;
     public Backgrounds backgroundSO;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private IEnumerator Start()
     {
         var loaded = false;
@@ -58,6 +68,7 @@ public class GameManager : MonoBehaviour
         datingSimInterface = GameObject.Find("DatingCanvas").GetComponent<Canvas>();
         characterImage = GameObject.Find("CharacterSprite").GetComponent<Image>();
         backgroundImage = GameObject.Find("BackgroundSprite").GetComponent<Image>();
+        healthBar = datingSimInterface.GetComponentInChildren<HealthBar>();
         
         // This may not be the best practice...
         dialogueRunnerInstance = FindAnyObjectByType<DialogueRunner>();
@@ -91,20 +102,19 @@ public class GameManager : MonoBehaviour
         fpsLoaded = true;
         
         // hides dating sim ui
-        datingSimInterface.enabled = false;
         characterImage.enabled = false;
-        
-        // handles event system control over to FPS scene
-        datingSimEventSystem.enabled = false;
+        backgroundImage.enabled = false;
 
+        dialogueRunnerInstance.Stop();
         // load in fps scene
-        Cursor.lockState = CursorLockMode.Locked; // also done in the FirstPersonCamera script but here again just in case
         SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
         
         //switch music
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
+        dialogueRunnerInstance.StartDialogue("EnterFPS");
+        isGamePaused = true;
     }
-    
+
     [YarnCommand("EndFPS")]
     public void EndFPS()
     {
@@ -219,5 +229,18 @@ public class GameManager : MonoBehaviour
     public void ReloadGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    [YarnCommand("ResumeFPS")]
+    public void ResumeFPS()
+    {
+        isGamePaused = false;
+        dialogueRunnerInstance.Stop();
+        backgroundImage.enabled = false;
+
+        // handles event system control over to FPS scene
+        datingSimEventSystem.enabled = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
 
     // Magic numbers here are placeholders
     [Header("Attributes")] 
+    public int currentDay = 1;
+    public const int MaxDays = 1;
+    // NOTE: naming convention for different day dialogues
+    // dialogueDay + Number
+    // e.g. dialogueDay2
     public float currentHealth = 100.0f;
     public float currentLikability = 50.0f;
 
@@ -82,6 +87,8 @@ public class GameManager : MonoBehaviour
         //switch music
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
     }
+    
+    [YarnCommand("EndFPS")]
     public void EndFPS()
     {
         fpsLoaded = false;
@@ -133,6 +140,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    [YarnCommand("ProgressDay")]
+    public void ProgressDay()
+    {
+        // If we are at the last day
+        if (currentDay == MaxDays)
+        {
+            // TODO: determine winning and losing, showing winning as default now.
+            ShowEndScreen("winning");
+        }
+        else
+        {
+            currentDay++;
+            dialogueRunnerInstance.StartDialogue("dialogueDay" + currentDay);
+        }
+    }
+    
     // This is a Yarn-callable function that shows screen if existed by name
     [YarnCommand("ShowEndScreen")]
     public void ShowEndScreen(string screenName)
@@ -142,6 +166,7 @@ public class GameManager : MonoBehaviour
             characterImage.enabled = false;
             winningScreen.SetActive(true);
         }
+        // TODO: losing screen, or other endings
     }
     
     [YarnCommand("SetBackground")]

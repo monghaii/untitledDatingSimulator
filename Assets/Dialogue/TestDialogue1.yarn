@@ -11,7 +11,7 @@ i can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Ed
 
 title: BeginDay
 tags:
-position: -27,-420
+position: -38,-528
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -26,7 +26,7 @@ well... here goes nothing...
 
 title: GoToClass
 tags:
-position: -176,-235
+position: -209,-361
 ---
 animegirl: Oh, hello!
     -> Gross, go away
@@ -37,11 +37,13 @@ animegirl: Oh, hello!
         <<StartFPS GameManager>>
     -> ...
         <<jump dotdotdot>>
+    -> Hey, did you know that the mitochondria is the powerhouse of the cell?
+        <<jump mitochondria>>
 ===
 
 title: GrossGoAway
 tags:
-position: -62,-37
+position: -279,-165
 ---
         <<SetCharacter GameManager animegirl 3>>
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
@@ -61,25 +63,7 @@ position: -62,-37
                     animegirl: Really? Because those insults sounded a little too natural coming out of your mouth.
                     <<TakeDamage GameManager 10>>
                     animegirl shoves you.
-                    animegirl: I'm not going to let some silly little boy talk to me like that.
-                        -> You're right, I'm a silly little boy. I'm so silly.
-                            animegirl: That's what I thought.
-                            <<SetCharacter GameManager animegirl 1>>
-                            animegirl: I won't fight you, but I will say this...I don't respect you at all. I'm going to tell everyone I know what a spineless little worm you are.
-                            (I hope this doesn't have any repercussions for me...)
-                        -> Well, I'm not gonna let a dumb little girl tell me what to do!
-                            <<SetCharacter GameManager animegirl 4>>
-                            <<ChangeAffection GameManager animegirl -10>>
-                            animegirl: I am going to MESS YOU UP.
-                            <<StartFPS GameManager>>
-                        -> I'm sorry, I was rude. I'm just having a really bad day.
-                            <<SetCharacter GameManager animegirl 0>>
-                            <<ChangeAffection GameManager animegirl 20>>
-                            animegirl: Mmm...well, that's okay, I guess.
-                            animegirl: I think an argument every now and then is key to a healthy relationship.
-                            (Uh oh...)
-                            <<SetCharacter GameManager animegirl 2>>
-                            animegirl: I'll text you tonight, okay? You can tell me all about your bad day!
+                    <<jump PostShove>>
                 -> Look, I drank two gallons of expired milk and I'm about to blast off.
                     <<ChangeAffection GameManager animegirl -10>>
                     <<SetCharacter GameManager animegirl 1>>
@@ -96,9 +80,11 @@ position: -62,-37
 
 title: dotdotdot
 tags:
-position: -282,-46
+position: -505,-159
 ---
 animegirl: Wow, the strong silent type. This actually makes me like you more!
+    -> YODELEEEEEE YODELOOOOOOOO YO HO HO
+        <<jump WhatsWrong>>
     -> ...
         animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight!
         -> Ugh, fine...
@@ -108,6 +94,8 @@ animegirl: Wow, the strong silent type. This actually makes me like you more!
             <<SetCharacter GameManager animegirl 4>>
             animegirl: I won't stand for this...
             <<StartFPS GameManager>>
+        -> That's not so skibidi of you.
+            <<jump PostShove>>
     -> *fart*
         <<SetCharacter GameManager animegirl 4>>
         animegirl: You're disgusting...I won't stand for this.
@@ -115,10 +103,11 @@ animegirl: Wow, the strong silent type. This actually makes me like you more!
     -> Sorry, I was thinking about my extensive collection of banana peels
         <<SetCharacter GameManager animegirl 1>>
         animegirl: ...Okay. Gotta go! Nice seeing you!
+        <<jump DAY_SUCCESS>>
 ===
 
 title: Outside
-position: 193,121
+position: -137,254
 ---
 <<SetCharacter GameManager animegirl 2>>
 animegirl: Wow, so by "I gotta go outside" you meant you wanted to talk to me in private?
@@ -135,10 +124,11 @@ animegirl: And now you're confessing to me in the courtyard :3
         <<SetCharacter GameManager animegirl 1>>
         animegirl: Oh, I'm so sorry...I'll leave you alone.
         animegirl: For now...
+        <<jump DAY_SUCCESS>>
 ===
 
 title: otheranimegirl
-position: -63,124
+position: -361,248
 ---
 <<SetCharacter GameManager otheranimegirl 2>>
 otheranimegirl: I heard you told animegirl that we were dating...is that true?
@@ -147,19 +137,20 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
         <<ChangeAffection GameManager otheranimegirl -20>>
         otheranimegirl: She's actually my best friend and I take that personally.
         <<StartFPS GameManager>>
-    -> Uh...yeah?
-        <<ChangeAffection GameManager otheranimegirl 100>>
-        otheranimegirl: Cool! I like you too! We'll be together forever!
-        <<jump LOSE_got_relationship>>
-    -> I'm a compulsive liar, I can't control it, I need help, please help me
+    -> Uh ... please leave me alone I just want to play Minecraft Pocket Edition
+        <<jump OMGILoveThatGame>>
+    -> I'm a compulsive liar, I can't control it, I need help, please help me (help me help me help me)
         <<SetCharacter GameManager otheranimegirl 3>>
         <<ChangeAffection GameManager otheranimegirl -10>>
         otheranimegirl: Not my circus not my monkeys, I'm gonna leave now.
         <<jump DAY_SUCCESS>>
+        <<jump BackToFirstGirl>>
+    -> AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+        <<jump WhatsWrong>>
 ===
 
 title: LOSE_got_relationship
-position: -310,329
+position: -921,-74
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -205,19 +196,24 @@ animegirl: Do you know you are a rubbish?
 ===
 
 title: FPS_SUCCESS
-position: -56,-722
+position: -757,-721
 ---
+<<SetBackground GameManager classroom>>
 animegirl: ...
 animegirl: wait, I think I spaced out.. what happened??
     -> No idea.
+        animegirl: oh, teehee!
+        animegirl: anyways...
     -> You went insane and tried to kill me!!
-animegirl: oh, teehee! anyways...
+        animegirl: i don't remember that at all...
+        animegirl: anyways...
 <<ContinueFromPreFPSNode GameManager>>
 ===
 
 title: DAY_SUCCESS
-position: 300,329
+position: 376,803
 ---
+<<SetCharacter GameManager me>>
 bell: ring ring ring , yuh
 ...
 class is over?
@@ -232,3 +228,127 @@ oh man, would you look at the time?
 I should get ready for bed...
 <<jump Start>>
 ===
+title: PostShove
+position: -602,250
+---
+animegirl: I'm not going to let some silly little boy talk to me like that.
+    -> You're right, I'm a silly little boy. I'm so silly.
+        animegirl: That's what I thought.
+        <<SetCharacter GameManager animegirl 1>>
+        animegirl: I won't fight you, but I will say this...I don't respect you at all. I'm going to tell everyone I know what a spineless little worm you are.
+        (I hope this doesn't have any repercussions for me...)
+        <<jump DAY_SUCCESS>>
+    -> Well, I'm not gonna let a dumb little girl tell me what to do!
+        <<SetCharacter GameManager animegirl 4>>
+        <<ChangeAffection GameManager animegirl -10>>
+        animegirl: I am going to MESS YOU UP.
+        <<StartFPS GameManager>>
+    -> I'm sorry, I was rude. I'm just having a really bad day.
+        <<SetCharacter GameManager animegirl 0>>
+        <<ChangeAffection GameManager animegirl 20>>
+        animegirl: Mmm...well, that's okay, I guess.
+        animegirl: I think an argument every now and then is key to a healthy relationship.
+        (Uh oh...)
+        <<SetCharacter GameManager animegirl 2>>
+        animegirl: I'll text you tonight, okay? You can tell me all about your bad day!
+        <<jump LOSE_got_relationship>>
+===
+title: mitochondria
+position: -70,-149
+---
+animegirl: ooh, you're so smart and funny!
+    -> ... I gotta go outside.
+        <<jump Outside>>
+    -> I'm not that smart, I just know a lot about mitochondria
+        <<jump PowerYourCells>>
+===
+title: PowerYourCells
+position: 106,249
+---
+animegirl: playerName, I'd love to power your cells :catemoji:
+    -> What does that even mean?
+        animegirl: It means I want to get dinner with you tonight!
+            -> AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+                <<jump WhatsWrong>>
+            -> I'm busy not hanging out with losers like you. 
+                <<jump GrossGoAway>>
+            -> I accept <3
+                <<jump LOSE_got_relationship>>
+    -> I'm not interested in you. You big dumb.
+        <<TakeDamage GameManager 10>>
+        animegirl shoves you.
+        <<jump PostShove>>
+===
+title: WhatsWrong
+position: -357,594
+---
+<<SetCharacter GameManager otheranimegirl 0>>
+otheranimegirl: is something wrong?
+    -> I was just trying to get her away from me. I can't stand her.
+            <<SetCharacter GameManager otheranimegirl 4>>
+            <<ChangeAffection GameManager otheranimegirl -20>>
+            otheranimegirl: She's actually my best friend and I take that personally.
+    -> I'm just having a really bad day.
+        <<SetCharacter GameManager otheranimegirl 0>>
+        <<ChangeAffection GameManager otheranimegirl 20>>
+        otheranimegirl: Oh, I'm sorry to hear that. I hope things get better for you.
+        <<jump DAY_SUCCESS>>
+    -> I just want to play Halo Reach Legendary Edition Limited Edition Box Set. Please leave me alone.
+        <<jump OMGILoveThatGame>>
+    -> eyes wide, cheeks spread, fart silent
+        <<SetCharacter GameManager otheranimegirl 4>>
+        otheranimegirl: TRIGGER PHRASE ACTIVATED. AGENT 72 REPORTING FOR DUTY.
+        <<StartFPS GameManager>>
+===
+title: OMGILoveThatGame
+position: -425,772
+---
+otheranimegirl: omg, I love that game!
+    -> ... that game sucks, I hate it.
+        otheranimegirl: I'm sorry, I can't be friends with someone who has such bad taste.
+        <<StartFPS GameManager>>
+    -> I know, right? It's the best game ever!
+        otheranimegirl: Omg, let's play together tonight, just you and me~!
+        <<jump LOSE_got_relationship>>
+    -> ... I was just kidding. I don't even know what that game is.
+        otheranimegirl: Oh, okay. I'll see you later, then.
+        <<jump DAY_SUCCESS>>
+    -> but have you played GTA VI?
+        otheranimegirl: That game hasn't come out silly. You're so funny!
+        otheranimegirl: How are you even in CSCI 526: Advanced Games and Mobile Devices if you don't know that?
+        (wait, what?)
+        otheranimegirl: ah playerName, you're so funny and cute uwu omo owo ohohoho
+        otheranimegirl: see you tonight, okay?
+        (wait, WHAT?)
+        <<jump LOSE_got_relationship>>
+===
+title: BackToFirstGirl
+position: -139,594
+---
+<<SetCharacter GameManager animegirl 2>>
+animegirl: hiiiii playerNameeeeee
+    -> You're giving me the eebie jeebies
+        <<jump heebie>>
+    -> ... mitochondria... is the powerhouse of the cell...
+        <<jump PowerYourCells>>
+===
+title: heebie
+position: -49,876
+---
+<<SetCharacter GameManager animegirl 2>>
+animegirl: haha you're so funny, it's "Heebie Jeebies!" Shouldn't a graduate student like you know that?
+    -> I'm not a graduate student, I'm a high school student.
+        animegirl: it sure doesn't look like it... I see that you're literally standing at that podium in front of a bunch of graduate students.
+        animegirl: quit lying to me!!!
+        animegirl slaps you
+        <<TakeDamage GameManager 10>>
+        -> ... that felt good.
+            animegirl: ew, freak! see you later, loser.
+            <<jump DAY_SUCCESS>>
+        -> IM GONNA KILL YOU
+            animegirl: not if I kill you first <3
+            <<StartFPS GameManager>>
+        -> ok so im gonna make the bell ring now.
+            animegirl: wait, you can do that??
+            <<jump DAY_SUCCESS>>
+=== 

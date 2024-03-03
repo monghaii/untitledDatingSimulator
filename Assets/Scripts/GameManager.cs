@@ -156,32 +156,6 @@ public class GameManager : MonoBehaviour
         dialogueRunnerInstance.StartDialogue("ExitFPS");
     }
 
-    /*[YarnCommand("TriggerHarderMode")]
-    public void TriggerHarderMode()
-    {
-        fpsLoaded = true;
-
-        // hides dating sim ui
-        characterImage.enabled = false;
-        backgroundImage.enabled = false;
-
-        dialogueRunnerInstance.Stop();
-        // load in fps scene
-        SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
-
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
-
-        foreach (Enemy enemy in enemies)
-        {
-            enemy.damage *= 2;
-        }
-
-        //switch music
-        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
-        dialogueRunnerInstance.StartDialogue("EnterFPS");
-        isGamePaused = true;
-    }*/
-
     [YarnCommand("EndFPS")]
     public void EndFPS(bool didDefeatEnemy)
     {
@@ -190,6 +164,7 @@ public class GameManager : MonoBehaviour
         // enable dating sim ui
         datingSimInterface.enabled = true;
         characterImage.enabled = true;
+        backgroundImage.enabled = true;
 
         // handles event system control back
         datingSimEventSystem.enabled = true;
@@ -203,6 +178,7 @@ public class GameManager : MonoBehaviour
         {
             // reload back into FPS_SUCCESS node
             dialogueRunnerInstance.StartDialogue("FPS_SUCCESS");
+            SetCharacter("animegirl", 0);                                   //TODO: DYNAMIC RESETTING OF CHARACTER
         }
         
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
@@ -340,11 +316,12 @@ public class GameManager : MonoBehaviour
     {
         isGamePaused = false;
         dialogueRunnerInstance.Stop();
+        
         backgroundImage.enabled = false;
-
+    
         // handles event system control over to FPS scene
         datingSimEventSystem.enabled = false;
-
+    
         Cursor.lockState = CursorLockMode.Locked;
     }
 

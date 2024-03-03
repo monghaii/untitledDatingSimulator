@@ -25,10 +25,16 @@ public class GameManager : MonoBehaviour
     private int dialogueLineToReturn = 0;   // for returning to dialogue after successfully exiting FPS
     private string dialogueNodeToReturn = "";   // for returning to dialogue after successfully exiting FPS
 
+    [Header("GAME FEATURE FLAGS (IMPORTANT)")]
+    public bool FLAG_ENABLE_AFFECTION_INTERRUPT;
     
     [Header("Characters")] 
     public Image characterImage;
     public Characters characterSO;
+    public int characterInterruptWithFPSAffectionThreshhold = 70;
+    
+    [Header("Dialogue")]
+    private List<string> protectedNodeNames = new List<string> { "LOSE_", "INTERRUPT_", "FPS_", "EnterFPS", "ExitFPS", "DAY_" };
 
     // This should be populated in Unity Editor
     [Header("EndScreens")] 
@@ -106,10 +112,23 @@ public class GameManager : MonoBehaviour
 
     public void HandleNextLineClicked(string currentNodeName)
     {
-        Debug.Log("next line clicked; now in " + currentNodeName);
-        if (currentNodeName != currentNode)
+        // Debug.Log("next line clicked; now in " + currentNodeName);
+        
+        
+        // Check if currentNodeName is different from currentNode and not a protected node name
+        bool containsProtectedNode = false;
+        foreach (string protectedNode in protectedNodeNames)
         {
-            currentNode = currentNodeName;
+            if (currentNodeName.Contains(protectedNode))
+            {
+                containsProtectedNode = true;
+                // If any substring is found, set containsProtectedNode to true and continue checking
+            }
+        }
+
+        if (currentNodeName != currentNode && !containsProtectedNode)
+        {
+            dialogueNodeToReturn = currentNodeName;
             currentLine = 0;
         }
         else
@@ -146,8 +165,6 @@ public class GameManager : MonoBehaviour
 
         //switch music
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
-        dialogueLineToReturn = currentLine;
-        dialogueNodeToReturn = currentNode;
         dialogueRunnerInstance.StartDialogue("EnterFPS");
         isGamePaused = true;
     }
@@ -162,6 +179,19 @@ public class GameManager : MonoBehaviour
     {
         fpsLoaded = false;
         FPScounter = 0;
+        
+        // reset character likeability
+        Character character = characterSO.CharacterList.Find(c => c.CharacterName == currentCharacter);
+        if (character != null)
+        {
+            character.SetAffection(80);
+            Debug.Log("LIKABILITY: " + currentLikability + " | THRESHHOLD: " + LosingLikabilityThreshold);
+        }
+        else
+        {
+            Debug.LogWarning($"Character '{currentCharacter}' not found.");
+        }
+        
         // enable dating sim ui
         datingSimInterface.enabled = true;
         characterImage.enabled = true;
@@ -179,7 +209,7 @@ public class GameManager : MonoBehaviour
         {
             // reload back into FPS_SUCCESS node
             dialogueRunnerInstance.StartDialogue("FPS_SUCCESS_" + currentCharacter);
-            SetCharacter(currentCharacter, 0);                                   //TODO: DYNAMIC RESETTING OF CHARACTER
+            SetCharacter(currentCharacter, 0);                                  
         }
         
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
@@ -242,6 +272,7 @@ public class GameManager : MonoBehaviour
         currentLikability += delta;
         if (currentLikability < LosingLikabilityThreshold)
         {
+            // TODO possibly remove this?
             dialogueRunnerInstance.StartDialogue("dialogueDay" + currentDay);
             currentHealth = dayStart_health;
             currentLikability = dayStart_likability;
@@ -255,6 +286,13 @@ public class GameManager : MonoBehaviour
         if (character != null)
         {
             character.ChangeAffection(amount);
+            Debug.Log("LIKABILITY: " + currentLikability + " | THRESHHOLD: " + LosingLikabilityThreshold);
+            if (FLAG_ENABLE_AFFECTION_INTERRUPT && character.characterAffection < characterInterruptWithFPSAffectionThreshhold)
+            {
+                // reset dialogue and re-enter at low affection interrupt
+                dialogueRunnerInstance.Stop();
+                dialogueRunnerInstance.StartDialogue("INTERRUPT_LOW_AFFECTION_" + currentCharacter);
+            }
         }
         else
         {

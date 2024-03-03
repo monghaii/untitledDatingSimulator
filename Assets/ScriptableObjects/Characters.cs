@@ -24,7 +24,7 @@ public class Character
     private Sprite[] characterImage;
 
     [SerializeField]
-    private float characterAffection = 50.0f;
+    public float characterAffection = 50.0f;
     private float defaultAffection = 50.0f;
 
     public void InitializeCharacter()
@@ -46,5 +46,10 @@ public class Character
     public void ChangeAffection(float amount)
     {
         characterAffection += amount;
+    }
+    
+    public void SetAffection(float val)
+    {
+        characterAffection = val;
     }
 }

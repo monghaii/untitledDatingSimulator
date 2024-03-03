@@ -54,11 +54,12 @@ animegirl: Oh, hello!
 
 title: GrossGoAway
 tags:
-position: -279,-165
+position: -277,-165
 ---
         <<SetCharacter GameManager animegirl 3>>
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
             -> I'm already taken, I'm with otheranimegirl
+                <<ChangeAffection GameManager animegirl -31>>
                 <<SetCharacter GameManager animegirl 1>>
                 animegirl: My bad. I thought you were single.
                 (Wow that was close)
@@ -92,7 +93,7 @@ position: -279,-165
 
 title: dotdotdot
 tags:
-position: -549,-184
+position: -589,-186
 ---
 animegirl: Wow, the strong silent type. This actually makes me like you more!
     -> YODELEEEEEE YODELOOOOOOOO YO HO HO
@@ -161,7 +162,7 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
 ===
 
 title: LOSE_got_relationship
-position: -921,-74
+position: -840,-226
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -237,7 +238,7 @@ otheranimegirl: zomglol, im confuzzled? wut happened uwu??
 ===
 
 title: DAY_SUCCESS
-position: 376,803
+position: 194,777
 ---
 <<SetCharacter GameManager me>>
 bell: ring ring ring , yuh
@@ -364,7 +365,7 @@ animegirl: hiiiii playerNameeeeee
         <<jump PowerYourCells>>
 ===
 title: heebie
-position: -49,876
+position: -182,791
 ---
 <<SetCharacter GameManager animegirl 2>>
 animegirl: haha you're so funny, it's "Heebie Jeebies!" Shouldn't a graduate student like you know that?
@@ -383,3 +384,26 @@ animegirl: haha you're so funny, it's "Heebie Jeebies!" Shouldn't a graduate stu
             animegirl: wait, you can do that??
             <<jump DAY_SUCCESS>>
 === 
+title: INTERRUPT_LOW_AFFECTION_animegirl
+position: -978,-725
+---
+animegirl: you know what playerName, you're actually kind of DISGUSTING.
+animegirl: I need to wipe you off the face of this earth.
+-> Oh no.
+-> Oh no.
+-> Oh no.
+-> Oh no.
+<<StartFPS GameManager>>
+===
+
+title: INTERRUPT_LOW_AFFECTION_otheranimegirl
+position: -981,-574
+---
+otheranimegirl: u know, i'm kinda weird with the uwo owo stuff, but you're even weirder
+otheranimegirl: Looks like the only next step is to hurt you <3<3 physically ~ <3
+-> Oh no.
+-> Oh no.
+-> Oh no.
+-> Oh no.
+<<StartFPS GameManager>>
+===

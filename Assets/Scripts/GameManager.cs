@@ -187,7 +187,6 @@ public class GameManager : MonoBehaviour
     {
         fpsLoaded = false;
         FPScounter = 0;
-        
         // enable dating sim ui
         datingSimInterface.enabled = true;
         characterImage.enabled = true;

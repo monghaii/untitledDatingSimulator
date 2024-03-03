@@ -1,6 +1,6 @@
 title: Start
 tags:
-position: 209,-706
+position: 212,-726
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -11,19 +11,38 @@ i can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Ed
 
 title: BeginDay
 tags:
-position: -15,-362
+position: -27,-420
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 ok playerName, just take it one day at a time. Just avoid all the girls so you can get home safe.
 WITH NO RELATIONSHIP.
 well... here goes nothing...
-
 <<SetBackground GameManager classroom>>
 ...
 <<SetCharacter GameManager animegirl 2>>
+<<jump GoToClass>>
+===
+
+title: GoToClass
+tags:
+position: -176,-235
+---
 animegirl: Oh, hello!
     -> Gross, go away
+        <<jump GrossGoAway>>
+    -> Hello m'lady
+        <<SetCharacter GameManager animegirl 4>>
+        animegirl: Oh ew no.
+        <<StartFPS GameManager>>
+    -> ...
+        <<jump dotdotdot>>
+===
+
+title: GrossGoAway
+tags:
+position: -62,-37
+---
         <<SetCharacter GameManager animegirl 3>>
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
             -> I'm already taken, I'm with otheranimegirl
@@ -73,32 +92,33 @@ animegirl: Oh, hello!
             -> Uh...I gotta go outside
                 <<SetBackground GameManager courtyard>>
                 <<jump Outside>>
-    -> Hello m'lady
-        <<SetCharacter GameManager animegirl 4>>
-        animegirl: Oh ew no.
-        <<StartFPS GameManager>>
+===
+
+title: dotdotdot
+tags:
+position: -282,-46
+---
+animegirl: Wow, the strong silent type. This actually makes me like you more!
     -> ...
-        animegirl: Wow, the strong silent type. This actually makes me like you more!
-            -> ...
-                animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight!
-                -> Ugh, fine...
-                    animegirl: We're going to have an amazing rest of our lives together :3
-                    <<jump LOSE_got_relationship>>
-                -> I would never date you, you foul creature!
-                    <<SetCharacter GameManager animegirl 4>>
-                    animegirl: I won't stand for this...
-                    <<StartFPS GameManager>>
-            -> *fart*
-                <<SetCharacter GameManager animegirl 4>>
-                animegirl: You're disgusting...I won't stand for this.
-                <<StartFPS GameManager>>
-            -> Sorry, I was thinking about my extensive collection of banana peels
-                <<SetCharacter GameManager animegirl 1>>
-                animegirl: ...Okay. Gotta go! Nice seeing you!
+        animegirl: Ok, I'll tell everyone we're dating. I'll meet your parents tonight!
+        -> Ugh, fine...
+            animegirl: We're going to have an amazing rest of our lives together :3
+            <<jump LOSE_got_relationship>>
+        -> I would never date you, you foul creature!
+            <<SetCharacter GameManager animegirl 4>>
+            animegirl: I won't stand for this...
+            <<StartFPS GameManager>>
+    -> *fart*
+        <<SetCharacter GameManager animegirl 4>>
+        animegirl: You're disgusting...I won't stand for this.
+        <<StartFPS GameManager>>
+    -> Sorry, I was thinking about my extensive collection of banana peels
+        <<SetCharacter GameManager animegirl 1>>
+        animegirl: ...Okay. Gotta go! Nice seeing you!
 ===
 
 title: Outside
-position: -10,-14
+position: 193,121
 ---
 <<SetCharacter GameManager animegirl 2>>
 animegirl: Wow, so by "I gotta go outside" you meant you wanted to talk to me in private?
@@ -115,11 +135,10 @@ animegirl: And now you're confessing to me in the courtyard :3
         <<SetCharacter GameManager animegirl 1>>
         animegirl: Oh, I'm so sorry...I'll leave you alone.
         animegirl: For now...
-
 ===
 
 title: otheranimegirl
-position: -420,-91
+position: -63,124
 ---
 <<SetCharacter GameManager otheranimegirl 2>>
 otheranimegirl: I heard you told animegirl that we were dating...is that true?
@@ -136,10 +155,11 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
         <<SetCharacter GameManager otheranimegirl 3>>
         <<ChangeAffection GameManager otheranimegirl -10>>
         otheranimegirl: Not my circus not my monkeys, I'm gonna leave now.
+        <<jump DAY_SUCCESS>>
 ===
 
 title: LOSE_got_relationship
-position: -329,230
+position: -310,329
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -153,7 +173,7 @@ I hope that never happens again...
 
 
 title: transitionBack
-position: -210,-528
+position: -288,-555
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -193,4 +213,22 @@ animegirl: wait, I think I spaced out.. what happened??
     -> You went insane and tried to kill me!!
 animegirl: oh, teehee! anyways...
 <<ContinueFromPreFPSNode GameManager>>
+===
+
+title: DAY_SUCCESS
+position: 300,329
+---
+bell: ring ring ring , yuh
+...
+class is over?
+couldn't end sooner!
+
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+ah, nice to be back home.
+good thing I didn't get into a relationship today.
+...
+oh man, would you look at the time?
+I should get ready for bed...
+<<jump Start>>
 ===

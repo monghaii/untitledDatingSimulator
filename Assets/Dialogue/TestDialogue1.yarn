@@ -9,6 +9,17 @@ i can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Ed
 <<jump BeginDay>>
 ===
 
+title: AnotherDay
+tags:
+position: 212,-726
+---
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+ah, another day, another dol- I mean chance to ruin my life and get in a relationship...
+I can't wait to keep playing Wii Sports Resort again..
+<<jump BeginDay>>
+===
+
 title: BeginDay
 tags:
 position: -38,-528
@@ -63,6 +74,7 @@ position: -279,-165
                     animegirl: Really? Because those insults sounded a little too natural coming out of your mouth.
                     <<TakeDamage GameManager 10>>
                     animegirl shoves you.
+                    (ow, that hurt! my HP is now lower! yarrr yarrr ayeee)
                     <<jump PostShove>>
                 -> Look, I drank two gallons of expired milk and I'm about to blast off.
                     <<ChangeAffection GameManager animegirl -10>>
@@ -80,7 +92,7 @@ position: -279,-165
 
 title: dotdotdot
 tags:
-position: -505,-159
+position: -549,-184
 ---
 animegirl: Wow, the strong silent type. This actually makes me like you more!
     -> YODELEEEEEE YODELOOOOOOOO YO HO HO
@@ -128,7 +140,7 @@ animegirl: And now you're confessing to me in the courtyard :3
 ===
 
 title: otheranimegirl
-position: -361,248
+position: -390,264
 ---
 <<SetCharacter GameManager otheranimegirl 2>>
 otheranimegirl: I heard you told animegirl that we were dating...is that true?
@@ -143,7 +155,6 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
         <<SetCharacter GameManager otheranimegirl 3>>
         <<ChangeAffection GameManager otheranimegirl -10>>
         otheranimegirl: Not my circus not my monkeys, I'm gonna leave now.
-        <<jump DAY_SUCCESS>>
         <<jump BackToFirstGirl>>
     -> AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
         <<jump WhatsWrong>>
@@ -195,7 +206,7 @@ animegirl: Do you know you are a rubbish?
         <<StartFPS GameManager>>
 ===
 
-title: FPS_SUCCESS
+title: FPS_SUCCESS_animegirl
 position: -757,-721
 ---
 <<SetBackground GameManager classroom>>
@@ -207,6 +218,21 @@ animegirl: wait, I think I spaced out.. what happened??
     -> You went insane and tried to kill me!!
         animegirl: i don't remember that at all...
         animegirl: anyways...
+<<ContinueFromPreFPSNode GameManager>>
+===
+
+title: FPS_SUCCESS_otheranimegirl
+position: -757,-721
+---
+<<SetBackground GameManager classroom>>
+otheranimegirl: ...
+otheranimegirl: zomglol, im confuzzled? wut happened uwu??
+    -> Bruh.
+        otheranimegirl: uwuwuwu
+        otheranimegirl: anyways...
+    -> You went insane and tried to kill me!!
+        otheranimegirl: oWo? otheranimegirl doesn't remember that...
+        otheranimegirl: anyways...
 <<ContinueFromPreFPSNode GameManager>>
 ===
 
@@ -226,10 +252,13 @@ good thing I didn't get into a relationship today.
 ...
 oh man, would you look at the time?
 I should get ready for bed...
-<<jump Start>>
+zzz
+zzz
+zzz
+<<jump AnotherDay>>
 ===
 title: PostShove
-position: -602,250
+position: -709,250
 ---
 animegirl: I'm not going to let some silly little boy talk to me like that.
     -> You're right, I'm a silly little boy. I'm so silly.
@@ -277,10 +306,11 @@ animegirl: playerName, I'd love to power your cells :catemoji:
     -> I'm not interested in you. You big dumb.
         <<TakeDamage GameManager 10>>
         animegirl shoves you.
+        (ow, that hurt! my HP is now lower!)
         <<jump PostShove>>
 ===
 title: WhatsWrong
-position: -357,594
+position: -569,536
 ---
 <<SetCharacter GameManager otheranimegirl 0>>
 otheranimegirl: is something wrong?
@@ -288,6 +318,7 @@ otheranimegirl: is something wrong?
             <<SetCharacter GameManager otheranimegirl 4>>
             <<ChangeAffection GameManager otheranimegirl -20>>
             otheranimegirl: She's actually my best friend and I take that personally.
+            <<StartFPS GameManager>>
     -> I'm just having a really bad day.
         <<SetCharacter GameManager otheranimegirl 0>>
         <<ChangeAffection GameManager otheranimegirl 20>>
@@ -301,7 +332,7 @@ otheranimegirl: is something wrong?
         <<StartFPS GameManager>>
 ===
 title: OMGILoveThatGame
-position: -425,772
+position: -483,786
 ---
 otheranimegirl: omg, I love that game!
     -> ... that game sucks, I hate it.
@@ -323,7 +354,7 @@ otheranimegirl: omg, I love that game!
         <<jump LOSE_got_relationship>>
 ===
 title: BackToFirstGirl
-position: -139,594
+position: -235,581
 ---
 <<SetCharacter GameManager animegirl 2>>
 animegirl: hiiiii playerNameeeeee

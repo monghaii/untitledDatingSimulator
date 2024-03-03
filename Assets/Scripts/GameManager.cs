@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public DialogueRunner dialogueRunnerInstance;
     private bool fpsLoaded = false;
     public static bool isGamePaused = false;
+    private string currentCharacter;
     private int currentLine = 0;                // for returning to dialogue after successfully exiting FPS
     private string currentNode = "Start";       // for returning to dialogue after successfully exiting FPS
     private int dialogueLineToReturn = 0;   // for returning to dialogue after successfully exiting FPS
@@ -177,8 +178,8 @@ public class GameManager : MonoBehaviour
         else
         {
             // reload back into FPS_SUCCESS node
-            dialogueRunnerInstance.StartDialogue("FPS_SUCCESS");
-            SetCharacter("animegirl", 0);                                   //TODO: DYNAMIC RESETTING OF CHARACTER
+            dialogueRunnerInstance.StartDialogue("FPS_SUCCESS_" + currentCharacter);
+            SetCharacter(currentCharacter, 0);                                   //TODO: DYNAMIC RESETTING OF CHARACTER
         }
         
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
@@ -199,6 +200,7 @@ public class GameManager : MonoBehaviour
     public void SetCharacter(string characterName, int spriteIndex = 0)
     {
         Debug.Log($"Switching to character: {characterName}");
+        currentCharacter = characterName;
         // Find the character in the CharacterList by name
 
         characterImage.gameObject.SetActive(characterName != "me");

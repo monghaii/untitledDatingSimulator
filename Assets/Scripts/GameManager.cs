@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     public DialogueRunner dialogueRunnerInstance;
     private bool fpsLoaded = false;
     public static bool isGamePaused = false;
+    private int currentLine = 0;                // for returning to dialogue after successfully exiting FPS
+    private string currentNode = "Start";       // for returning to dialogue after successfully exiting FPS
+    private int dialogueLineToReturn = 0;   // for returning to dialogue after successfully exiting FPS
+    private string dialogueNodeToReturn = "";   // for returning to dialogue after successfully exiting FPS
+
     
     [Header("Characters")] 
     public Image characterImage;
@@ -78,6 +83,8 @@ public class GameManager : MonoBehaviour
         
         // This may not be the best practice...
         dialogueRunnerInstance = FindAnyObjectByType<DialogueRunner>();
+        // subscribe to nextline clicks
+        dialogueRunnerInstance.NextLineClicked += HandleNextLineClicked;
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
         
         // Initializing attributes
@@ -91,12 +98,27 @@ public class GameManager : MonoBehaviour
         // this is just for testing additive scene loading
         if (Input.GetKeyDown(KeyCode.L))
         {
-            if (fpsLoaded) EndFPS();
+            if (fpsLoaded) EndFPS(false);
             else StartFPS();
         }
     }
-    
-    
+
+    public void HandleNextLineClicked(string currentNodeName)
+    {
+        Debug.Log("next line clicked; now in " + currentNodeName);
+        if (currentNodeName != currentNode)
+        {
+            currentNode = currentNodeName;
+            currentLine = 0;
+        }
+        else
+        {
+            currentLine++;
+        }            
+        // Debugging current node and line number
+        // Debug.Log("//////// line debug: " + currentNode + ", " + currentLine);
+    }
+
     public bool GetFpsLoaded()
     {
         return fpsLoaded;
@@ -108,7 +130,7 @@ public class GameManager : MonoBehaviour
         fpsLoaded = true;
         if(FPScounter >= 2)
         {
-            EndFPS();
+            EndFPS(false);
         }
         FPScounter++;
         
@@ -123,6 +145,8 @@ public class GameManager : MonoBehaviour
 
         //switch music
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
+        dialogueLineToReturn = currentLine;
+        dialogueNodeToReturn = currentNode;
         dialogueRunnerInstance.StartDialogue("EnterFPS");
         isGamePaused = true;
     }
@@ -159,7 +183,7 @@ public class GameManager : MonoBehaviour
     }*/
 
     [YarnCommand("EndFPS")]
-    public void EndFPS()
+    public void EndFPS(bool didDefeatEnemy)
     {
         fpsLoaded = false;
         FPScounter = 0;
@@ -170,15 +194,32 @@ public class GameManager : MonoBehaviour
 
         // handles event system control back
         datingSimEventSystem.enabled = true;
+
+        if (!didDefeatEnemy)
+        {
+            // trigger transition back dialogue
+            dialogueRunnerInstance.StartDialogue("transitionBack");
+        }
+        else
+        {
+            // reload back into FPS_SUCCESS node
+            dialogueRunnerInstance.StartDialogue("FPS_SUCCESS");
+        }
         
-        // trigger transition back dialogue
-        dialogueRunnerInstance.StartDialogue("transitionBack");
+        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
         
         // unload fps scene
         Cursor.lockState = CursorLockMode.None;
         SceneManager.UnloadSceneAsync("FPSScene");
     }
 
+    [YarnCommand("ContinueFromPreFPSNode")]
+    public void ContinueFromPreFPSNode()
+    {
+        dialogueRunnerInstance.Stop();
+        dialogueRunnerInstance.StartDialogue(dialogueNodeToReturn);
+    }
+    
     [YarnCommand("SetCharacter")]
     public void SetCharacter(string characterName, int spriteIndex = 0)
     {
@@ -205,17 +246,17 @@ public class GameManager : MonoBehaviour
         healthBar.SetHealthPercentage(StartingHealth, currentHealth);
     }
     // Function that can be called by Yarn to change between FPS/Dialogue mode
-    [YarnCommand("ChangeMode")]
-    public void ChangeMode(bool fpsMode)
-    {
-        if (fpsMode)
-        {
-            StartFPS();
-        } else
-        {
-            EndFPS();
-        }
-    }
+    // [YarnCommand("ChangeMode")]
+    // public void ChangeMode(bool fpsMode)
+    // {
+    //     if (fpsMode)
+    //     {
+    //         StartFPS();
+    //     } else
+    //     {
+    //         EndFPS();
+    //     }
+    // }
 
     // I am making this changing likability by a delta...
     [YarnCommand("UpdateLikability")]

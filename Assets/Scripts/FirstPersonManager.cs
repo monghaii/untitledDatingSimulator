@@ -53,7 +53,7 @@ public class FirstPersonManager : MonoBehaviour
         if (isDead)
         {
             //TODO: different death behavior for enemy dead and player dead
-            gm.EndFPS();
+            gm.EndFPS(true);
         }
         healthBar.SetHealthPercentage(maxHealth, currentHealth);
     }

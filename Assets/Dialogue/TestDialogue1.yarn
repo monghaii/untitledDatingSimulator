@@ -4,6 +4,7 @@ position: 212,-726
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
+<<Checkpoint GameManager>>
 summer's over already?
 i can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Edition again..
 <<jump BeginDay>>
@@ -13,6 +14,7 @@ title: AnotherDay
 tags:
 position: 212,-726
 ---
+<<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 ah, another day, another dol- I mean chance to ruin my life and get in a relationship...
@@ -22,8 +24,9 @@ I can't wait to keep playing Wii Sports Resort again..
 
 title: BeginDay
 tags:
-position: -38,-528
+position: -32,-518
 ---
+<<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 ok playerName, just take it one day at a time. Just avoid all the girls so you can get home safe.
@@ -39,6 +42,7 @@ title: GoToClass
 tags:
 position: -209,-361
 ---
+<<Checkpoint GameManager>>
 animegirl: Oh, hello!
     -> Gross, go away
         <<jump GrossGoAway>>
@@ -54,8 +58,9 @@ animegirl: Oh, hello!
 
 title: GrossGoAway
 tags:
-position: -277,-165
+position: -327,-115
 ---
+<<Checkpoint GameManager>>
         <<SetCharacter GameManager animegirl 3>>
         animegirl: Wow, there's no need to be rude. I just wanted to ask if you were busy tonight...
             -> I'm already taken, I'm with otheranimegirl
@@ -86,6 +91,7 @@ position: -277,-165
                     <<AddGrossnessBuff GameManager>>
                     (My pride is wounded but my body is safe.)
                     (I am now considered Gross. People will hate me easily, but they'll also be too disgusted to hit me hard...)
+                    <<jump awkward>>
             -> Uh...I gotta go outside
                 <<SetBackground GameManager courtyard>>
                 <<jump Outside>>
@@ -95,6 +101,7 @@ title: dotdotdot
 tags:
 position: -589,-186
 ---
+<<Checkpoint GameManager>>
 animegirl: Wow, the strong silent type. This actually makes me like you more!
     -> YODELEEEEEE YODELOOOOOOOO YO HO HO
         <<jump WhatsWrong>>
@@ -120,8 +127,9 @@ animegirl: Wow, the strong silent type. This actually makes me like you more!
 ===
 
 title: Outside
-position: -137,254
+position: -129,302
 ---
+<<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 2>>
 animegirl: Wow, so by "I gotta go outside" you meant you wanted to talk to me in private?
 animegirl: And now you're confessing to me in the courtyard :3
@@ -143,6 +151,7 @@ animegirl: And now you're confessing to me in the courtyard :3
 title: otheranimegirl
 position: -390,264
 ---
+<<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
 otheranimegirl: I heard you told animegirl that we were dating...is that true?
     -> I was just trying to get her away from me. I can't stand her.
@@ -162,8 +171,9 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
 ===
 
 title: LOSE_got_relationship
-position: -840,-226
+position: -846,-52
 ---
+<<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 ...
@@ -178,6 +188,7 @@ I hope that never happens again...
 title: transitionBack
 position: -288,-555
 ---
+<<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 ...
@@ -191,6 +202,7 @@ That's probably just a bad dream... Anyways I should get back!
 title: EnterFPS
 position: -521,-719
 ---
+<<Checkpoint GameManager>>
 ...
 What's wrong with this girl...?
 Next Line
@@ -200,6 +212,7 @@ Next Line
 title: ExitFPS
 position: -289,-723
 ---
+<<Checkpoint GameManager>>
 animegirl: Do you know you are a rubbish?
     -> Of course I do.
         <<jump transitionBack>>
@@ -210,6 +223,7 @@ animegirl: Do you know you are a rubbish?
 title: FPS_SUCCESS_animegirl
 position: -757,-721
 ---
+<<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
 animegirl: ...
 animegirl: wait, I think I spaced out.. what happened??
@@ -225,6 +239,7 @@ animegirl: wait, I think I spaced out.. what happened??
 title: FPS_SUCCESS_otheranimegirl
 position: -757,-721
 ---
+<<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
 otheranimegirl: ...
 otheranimegirl: zomglol, im confuzzled? wut happened uwu??
@@ -240,6 +255,7 @@ otheranimegirl: zomglol, im confuzzled? wut happened uwu??
 title: DAY_SUCCESS
 position: 194,777
 ---
+<<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
 bell: ring ring ring , yuh
 ...
@@ -259,8 +275,9 @@ zzz
 <<jump AnotherDay>>
 ===
 title: PostShove
-position: -709,250
+position: -812,296
 ---
+<<Checkpoint GameManager>>
 animegirl: I'm not going to let some silly little boy talk to me like that.
     -> You're right, I'm a silly little boy. I'm so silly.
         animegirl: That's what I thought.
@@ -286,6 +303,7 @@ animegirl: I'm not going to let some silly little boy talk to me like that.
 title: mitochondria
 position: -70,-149
 ---
+<<Checkpoint GameManager>>
 animegirl: ooh, you're so smart and funny!
     -> ... I gotta go outside.
         <<jump Outside>>
@@ -293,8 +311,9 @@ animegirl: ooh, you're so smart and funny!
         <<jump PowerYourCells>>
 ===
 title: PowerYourCells
-position: 106,249
+position: 124,267
 ---
+<<Checkpoint GameManager>>
 animegirl: playerName, I'd love to power your cells :catemoji:
     -> What does that even mean?
         animegirl: It means I want to get dinner with you tonight!
@@ -313,6 +332,7 @@ animegirl: playerName, I'd love to power your cells :catemoji:
 title: WhatsWrong
 position: -569,536
 ---
+<<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 0>>
 otheranimegirl: is something wrong?
     -> I was just trying to get her away from me. I can't stand her.
@@ -335,6 +355,7 @@ otheranimegirl: is something wrong?
 title: OMGILoveThatGame
 position: -483,786
 ---
+<<Checkpoint GameManager>>
 otheranimegirl: omg, I love that game!
     -> ... that game sucks, I hate it.
         otheranimegirl: I'm sorry, I can't be friends with someone who has such bad taste.
@@ -357,6 +378,7 @@ otheranimegirl: omg, I love that game!
 title: BackToFirstGirl
 position: -235,581
 ---
+<<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 2>>
 animegirl: hiiiii playerNameeeeee
     -> You're giving me the eebie jeebies
@@ -367,6 +389,7 @@ animegirl: hiiiii playerNameeeeee
 title: heebie
 position: -182,791
 ---
+<<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 2>>
 animegirl: haha you're so funny, it's "Heebie Jeebies!" Shouldn't a graduate student like you know that?
     -> I'm not a graduate student, I'm a high school student.
@@ -387,6 +410,7 @@ animegirl: haha you're so funny, it's "Heebie Jeebies!" Shouldn't a graduate stu
 title: INTERRUPT_LOW_AFFECTION_animegirl
 position: -978,-725
 ---
+<<Checkpoint GameManager>>
 animegirl: you know what playerName, you're actually kind of DISGUSTING.
 animegirl: I need to wipe you off the face of this earth.
 -> Oh no.
@@ -399,11 +423,28 @@ animegirl: I need to wipe you off the face of this earth.
 title: INTERRUPT_LOW_AFFECTION_otheranimegirl
 position: -981,-574
 ---
+<<Checkpoint GameManager>>
 otheranimegirl: u know, i'm kinda weird with the uwo owo stuff, but you're even weirder
 otheranimegirl: Looks like the only next step is to hurt you <3<3 physically ~ <3
 -> Oh no.
 -> Oh no.
 -> Oh no.
 -> Oh no.
+<<StartFPS GameManager>>
+===
+
+title: awkward
+position: -981,-574
+---
+<<Checkpoint GameManager>>
+animegirl: ... so what now?
+-> AHHHHHHHHHHHHHHHHHHH
+    <<jump WhatsWrong>>
+-> AHHHHHH
+    <<jump WhatsWrong>>
+-> A1H7
+    <<jump WhatsWrong>>
+-> i needa step outside...
+    <<jump Outside>>
 <<StartFPS GameManager>>
 ===

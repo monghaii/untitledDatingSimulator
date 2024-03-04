@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
 using UnityEngine.UI;
+using Yarn;
 
 public class GameManager : MonoBehaviour
 {
@@ -90,8 +91,7 @@ public class GameManager : MonoBehaviour
         
         // This may not be the best practice...
         dialogueRunnerInstance = FindAnyObjectByType<DialogueRunner>();
-        // subscribe to nextline clicks
-        dialogueRunnerInstance.NextLineClicked += HandleNextLineClicked;
+        
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
         
         // Initializing attributes
@@ -110,11 +110,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HandleNextLineClicked(string currentNodeName)
+    [YarnCommand("Checkpoint")]
+    public void Checkpoint()
     {
+        // method is scuffed but we can't modify yarn directly 
+        // we will be using node names as checkpoints. Make sure to call this Checkpoint function regularly
+        // i.e. at the start of each node. No way at the moment to resume to an exact line, so saving a checkpoint
+        // at any point in the node means that the player gets sent to the start of the node if they are to resume at that point.
+        
+        string currentNodeName = dialogueRunnerInstance.Dialogue.CurrentNode;
         // Debug.Log("next line clicked; now in " + currentNodeName);
-        
-        
+
         // Check if currentNodeName is different from currentNode and not a protected node name
         bool containsProtectedNode = false;
         foreach (string protectedNode in protectedNodeNames)

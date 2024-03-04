@@ -17,7 +17,7 @@ public class FirstPersonCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.isGamePaused)
+        if(GameManager.isGamePaused || GameManager.instance.pauseMenu)
         {
             return;
         }

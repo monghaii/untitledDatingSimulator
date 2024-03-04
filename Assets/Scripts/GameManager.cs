@@ -71,6 +71,9 @@ public class GameManager : MonoBehaviour
     //for exit dialogue in FPS mode
     public int FPScounter = 0;
 
+    [Header("PauseMenu")] 
+    public bool pauseMenu = false;
+
     private void Awake()
     {
         instance = this;
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
         }
         var loaded = false;
         var loadedLevel = SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
+        SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         yield return loadedLevel;
         loaded = true;
         datingSimInterface = GameObject.Find("DatingCanvas").GetComponent<Canvas>();
@@ -107,6 +111,29 @@ public class GameManager : MonoBehaviour
         {
             if (fpsLoaded) EndFPS(false);
             else StartFPS();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            if (!pauseMenu)
+            {
+                GameObject pauseUI = GameObject.Find("PauseMenu");
+                if (pauseUI)
+                {
+                    pauseUI.GetComponent<PauseMenu>().PauseGame();
+                }
+
+                pauseMenu = true;
+            }
+            else
+            {
+                GameObject pauseUI = GameObject.Find("PauseMenu");
+                if (pauseUI)
+                {
+                    pauseUI.GetComponent<PauseMenu>().ResumeGame();
+                }
+                pauseMenu = false;
+            }
         }
     }
 

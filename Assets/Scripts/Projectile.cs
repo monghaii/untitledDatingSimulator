@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float damage = 10f;
-
+    public Enemy enemy;
     private void OnTriggerEnter(Collider other)
     {
         FirstPersonManager player = other.gameObject.GetComponent<FirstPersonManager>();
         if (player)
         {
-            player.TakeDamage(damage);
+            player.TakeDamage(enemy.damage);
             Destroy(gameObject);
         }
     }

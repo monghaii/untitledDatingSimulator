@@ -44,6 +44,11 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.isGamePaused)
+        {
+            return;
+        }
+
         // calculate updates
         GravityUpdate();
         Movement();

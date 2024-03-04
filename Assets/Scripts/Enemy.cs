@@ -123,7 +123,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     void Chase()
     {
-        //agent.SetDestination(player.position);
+        agent.SetDestination(player.position);
     }
 
     /// <summary>

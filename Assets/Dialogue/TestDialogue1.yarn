@@ -213,8 +213,8 @@ title: ExitFPS
 position: -289,-723
 ---
 <<Checkpoint GameManager>>
-animegirl: Do you know you are a rubbish?
-    -> Of course I do.
+animegirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
+    -> I admit defeat, I am, in fact, trash.
         <<jump transitionBack>>
     -> As long as you're happy, I can be anything. Please, give me one more chance.
         <<StartFPS GameManager>>

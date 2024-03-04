@@ -418,4 +418,10 @@ public class GameManager : MonoBehaviour
         currentLikability -= 20.0f;
         healthBar.DisplayBuff("Grossness");
     }
+
+    public Sprite GetCurrentEnemySprite()
+    {
+        Character character = characterSO.CharacterList.Find(c => c.CharacterName == currentCharacter);
+        return character.CharacterImage(4);
+    }
 }

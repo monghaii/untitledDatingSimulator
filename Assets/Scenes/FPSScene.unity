@@ -2474,6 +2474,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3590797856672237776, guid: f52edf9f79121984cb7000b017d70b0c, type: 3}
+      propertyPath: enemySprite
+      value: 
+      objectReference: {fileID: 991956304867859939}
+    - target: {fileID: 3590797856672237776, guid: f52edf9f79121984cb7000b017d70b0c, type: 3}
       propertyPath: obstacleMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -2485,6 +2489,11 @@ PrefabInstance:
       addedObject: {fileID: 1235480339}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f52edf9f79121984cb7000b017d70b0c, type: 3}
+--- !u!1 &991956304867859939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5521248858345210101, guid: f52edf9f79121984cb7000b017d70b0c, type: 3}
+  m_PrefabInstance: {fileID: 991956304867859938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &998089163228157005
 PrefabInstance:
   m_ObjectHideFlags: 0

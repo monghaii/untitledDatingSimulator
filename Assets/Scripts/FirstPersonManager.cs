@@ -40,10 +40,10 @@ public class FirstPersonManager : MonoBehaviour
         {
             currentHealth = gm.currentHealth;
         }
-        else
+        /*else
         {
             currentHealth = maxHealth;
-        }
+        }*/
         healthBar = GameManager.instance.healthBar;
 
     }

@@ -424,6 +424,7 @@ I should get ready for bed...
 zzz
 zzz
 zzz
+<<LogDayEndAnalytics GameManager>>
 <<jump AnotherDay>>
 ===
 title: PostShove

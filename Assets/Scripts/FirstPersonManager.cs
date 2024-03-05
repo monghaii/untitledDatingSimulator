@@ -61,10 +61,11 @@ public class FirstPersonManager : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         currentHealth -= dmg;
-        if (currentHealth <= 0f)
-        {
-            isDead = true;
-        }
+        // DEPRECATED: Update() is taking over control of this part
+        // if (currentHealth <= 0f)
+        // {
+        //     isDead = true;
+        // }
     }
 
 

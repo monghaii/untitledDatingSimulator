@@ -78,7 +78,9 @@ public class GameManager : MonoBehaviour
     private int counter = 0;
     
     // Analytics
+    private int analytics_dayCounter = 1;
     private int analytics_timesFPSEnteredThisDay = 0;
+    
 
     private void Awake()
     {
@@ -360,9 +362,11 @@ public class GameManager : MonoBehaviour
     public void LogDayEndAnalytics()
     {
         var props = new Value();
-        props["day"] = currentDay;
+        props["day"] = analytics_dayCounter;
         props["times_fps_triggered"] = analytics_timesFPSEnteredThisDay;
         Analytics.LogAnalyticEvent("Times FPS triggered per day cycle", props);
+
+        analytics_dayCounter++;
     }
     
     [YarnCommand("ProgressDay")]

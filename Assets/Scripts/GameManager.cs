@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     [Header("HealthBar")]
     public HealthBar healthBar;
+    public float maxHealth = 100.0f;
 
     public float currentHealth { get; set; }
     public float StartingHealth = 100.0f;
@@ -432,6 +433,7 @@ public class GameManager : MonoBehaviour
     public void AddHealthBuff()
     {
         StartingHealth += 20.0f;
+        maxHealth += 20.0f;
         healthBar.DisplayBuff("Health");
     }
 

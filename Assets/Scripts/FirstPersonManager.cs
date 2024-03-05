@@ -32,10 +32,10 @@ public class FirstPersonManager : MonoBehaviour
         {
             currentHealth = gm.currentHealth;
         }
-        else
+        /*else
         {
             currentHealth = maxHealth;
-        }
+        }*/
         healthBar = GameManager.instance.healthBar;
 
     }
@@ -76,7 +76,7 @@ public class FirstPersonManager : MonoBehaviour
     [YarnCommand("RefreshHealth")]
     public void RefreshHealth()
     {
-        currentHealth = gm.StartingHealth;
+        currentHealth = gm.StartingHealth/2;
         
         Cursor.lockState = CursorLockMode.Locked;
     }

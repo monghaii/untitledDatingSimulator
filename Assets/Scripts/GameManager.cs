@@ -109,12 +109,6 @@ public class GameManager : MonoBehaviour
         currentLikability = StartingLikability;
         dayStart_health = currentHealth;
         dayStart_likability = currentLikability;
-        
-        var props = new Value();
-        props["propKey"] = "propValue";
-        Analytics.LogAnalyticEvent("test event", props);
-        
-        Mixpanel.Track("asdf");
     }
     void Update()
     { 

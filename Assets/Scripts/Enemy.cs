@@ -252,12 +252,4 @@ public class Enemy : MonoBehaviour
             walkPointSet = true;
         }
     }
-
-    //trigger when answer exit question wrong
-    public void HarderMode()
-    {
-        damage += 20;
-        currentHealth = maxHealth;
-
-    }
 }

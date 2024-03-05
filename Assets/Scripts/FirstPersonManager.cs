@@ -13,8 +13,6 @@ public class FirstPersonManager : MonoBehaviour
     public Enemy enemyInstance;
     
     [Header("Health")] 
-    public float maxHealth = 100f;
-    public float currentHealth;
     public bool isDead = false;
 
     public static bool isFpsPaused = true;
@@ -36,10 +34,6 @@ public class FirstPersonManager : MonoBehaviour
         // Todo: have it read from the game manager instead??
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         enemyInstance = GameObject.Find("Enemy").GetComponent<Enemy>();
-        if (gm != null)
-        {
-            currentHealth = gm.currentHealth;
-        }
         /*else
         {
             currentHealth = maxHealth;
@@ -52,10 +46,10 @@ public class FirstPersonManager : MonoBehaviour
     void Update()
     {
         //Determine if is dead (enemy or player)
-        if (currentHealth <= 0.0f)
+        if (gm.currentHealth <= 0.0f)
         {
             //This is temporary - preventing infinite call
-            currentHealth = 0.01f;
+            gm.currentHealth = 0.01f;
             GameManager.instance.ExitDialogue();
         }
         if (enemyInstance.currentHealth <= 0.0f)
@@ -68,12 +62,12 @@ public class FirstPersonManager : MonoBehaviour
             //TODO: different death behavior for enemy dead and player dead
             gm.EndFPS(true);
         }
-        healthBar.SetHealthPercentage(gm.maxHealth, currentHealth);
+        healthBar.SetHealthPercentage(gm.maxHealth, gm.currentHealth);
     }
     
     public void TakeDamage(float dmg)
     {
-        currentHealth -= dmg;
+        gm.currentHealth -= dmg;
         // DEPRECATED: Update() is taking over control of this part
         // if (currentHealth <= 0f)
         // {
@@ -83,7 +77,7 @@ public class FirstPersonManager : MonoBehaviour
 
     public void RefreshHealth()
     {
-        currentHealth = gm.currentHealth;
+        gm.currentHealth = gm.currentHealth;
     }
   
 }

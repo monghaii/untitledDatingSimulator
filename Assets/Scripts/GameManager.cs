@@ -112,6 +112,8 @@ public class GameManager : MonoBehaviour
         currentLikability = StartingLikability;
         dayStart_health = currentHealth;
         dayStart_likability = currentLikability;
+        
+        Analytics.LogAnalyticEvent("Gameplay Started");
     }
     void Update()
     { 

@@ -9,7 +9,15 @@ public class Analytics : MonoBehaviour
     public static void LogAnalyticEvent(string eventName, Value properties = null)
     {
         GameManager gameManager = FindObjectOfType<GameManager>();
-        Debug.Log("// ANALYTICS: " + eventName + " props: "+ properties.ToString());
+        
+        string debugString = "// ANALYTICS: " + eventName;
+        if (properties != null)
+        {
+            debugString = debugString + " props: " + properties.ToString();
+        }
+        
+        Debug.Log(debugString);
+        
         if (gameManager != null)
         {
             // Do not log in dev mode

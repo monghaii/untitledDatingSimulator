@@ -364,9 +364,9 @@ position: -289,-723
 <<Checkpoint GameManager>>
 animegirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
     -> I admit defeat, I am, in fact, trash.
-        <<jump transitionBack>>
+        <<EndFPS GameManager false>>
     -> As long as you're happy, I can be anything. Please, give me one more chance.
-        <<StartFPS GameManager>>
+        <<RefreshHealth FirstPersonManager>>
 ===
 
 title: FPS_SUCCESS_animegirl

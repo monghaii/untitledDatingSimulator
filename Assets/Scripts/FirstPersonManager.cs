@@ -13,6 +13,8 @@ public class FirstPersonManager : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public bool isDead = false;
+
+    public static bool isFpsPaused = true;
     // also need to connect this to the UI
     private HealthBar healthBar;
 
@@ -21,6 +23,7 @@ public class FirstPersonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isFpsPaused = false;
         //Time.timeScale = 0;
         // Todo: have it read from the game manager instead??
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -43,6 +46,8 @@ public class FirstPersonManager : MonoBehaviour
         //Determine if is dead (enemy or player)
         if (currentHealth <= 0.0f)
         {
+            //This is temporary - preventing infinite call
+            currentHealth = 100000.0f;
             GameManager.instance.ExitDialogue();
         }
         if (enemyInstance.currentHealth <= 0.0f)
@@ -68,6 +73,12 @@ public class FirstPersonManager : MonoBehaviour
         // }
     }
 
-
+    [YarnCommand("RefreshHealth")]
+    public void RefreshHealth()
+    {
+        currentHealth = gm.StartingHealth;
+        
+        Cursor.lockState = CursorLockMode.Locked;
+    }
   
 }

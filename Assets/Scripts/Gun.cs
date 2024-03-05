@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.pauseMenu)
+        if (GameManager.instance.pauseMenu || FirstPersonManager.isFpsPaused)
         {
             return;
         }

@@ -207,9 +207,13 @@ public class GameManager : MonoBehaviour
     public void ExitDialogue()
     {
         backgroundImage.enabled = false;
-        if(counter == 0) {
-            dialogueRunnerInstance.StartDialogue("ExitFPS");
+        
+        Cursor.lockState = CursorLockMode.None;
+        if(counter == 0)
+        {
+            FirstPersonManager.isFpsPaused = true;
             counter = 1;
+            dialogueRunnerInstance.StartDialogue("ExitFPS");
         }
         else
         {

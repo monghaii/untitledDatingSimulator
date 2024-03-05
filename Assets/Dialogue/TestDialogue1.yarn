@@ -38,10 +38,11 @@ I can't wait to keep playing Wii Sports Resort again..
 
 title: DayTwoStart
 tags:
-position: 212,-726
+position: 211,-726
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
+<<SetBackground GameManager classroom>>
 otheranimegirl: Oh, hey! It's you! I've heard a lot about you...
     -> Let me guess, you heard about the expired milk thing. <<if $has_gross_buff == true>>
         <<jump EwThatWasTrue>>

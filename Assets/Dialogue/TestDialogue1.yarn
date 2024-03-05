@@ -340,6 +340,7 @@ position: -288,-555
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
+<<RefreshHealth GameManager -1>>
 ...
 GASP
 omg, what happened?
@@ -355,7 +356,7 @@ position: -521,-719
 ...
 What's wrong with this girl...?
 Next Line
- <<ResumeFPS GameManager>>
+<<ResumeFPS GameManager>>
 ===
 
 title: ExitFPS
@@ -366,7 +367,9 @@ yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
     -> I admit defeat, I am, in fact, trash.
         <<EndFPS GameManager false>>
     -> As long as you're happy, I can be anything. Please, give me one more chance.
-        <<RefreshHealth FirstPersonManager>>
+        // -1 here represents setting to StartingHealth
+        <<RefreshHealth GameManager -1>>
+        <<ResumeFPS GameManager>>
 ===
 
 title: FPS_SUCCESS_animegirl

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using Yarn.Unity;
 
 public class FirstPersonManager : MonoBehaviour
 {
+    public static FirstPersonManager instance;
+    
     public GameManager gm;
     public Enemy enemyInstance;
     
@@ -19,6 +22,11 @@ public class FirstPersonManager : MonoBehaviour
     private HealthBar healthBar;
 
     public DialogueRunner dialogueRunnerInstance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +55,7 @@ public class FirstPersonManager : MonoBehaviour
         if (currentHealth <= 0.0f)
         {
             //This is temporary - preventing infinite call
-            currentHealth = 100000.0f;
+            currentHealth = 0.01f;
             GameManager.instance.ExitDialogue();
         }
         if (enemyInstance.currentHealth <= 0.0f)
@@ -73,12 +81,9 @@ public class FirstPersonManager : MonoBehaviour
         // }
     }
 
-    [YarnCommand("RefreshHealth")]
     public void RefreshHealth()
     {
-        currentHealth = gm.StartingHealth;
-        
-        Cursor.lockState = CursorLockMode.Locked;
+        currentHealth = gm.currentHealth;
     }
   
 }

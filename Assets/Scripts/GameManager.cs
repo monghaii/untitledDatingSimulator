@@ -196,12 +196,11 @@ public class GameManager : MonoBehaviour
         dialogueRunnerInstance.Stop();
         // load in fps scene
         SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
-
-
+        
         //switch music
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
+        PauseFPS();
         dialogueRunnerInstance.StartDialogue("EnterFPS");
-        isGamePaused = true;
     }
 
     public void ExitDialogue()
@@ -211,13 +210,14 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         if(counter == 0)
         {
-            FirstPersonManager.isFpsPaused = true;
             counter = 1;
+            PauseFPS();
             dialogueRunnerInstance.StartDialogue("ExitFPS");
         }
         else
         {
             EndFPS(false);
+            RefreshHealth(-1.0f);
             counter = 0;
         }
 
@@ -248,7 +248,8 @@ public class GameManager : MonoBehaviour
 
         // handles event system control back
         datingSimEventSystem.enabled = true;
-
+        
+        dialogueRunnerInstance.Stop();
         if (!didDefeatEnemy)
         {
             // trigger transition back dialogue
@@ -400,6 +401,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    
+    [YarnCommand("PauseFPS")]
+    public void PauseFPS()
+    {
+        isGamePaused = true;
+    
+        // handles event system control over to FPS scene
+        datingSimEventSystem.enabled = true;
+    
+        Cursor.lockState = CursorLockMode.None;
+    }
+    
     [YarnCommand("ResumeFPS")]
     public void ResumeFPS()
     {
@@ -433,6 +446,19 @@ public class GameManager : MonoBehaviour
     {
         currentLikability -= 20.0f;
         healthBar.DisplayBuff("Grossness");
+    }
+
+    [YarnCommand("RefreshHealth")]
+    public void RefreshHealth(float newHealth)
+    {
+        if (newHealth < 0.0f)
+        {
+            newHealth = StartingHealth;
+        }
+
+        currentHealth = newHealth;
+        healthBar.SetHealthPercentage(StartingHealth, currentHealth);
+        FirstPersonManager.instance.RefreshHealth();
     }
 
     public Sprite GetCurrentEnemySprite()

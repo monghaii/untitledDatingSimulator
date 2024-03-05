@@ -469,7 +469,7 @@ title: PowerYourCells
 position: 124,267
 ---
 <<Checkpoint GameManager>>
-animegirl: playerName, I'd love to power your cells :catemoji:
+animegirl: j̵̨͕̣̣͉̥͈͇̙̬̹̼͚̬͖̓́̿̇̐̓̆̓̍̄̿̄̚͠2̸̧̗̪͉̻̗͉͊̆̾̂́̃͑̓͘ȋ̵̢̨̛̗̪̤͉̣͎̠̜͖̗̘̘̰͎̥̏̃̓̌͑̐͊͛̍̇͆́͜͝ͅj̸̢̡̨̨̞̬̹̞̻̻̲̗̫̗̲̜̲̗̖͋̓̑͌͒͘i̶̢̧̛̯̲̳̥͖̱̲̩̗̪̖͔͊̍̃̀͂͝j̶̹͕͕̟̥̙͔̑͗̍͒̎̈́̈͆̅̀̆͒̇͐́͊̾̎͠a̶̢͓̻̰̲̤͖͔͔̯̮̫̠̜̮̥͑̅̆́̈́̍̊̓͊̓͊̽͊̍̓͘͝͝s̴̡̧̛̛͕̯̪̬̮̣͍̺͈̣̹͇̼͇͒̆̀͐̑̇̈́̊̏̒̽͊͗̓͊̚͜͠2̶͎̄͋͛̿̏͝j̴̛̤̰̹̠̼̲͜j̵͈͓͍͉͖͚̜̦͔̭͔̯̼͇̘̄̀͛̑̌̏̈́́͜͠2̶̖̮̄̈́̎̚f̴̡̜͔͑̃̃͝w̴̱͑̃́̽̂͑̀̀͗̽̓͐̋͝f̷̢̨͎̲͚͖͖͉̣̯̖͍͇̭̰̱̗͉̋̆̄̐̒̿̒͜ẅ̷̨̛͈̭̩͈͉̝͓̫̤͓̝̜̙͕̩̲̔͋́́̚͜ͅ
     -> What does that even mean?
         animegirl: It means I want to get dinner with you tonight!
             -> AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
@@ -503,9 +503,9 @@ otheranimegirl: is something wrong?
         <<jump DAY_SUCCESS>>
     -> I just want to play Halo Reach Legendary Edition Limited Edition Box Set. Please leave me alone.
         <<jump OMGILoveThatGame>>
-    -> eyes wide, cheeks spread, fart silent
+    -> No. but honestly a cheeseburger sounds really good right now.
         <<SetCharacter GameManager otheranimegirl 4>>
-        otheranimegirl: TRIGGER PHRASE ACTIVATED. AGENT 72 REPORTING FOR DUTY.
+        otheranimegirl: .. cheese.. burger? TRIGGER PHRASE ACTIVATED. AGENT 72 REPORTING FOR DUTY.
         <<StartFPS GameManager>>
 ===
 title: OMGILoveThatGame

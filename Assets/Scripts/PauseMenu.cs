@@ -21,6 +21,10 @@ public class PauseMenu : MonoBehaviour
         optionsPausePanel.SetActive(false);
         masterVolumeSlider.value = AudioListener.volume;
         mouseSensitivitySlider.value = PlayerPrefs.GetFloat("MouseSensitivity", 0.5f);
+        
+        // TODO MUTING AUDIO FOR NOW -- UNMUTE LATER
+        AudioListener.volume = 0;
+        masterVolumeSlider.value = 0;
     }
 
     // Update is called once per frame

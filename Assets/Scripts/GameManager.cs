@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
 using UnityEngine.UI;
+using mixpanel;
 using Yarn;
 
 public class GameManager : MonoBehaviour
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     [Header("GAME FEATURE FLAGS (IMPORTANT)")]
     public bool FLAG_ENABLE_AFFECTION_INTERRUPT;
+    public bool FLAG_DEV_DISABLE_LOGGING;
     
     [Header("Characters")] 
     public Image characterImage;
@@ -73,8 +75,10 @@ public class GameManager : MonoBehaviour
 
     [Header("PauseMenu")] 
     public bool pauseMenu = false;
-
     private int counter = 0;
+    
+    // Analytics
+    private int analytics_timesFPSEnteredThisDay = 0;
 
     private void Awake()
     {
@@ -105,6 +109,12 @@ public class GameManager : MonoBehaviour
         currentLikability = StartingLikability;
         dayStart_health = currentHealth;
         dayStart_likability = currentLikability;
+        
+        var props = new Value();
+        props["propKey"] = "propValue";
+        Analytics.LogAnalyticEvent("test event", props);
+        
+        Mixpanel.Track("asdf");
     }
     void Update()
     { 
@@ -188,6 +198,7 @@ public class GameManager : MonoBehaviour
             EndFPS(false);
         }
         FPScounter++;
+        analytics_timesFPSEnteredThisDay++;
         
         // hides dating sim ui
         characterImage.enabled = false;
@@ -348,6 +359,16 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning($"Character '{characterName}' not found.");
         }
+    }
+
+    [YarnCommand("LogDayEndAnalytics")]
+
+    public void LogDayEndAnalytics()
+    {
+        var props = new Value();
+        props["day"] = currentDay;
+        props["times_fps_triggered"] = analytics_timesFPSEnteredThisDay;
+        Analytics.LogAnalyticEvent("Times FPS triggered per day cycle", props);
     }
     
     [YarnCommand("ProgressDay")]

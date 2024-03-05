@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
     [Header("PauseMenu")] 
     public bool pauseMenu = false;
 
+    private int counter = 0;
+
     private void Awake()
     {
         instance = this;
@@ -204,7 +206,17 @@ public class GameManager : MonoBehaviour
 
     public void ExitDialogue()
     {
-        dialogueRunnerInstance.StartDialogue("ExitFPS");
+        backgroundImage.enabled = false;
+        if(counter == 0) {
+            dialogueRunnerInstance.StartDialogue("ExitFPS");
+            counter = 1;
+        }
+        else
+        {
+            EndFPS(false);
+            counter = 0;
+        }
+
     }
 
     [YarnCommand("EndFPS")]

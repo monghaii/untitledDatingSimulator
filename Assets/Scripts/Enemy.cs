@@ -57,8 +57,15 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        currentHealth = maxHealth;
         enemySprite.GetComponent<SpriteRenderer>().sprite = GameObject.Find("GameManager").GetComponent<GameManager>().GetCurrentEnemySprite();
+        EnemyData data = GameObject.Find("GameManager").GetComponent<GameManager>().GetCurrentEnemyData();
+        meleeRange = data.meleeRange;
+        rangedRange = data.rangedRange;
+        timeBetweenAttacks = data.timeBetweenAttacks;
+        damage = data.damage;
+        maxHealth = data.maxHealth;
+        currentHealth = maxHealth;
+
     }
     
     void Update()

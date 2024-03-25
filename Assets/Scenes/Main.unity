@@ -537,11 +537,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datingSimInterface: {fileID: 0}
   datingSimEventSystem: {fileID: 1497172646}
+  dialogueRunnerInstance: {fileID: 0}
+  FLAG_ENABLE_AFFECTION_INTERRUPT: 0
+  FLAG_DEV_DISABLE_LOGGING: 0
   characterImage: {fileID: 0}
   characterSO: {fileID: 11400000, guid: afc98ce7d87324ceea542285ba1c4fb8, type: 2}
+  characterInterruptWithFPSAffectionThreshhold: 70
   winningScreen: {fileID: 0}
+  currentDay: 1
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  StartingHealth: 100
+  dayStart_health: 0
+  dayStart_likability: 0
   backgroundImage: {fileID: 0}
   backgroundSO: {fileID: 11400000, guid: 9750abeeaf819fa488a9ab9f77ba0630, type: 2}
+  FPScounter: 0
+  pauseMenu: 0
 --- !u!1 &985339901
 GameObject:
   m_ObjectHideFlags: 0

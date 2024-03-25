@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
 using UnityEngine.UI;
+using mixpanel;
 using Yarn;
 
 public class GameManager : MonoBehaviour
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     [Header("GAME FEATURE FLAGS (IMPORTANT)")]
     public bool FLAG_ENABLE_AFFECTION_INTERRUPT;
+    public bool FLAG_DEV_DISABLE_LOGGING;
     
     [Header("Characters")] 
     public Image characterImage;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     [Header("HealthBar")]
     public HealthBar healthBar;
+    public float maxHealth = 100.0f;
 
     public float currentHealth { get; set; }
     public float StartingHealth = 100.0f;
@@ -71,6 +74,15 @@ public class GameManager : MonoBehaviour
     //for exit dialogue in FPS mode
     public int FPScounter = 0;
 
+    [Header("PauseMenu")] 
+    public bool pauseMenu = false;
+    private int counter = 0;
+    
+    // Analytics
+    private int analytics_dayCounter = 1;
+    private int analytics_timesFPSEnteredThisDay = 0;
+    
+
     private void Awake()
     {
         instance = this;
@@ -82,6 +94,7 @@ public class GameManager : MonoBehaviour
         }
         var loaded = false;
         var loadedLevel = SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
+        SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         yield return loadedLevel;
         loaded = true;
         datingSimInterface = GameObject.Find("DatingCanvas").GetComponent<Canvas>();
@@ -99,6 +112,8 @@ public class GameManager : MonoBehaviour
         currentLikability = StartingLikability;
         dayStart_health = currentHealth;
         dayStart_likability = currentLikability;
+        
+        Analytics.LogAnalyticEvent("Gameplay Started");
     }
     void Update()
     { 
@@ -107,6 +122,29 @@ public class GameManager : MonoBehaviour
         {
             if (fpsLoaded) EndFPS(false);
             else StartFPS();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            if (!pauseMenu)
+            {
+                GameObject pauseUI = GameObject.Find("PauseMenu");
+                if (pauseUI)
+                {
+                    pauseUI.GetComponent<PauseMenu>().PauseGame();
+                }
+
+                pauseMenu = true;
+            }
+            else
+            {
+                GameObject pauseUI = GameObject.Find("PauseMenu");
+                if (pauseUI)
+                {
+                    pauseUI.GetComponent<PauseMenu>().ResumeGame();
+                }
+                pauseMenu = false;
+            }
         }
     }
 
@@ -159,6 +197,7 @@ public class GameManager : MonoBehaviour
             EndFPS(false);
         }
         FPScounter++;
+        analytics_timesFPSEnteredThisDay++;
         
         // hides dating sim ui
         characterImage.enabled = false;
@@ -167,17 +206,31 @@ public class GameManager : MonoBehaviour
         dialogueRunnerInstance.Stop();
         // load in fps scene
         SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
-
-
+        
         //switch music
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
+        PauseFPS();
         dialogueRunnerInstance.StartDialogue("EnterFPS");
-        isGamePaused = true;
     }
 
     public void ExitDialogue()
     {
-        dialogueRunnerInstance.StartDialogue("ExitFPS");
+        backgroundImage.enabled = false;
+        
+        Cursor.lockState = CursorLockMode.None;
+        if(counter == 0)
+        {
+            counter = 1;
+            PauseFPS();
+            dialogueRunnerInstance.StartDialogue("ExitFPS");
+        }
+        else
+        {
+            EndFPS(false);
+            RefreshHealth(-1.0f);
+            counter = 0;
+        }
+
     }
 
     [YarnCommand("EndFPS")]
@@ -205,7 +258,8 @@ public class GameManager : MonoBehaviour
 
         // handles event system control back
         datingSimEventSystem.enabled = true;
-
+        
+        dialogueRunnerInstance.Stop();
         if (!didDefeatEnemy)
         {
             // trigger transition back dialogue
@@ -305,6 +359,18 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning($"Character '{characterName}' not found.");
         }
     }
+
+    [YarnCommand("LogDayEndAnalytics")]
+
+    public void LogDayEndAnalytics()
+    {
+        var props = new Value();
+        props["day"] = analytics_dayCounter;
+        props["times_fps_triggered"] = analytics_timesFPSEnteredThisDay;
+        Analytics.LogAnalyticEvent("Times FPS triggered per day cycle", props);
+
+        analytics_dayCounter++;
+    }
     
     [YarnCommand("ProgressDay")]
     public void ProgressDay()
@@ -357,6 +423,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    
+    [YarnCommand("PauseFPS")]
+    public void PauseFPS()
+    {
+        isGamePaused = true;
+    
+        // handles event system control over to FPS scene
+        datingSimEventSystem.enabled = true;
+    
+        Cursor.lockState = CursorLockMode.None;
+    }
+    
     [YarnCommand("ResumeFPS")]
     public void ResumeFPS()
     {
@@ -376,6 +454,7 @@ public class GameManager : MonoBehaviour
     public void AddHealthBuff()
     {
         StartingHealth += 20.0f;
+        maxHealth += 20.0f;
         healthBar.DisplayBuff("Health");
     }
 
@@ -390,5 +469,24 @@ public class GameManager : MonoBehaviour
     {
         currentLikability -= 20.0f;
         healthBar.DisplayBuff("Grossness");
+    }
+
+    [YarnCommand("RefreshHealth")]
+    public void RefreshHealth(float newHealth)
+    {
+        if (newHealth < 0.0f)
+        {
+            newHealth = StartingHealth;
+        }
+
+        currentHealth = newHealth;
+        healthBar.SetHealthPercentage(StartingHealth, currentHealth);
+        FirstPersonManager.instance.RefreshHealth();
+    }
+
+    public Sprite GetCurrentEnemySprite()
+    {
+        Character character = characterSO.CharacterList.Find(c => c.CharacterName == currentCharacter);
+        return character.CharacterImage(4);
     }
 }

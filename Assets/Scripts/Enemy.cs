@@ -48,6 +48,9 @@ public class Enemy : MonoBehaviour
     public float currentHealth;
     public HealthBar healthBar;
 
+    [Header("Sprite")]
+    public GameObject enemySprite;
+
     
     
     void Awake()
@@ -55,6 +58,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
+        enemySprite.GetComponent<SpriteRenderer>().sprite = GameObject.Find("GameManager").GetComponent<GameManager>().GetCurrentEnemySprite();
     }
     
     void Update()
@@ -123,7 +127,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     void Chase()
     {
-        //agent.SetDestination(player.position);
+        agent.SetDestination(player.position);
     }
 
     /// <summary>
@@ -248,13 +252,4 @@ public class Enemy : MonoBehaviour
             walkPointSet = true;
         }
     }
-
-    //trigger when answer exit question wrong
-    public void HarderMode()
-    {
-        damage += 20;
-        currentHealth = maxHealth;
-
-    }
-
 }

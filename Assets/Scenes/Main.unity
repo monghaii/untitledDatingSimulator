@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -543,6 +543,9 @@ MonoBehaviour:
   characterImage: {fileID: 0}
   characterSO: {fileID: 11400000, guid: afc98ce7d87324ceea542285ba1c4fb8, type: 2}
   characterInterruptWithFPSAffectionThreshhold: 70
+  enemyData:
+  - {fileID: 11400000, guid: db3c3d48b0f4cbb49ab1cf31ef1d5bd9, type: 2}
+  - {fileID: 11400000, guid: 653838da4965ff742b4d1688ba81cd63, type: 2}
   winningScreen: {fileID: 0}
   currentDay: 1
   healthBar: {fileID: 0}

@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public Image characterImage;
     public Characters characterSO;
     public int characterInterruptWithFPSAffectionThreshhold = 70;
+    public List<EnemyData> enemyData;
     
     [Header("Dialogue")]
     private List<string> protectedNodeNames = new List<string> { "LOSE_", "INTERRUPT_", "FPS_", "EnterFPS", "ExitFPS", "DAY_" };
@@ -489,4 +490,11 @@ public class GameManager : MonoBehaviour
         Character character = characterSO.CharacterList.Find(c => c.CharacterName == currentCharacter);
         return character.CharacterImage(4);
     }
+
+    public EnemyData GetCurrentEnemyData()
+    {
+        EnemyData data = enemyData.Find(e => e.name == currentCharacter);
+        return data;
+    }
+    
 }

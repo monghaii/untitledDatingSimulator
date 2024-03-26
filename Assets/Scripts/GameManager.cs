@@ -284,7 +284,8 @@ public class GameManager : MonoBehaviour
         {
             // reload back into FPS_SUCCESS node
             dialogueRunnerInstance.StartDialogue("FPS_SUCCESS_" + currentCharacter);
-            SetCharacter(currentCharacter, 0);                                  
+            SetCharacter(currentCharacter, 0);
+            currentHealth = StartingHealth;
         }
         
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);

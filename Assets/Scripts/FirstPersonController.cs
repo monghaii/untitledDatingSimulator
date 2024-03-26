@@ -112,11 +112,14 @@ public class FirstPersonController : MonoBehaviour
 
     void Crouch()
     {
+        //Debug.Log("called crouch() function");
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
+            //Debug.Log("entered crouch");
             transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
             transform.position -= Vector3.down * startScale * crouchScale;
             //this.GetComponent<Rigidbody>().AddForce(Vector3.down * 3f, ForceMode.Impulse);
+            
         }
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {

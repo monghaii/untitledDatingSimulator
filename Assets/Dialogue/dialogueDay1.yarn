@@ -95,11 +95,13 @@ position: -327,-115
             -> I'm already taken, I'm with otheranimegirl
                 <<ChangeAffection GameManager animegirl -31>>
                 <<SetCharacter GameManager animegirl 1>>
+                <<LogAffectionChangingDialogue GameManager "negative">>
                 animegirl: My bad. I thought you were single.
                 (Wow that was close)
                 <<jump otheranimegirl>>
             -> I'm busy not hanging out with losers like you.
                 <<ChangeAffection GameManager animegirl -10>>
+                <<LogAffectionChangingDialogue GameManager "negative">>
                 animegirl: Oh, I see how it is.
                 <<SetCharacter GameManager animegirl 4>>
                 animegirl: You're...trying to fight, then?
@@ -114,6 +116,7 @@ position: -327,-115
                     <<jump PostShove>>
                 -> Look, I drank two gallons of expired milk and I'm about to blast off.
                     <<ChangeAffection GameManager animegirl -10>>
+                    <<LogAffectionChangingDialogue GameManager "negative">>
                     <<SetCharacter GameManager animegirl 1>>
                     <<set $has_gross_buff = true>>
                     animegirl: Ewww. Why were you drinking expired milk??? Oh god, I can smell it.
@@ -188,6 +191,7 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
     -> I was just trying to get her away from me. I can't stand her.
         <<SetCharacter GameManager otheranimegirl 4>>
         <<ChangeAffection GameManager otheranimegirl -20>>
+        <<LogAffectionChangingDialogue GameManager "negative">>
         otheranimegirl: She's actually my best friend and I take that personally.
         <<StartFPS GameManager>>
     -> Uh ... please leave me alone I just want to play Minecraft Pocket Edition
@@ -195,6 +199,7 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
     -> I'm a compulsive liar, I can't control it, I need help, please help me (help me help me help me)
         <<SetCharacter GameManager otheranimegirl 3>>
         <<ChangeAffection GameManager otheranimegirl -10>>
+        <<LogAffectionChangingDialogue GameManager "negative">>
         otheranimegirl: Not my circus not my monkeys, I'm gonna leave now.
         <<jump BackToFirstGirl>>
     -> AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
@@ -333,11 +338,13 @@ animegirl: I'm not going to let some silly little boy talk to me like that.
     -> Well, I'm not gonna let a dumb little girl tell me what to do!
         <<SetCharacter GameManager animegirl 4>>
         <<ChangeAffection GameManager animegirl -10>>
+        <<LogAffectionChangingDialogue GameManager "negative">>
         animegirl: I am going to MESS YOU UP.
         <<StartFPS GameManager>>
     -> I'm sorry, I was rude. I'm just having a really bad day.
         <<SetCharacter GameManager animegirl 0>>
         <<ChangeAffection GameManager animegirl 20>>
+        <<LogAffectionChangingDialogue GameManager "positive">>
         animegirl: Mmm...well, that's okay, I guess.
         animegirl: I think an argument every now and then is key to a healthy relationship.
         (Uh oh...)
@@ -384,11 +391,13 @@ otheranimegirl: is something wrong?
     -> I was just trying to get her away from me. I can't stand her.
             <<SetCharacter GameManager otheranimegirl 4>>
             <<ChangeAffection GameManager otheranimegirl -20>>
+            <<LogAffectionChangingDialogue GameManager "negative">>
             otheranimegirl: She's actually my best friend and I take that personally.
             <<StartFPS GameManager>>
     -> I'm just having a really bad day.
         <<SetCharacter GameManager otheranimegirl 0>>
         <<ChangeAffection GameManager otheranimegirl 20>>
+        <<LogAffectionChangingDialogue GameManager "positive">>
         otheranimegirl: Oh, I'm sorry to hear that. I hope things get better for you.
         <<jump DAY_SUCCESS>>
     -> I just want to play Halo Reach Legendary Edition Limited Edition Box Set. Please leave me alone.
@@ -556,13 +565,16 @@ position: -32,-518
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 1>>
 <<ChangeAffection GameManager otheranimegirl -10>>
+<<LogAffectionChangingDialogue GameManager "negative">>
 otheranimegirl: I don't understand...are you saying you don't like me? Don't you think I'm pretty?
     -> Honestly, you look like a dog's butt.
         <<ChangeAffection GameManager otheranimegirl -30>>
+        <<LogAffectionChangingDialogue GameManager "negative">>
         <<jump Danger>>
     -> I do think you're pretty, I just don't want a relationship.
         <<SetCharacter GameManager otheranimegirl 2>>
         <<ChangeAffection GameManager otheranimegirl 30>>
+        <<LogAffectionChangingDialogue GameManager "positive">>
         otheranimegirl: Wow, are you trying to politely and maturely communicate your feelings with me?
         otheranimegirl: That's so hot! I'm going to disregard everything you said after "I do think you're pretty".
         <<jump otheranimegirlFlirt>>
@@ -576,6 +588,7 @@ position: -32,-518
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 1>>
 <<ChangeAffection GameManager otheranimegirl -20>>
+<<LogAffectionChangingDialogue GameManager "negative">>
 otheranimegirl: Woah, what? You actually did that? I thought animegirl was just making that up because you rejected her or something.
 otheranimegirl: This whole time...I thought you were cute and cool. Now I'm totally grossed out.
 <<TakeDamage GameManager 5>>
@@ -596,6 +609,7 @@ otheranimegirl: You are SUCH a loser. I can't believe I wanted to ask you out!
     -> You have horrible taste in men, evidently.
         <<SetCharacter GameManager otheranimegirl 2>>
         <<ChangeAffection GameManager otheranimegirl 20>>
+        <<LogAffectionChangingDialogue GameManager "positive">>
         otheranimegirl: Huh. It sounds like you have extremely low self-esteem. I find that...quite attractive, actually.
         <<jump otheranimegirlFlirt>>
 
@@ -610,6 +624,7 @@ position: -32,-518
 otheranimegirl: So...what are you doing later? I was hoping we could go see a movie...
     -> The only movie I want to watch is Beverly Hills Chihuahua.
         <<ChangeAffection GameManager otheranimegirl 40>>
+        <<LogAffectionChangingDialogue GameManager "positive">>
         <<SetCharacter GameManager otheranimegirl 1>>
         otheranimegirl: That's so insanely weird...
         <<SetCharacter GameManager otheranimegirl 2>>
@@ -622,6 +637,7 @@ otheranimegirl: So...what are you doing later? I was hoping we could go see a mo
         <<jump DAY_SUCCESS_day2>>
     -> I'm actually going to see a movie with animegirl later.
         <<ChangeAffection GameManager otheranimegirl -20>>
+        <<LogAffectionChangingDialogue GameManager "negative">>
         <<SetCharacter GameManager otheranimegirl 4>>
         otheranimegirl: You're going out with my BEST FRIEND? You're scum. I can't believe you would do this to me.
         otheranimegirl: I expected this from her because she's a terrible person, but you? You betrayed me. I will end you.

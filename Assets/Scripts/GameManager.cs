@@ -386,6 +386,15 @@ public class GameManager : MonoBehaviour
 
         analytics_dayCounter++;
     }
+
+    [YarnCommand("LogAffectionChangingDialogue")]
+    public void LogAffectionChangingDialogue(string chosenLine)
+    {
+        var props = new Value();
+        props["Player Affection-Changing Dialogue Choice"] = chosenLine;
+        Analytics.LogAnalyticEvent("Player Affection-Changing Dialogue Choice", props);
+    }
+
     
     [YarnCommand("ProgressDay")]
     public void ProgressDay()

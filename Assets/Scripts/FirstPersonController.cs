@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using mixpanel;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -94,6 +95,11 @@ public class FirstPersonController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         move = transform.right * x + transform.forward * z;
+        
+        // track the first person position during FPS mode to make a heatmap
+        var props = new Value();
+        props["Player FPS Position on Map"] = transform.position;
+        Analytics.LogAnalyticEvent("Player FPS Position on Map", props);
     }
 
     void Jump()

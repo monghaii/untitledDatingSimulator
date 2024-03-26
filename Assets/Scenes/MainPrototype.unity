@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -539,18 +539,24 @@ MonoBehaviour:
   datingSimEventSystem: {fileID: 1497172646}
   dialogueRunnerInstance: {fileID: 0}
   FLAG_ENABLE_AFFECTION_INTERRUPT: 0
+  FLAG_DEV_DISABLE_LOGGING: 0
   characterImage: {fileID: 0}
   characterSO: {fileID: 11400000, guid: afc98ce7d87324ceea542285ba1c4fb8, type: 2}
   characterInterruptWithFPSAffectionThreshhold: 70
+  enemies:
+  - {fileID: 11400000, guid: e6caa31ea0f1cb84982cbdb2c16eae3c, type: 2}
+  - {fileID: 11400000, guid: 56586585ee1f86a4fbda7869bfd8d94c, type: 2}
   winningScreen: {fileID: 0}
   currentDay: 1
   healthBar: {fileID: 0}
+  maxHealth: 100
   StartingHealth: 100
   dayStart_health: 0
   dayStart_likability: 0
   backgroundImage: {fileID: 0}
   backgroundSO: {fileID: 11400000, guid: 9750abeeaf819fa488a9ab9f77ba0630, type: 2}
   FPScounter: 0
+  pauseMenu: 0
 --- !u!1 &985339901
 GameObject:
   m_ObjectHideFlags: 0

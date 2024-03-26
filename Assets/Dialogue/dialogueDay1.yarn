@@ -1,12 +1,10 @@
-title: Start
+title: dialogueDay1
 tags:
 position: 212,-726
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 <<Checkpoint GameManager>>
-
-
 
 /// variable declarations
 <<declare $been_shoved = false>>
@@ -29,7 +27,7 @@ position: 212,-726
             mysterious voice: thank you for your patronage...
         -> No. Please explain again.
             mysterious voice: ...what don't you understand?? Fine, i'll explain it again...
-            <<jump Start>>
+            <<jump dialogueDay1>>
     mysterious voice: now.... it's time to wake up......
 <<endif>>
 ...
@@ -40,7 +38,7 @@ i can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Ed
 <<jump BeginDay>>
 ===
 
-title: AnotherDay
+title: dialogueDay2
 tags:
 position: 212,-726
 ---
@@ -49,149 +47,8 @@ position: 212,-726
 <<SetCharacter GameManager me>>
 ah, another day, another dol- I mean chance to ruin my life and get in a relationship...
 I can't wait to keep playing Wii Sports Resort again..
-<<if $day == 1>>
-    <<set $day = 2>>
     I must stay vigilant and dodge these amorous vixens. Only then can I truly be happy and fulfilled.
-    <<jump DayTwoStart>>
-<<endif>>
-<<if $day == 2>>
-    <<set $day = 1>>
-    <<jump BeginDay>>
-<<endif>>
-===
-
-title: DayTwoStart
-tags:
-position: 211,-726
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 2>>
-<<SetBackground GameManager classroom>>
-otheranimegirl: Oh, hey! It's you! I've heard a lot about you...
-    -> Let me guess, you heard about the expired milk thing. <<if $has_gross_buff == true>>
-        <<jump EwThatWasTrue>>
-    -> I hope you didn't hear anything bad. I get bullied a lot...<<if $been_shoved == true>>
-        <<jump Tattle>>
-    -> Yeah, you've probably heard that I've been rejecting every dumb girl at this school.
-        otheranimegirl: Oooh, I love a challenge.
-        <<jump otheranimegirlFlirt>>
-    -> pineapple hurt mouth
-        <<jump Pineapple>>
-===
-
-title: Pineapple
-tags:
-position: -32,-518
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 1>>
-otheranimegirl: Pineapple...?
-    -> pineapple hurt mouth
-        otheranimegirl: I don't understand what's happening.
-            -> pineapple hurt mouth
-                otheranimegirl: ...I'm gonna go.
-                <<jump DAY_SUCCESS>>
-===
-
-title: Tattle
-tags:
-position: -32,-518
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 1>>
-otheranimegirl: Oh no! Poor baby...who bullies you?
-    -> Animegirl does! She shoved me, and I got a booboo.
-        otheranimegirl: Really?! She's my best friend...I can't believe she'd do this.
-        <<SetCharacter GameManager otheranimegirl 0>>
-        otheranimegirl: Here, I can give you a little "boost" so your booboos don't hurt so much anymore.
-        <<AddHealthBuff GameManager>>
-        <<TakeDamage GameManager -20>>
-        (She just injected me with something and I can feel my maximum health increasing. I feel totally amped!)
-        (And also kind of itchy and paranoid. It's probably fine.)
-        otheranimegirl: I got that off the internet with Bitcoin. It was $400, but hey, anything for you~
-        <<jump otheranimegirlFlirt>>
-    -> All of the girls at this dumb school keep bullying me for a date! I'm sick of it!
-        <<jump DontWantGirlfriend>>
-===
-
-title: DontWantGirlfriend
-tags:
-position: -32,-518
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 1>>
-<<ChangeAffection GameManager otheranimegirl -10>>
-otheranimegirl: I don't understand...are you saying you don't like me? Don't you think I'm pretty?
-    -> Honestly, you look like a dog's butt.
-        <<ChangeAffection GameManager otheranimegirl -30>>
-        <<jump Danger>>
-    -> I do think you're pretty, I just don't want a relationship.
-        <<SetCharacter GameManager otheranimegirl 2>>
-        <<ChangeAffection GameManager otheranimegirl 30>>
-        otheranimegirl: Wow, are you trying to politely and maturely communicate your feelings with me?
-        otheranimegirl: That's so hot! I'm going to disregard everything you said after "I do think you're pretty".
-        <<jump otheranimegirlFlirt>>
-
-===
-
-title: EwThatWasTrue
-tags:
-position: -32,-518
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 1>>
-<<ChangeAffection GameManager otheranimegirl -20>>
-otheranimegirl: Woah, what? You actually did that? I thought animegirl was just making that up because you rejected her or something.
-otheranimegirl: This whole time...I thought you were cute and cool. Now I'm totally grossed out.
-<<TakeDamage GameManager 5>>
-(I feel so bad about myself. The psychological damage is actually wounding me.)
-<<jump Danger>>
-===
-
-title: Danger
-tags:
-position: -32,-518
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 4>>
-otheranimegirl: You are SUCH a loser. I can't believe I wanted to ask you out!
-    -> If you did ask me out, I'd just reject you for being a smelly ugly weirdo.
-        otheranimegirl: Are you ready to be disemboweled? Because that's what's going to happen.
-        <<StartFPS GameManager>>
-    -> You have horrible taste in men, evidently.
-        <<SetCharacter GameManager otheranimegirl 2>>
-        <<ChangeAffection GameManager otheranimegirl 20>>
-        otheranimegirl: Huh. It sounds like you have extremely low self-esteem. I find that...quite attractive, actually.
-        <<jump otheranimegirlFlirt>>
-
-===
-
-title: otheranimegirlFlirt
-tags:
-position: -32,-518
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 2>>
-otheranimegirl: So...what are you doing later? I was hoping we could go see a movie...
-    -> The only movie I want to watch is Beverly Hills Chihuahua.
-        <<ChangeAffection GameManager otheranimegirl 40>>
-        <<SetCharacter GameManager otheranimegirl 1>>
-        otheranimegirl: That's so insanely weird...
-        <<SetCharacter GameManager otheranimegirl 2>>
-        otheranimegirl: ...because that is my absolute FAVORITE movie ever!!! I knew we were meant to be together!!!
-        otheranimegirl: I'm updating all my socials so everyone knows we're dating. I can't WAIT to get married to you!
-        (I'm done for...)
-        <<jump LOSE_got_relationship>>
-    -> I only watch Belgian arthouse films.
-        otheranimegirl: Yeah, I'm not into that. You have fun, though.
-        <<jump DAY_SUCCESS>>
-    -> I'm actually going to see a movie with animegirl later.
-        <<ChangeAffection GameManager otheranimegirl -20>>
-        <<SetCharacter GameManager otheranimegirl 4>>
-        otheranimegirl: You're going out with my BEST FRIEND? You're scum. I can't believe you would do this to me.
-        otheranimegirl: I expected this from her because she's a terrible person, but you? You betrayed me. I will end you.
-        <<StartFPS GameManager>>
-
+    <<jump Day2>>
 ===
 
 title: BeginDay
@@ -347,6 +204,15 @@ otheranimegirl: I heard you told animegirl that we were dating...is that true?
 title: LOSE_got_relationship
 position: -846,-52
 ---
+The next few years feels like a blur...
+First, she threw out all of my gaming consoles and forced me to get into hiking instead. Every day is torture.
+Next, she demanded that I major in Economics instead of Computer Science - Games.
+This coincided with the release of ChatNFT, which destroyed the job market for all business and finance-related professionals. I now make a living selling balloon animals.
+After the birth of our seventh child, we had to take out a third mortgage on our home.
+Finally, she made a very crass comment to my mother during a family picnic, which completely destroyed my relationship with my parents.
+I haven't seen them in years...
+It makes me wonder...wonder what life would be like if I never got into a relationship.
+
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -450,7 +316,7 @@ zzz
 zzz
 zzz
 <<LogDayEndAnalytics GameManager>>
-<<jump AnotherDay>>
+<<ProgressDay GameManager>>
 ===
 title: PostShove
 position: -812,296
@@ -626,5 +492,282 @@ animegirl: ... so what now?
     <<jump WhatsWrong>>
 -> i needa step outside...
     <<jump Outside>>
+<<StartFPS GameManager>>
+===
+
+title: Day2
+tags:
+position: 211,-726
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 2>>
+<<SetBackground GameManager classroom>>
+otheranimegirl: Oh, hey! It's you! I've heard a lot about you...
+    -> Let me guess, you heard about the expired milk thing. <<if $has_gross_buff == true>>
+        <<jump EwThatWasTrue>>
+    -> I hope you didn't hear anything bad. I get bullied a lot...<<if $been_shoved == true>>
+        <<jump Tattle>>
+    -> Yeah, you've probably heard that I've been rejecting every dumb girl at this school.
+        otheranimegirl: Oooh, I love a challenge.
+        <<jump otheranimegirlFlirt>>
+    -> pineapple hurt mouth
+        <<jump Pineapple>>
+===
+
+title: Pineapple
+tags:
+position: -32,-518
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 1>>
+otheranimegirl: Pineapple...?
+    -> pineapple hurt mouth
+        otheranimegirl: I don't understand what's happening.
+            -> pineapple hurt mouth
+                otheranimegirl: ...I'm gonna go.
+                <<jump DAY_SUCCESS_day2>>
+===
+
+title: Tattle
+tags:
+position: -32,-518
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 1>>
+otheranimegirl: Oh no! Poor baby...who bullies you?
+    -> Animegirl does! She shoved me, and I got a booboo.
+        otheranimegirl: Really?! She's my best friend...I can't believe she'd do this.
+        <<SetCharacter GameManager otheranimegirl 0>>
+        otheranimegirl: Here, I can give you a little "boost" so your booboos don't hurt so much anymore.
+        <<AddHealthBuff GameManager>>
+        <<TakeDamage GameManager -20>>
+        (She just injected me with something and I can feel my maximum health increasing. I feel totally amped!)
+        (And also kind of itchy and paranoid. It's probably fine.)
+        otheranimegirl: I got that off the internet with Bitcoin. It was $400, but hey, anything for you~
+        <<jump otheranimegirlFlirt>>
+    -> All of the girls at this dumb school keep bullying me for a date! I'm sick of it!
+        <<jump DontWantGirlfriend>>
+===
+
+title: DontWantGirlfriend
+tags:
+position: -32,-518
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 1>>
+<<ChangeAffection GameManager otheranimegirl -10>>
+otheranimegirl: I don't understand...are you saying you don't like me? Don't you think I'm pretty?
+    -> Honestly, you look like a dog's butt.
+        <<ChangeAffection GameManager otheranimegirl -30>>
+        <<jump Danger>>
+    -> I do think you're pretty, I just don't want a relationship.
+        <<SetCharacter GameManager otheranimegirl 2>>
+        <<ChangeAffection GameManager otheranimegirl 30>>
+        otheranimegirl: Wow, are you trying to politely and maturely communicate your feelings with me?
+        otheranimegirl: That's so hot! I'm going to disregard everything you said after "I do think you're pretty".
+        <<jump otheranimegirlFlirt>>
+
+===
+
+title: EwThatWasTrue
+tags:
+position: -32,-518
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 1>>
+<<ChangeAffection GameManager otheranimegirl -20>>
+otheranimegirl: Woah, what? You actually did that? I thought animegirl was just making that up because you rejected her or something.
+otheranimegirl: This whole time...I thought you were cute and cool. Now I'm totally grossed out.
+<<TakeDamage GameManager 5>>
+(I feel so bad about myself. The psychological damage is actually wounding me.)
+<<jump Danger>>
+===
+
+title: Danger
+tags:
+position: -32,-518
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 4>>
+otheranimegirl: You are SUCH a loser. I can't believe I wanted to ask you out!
+    -> If you did ask me out, I'd just reject you for being a smelly ugly weirdo.
+        otheranimegirl: Are you ready to be disemboweled? Because that's what's going to happen.
+        <<StartFPS GameManager>>
+    -> You have horrible taste in men, evidently.
+        <<SetCharacter GameManager otheranimegirl 2>>
+        <<ChangeAffection GameManager otheranimegirl 20>>
+        otheranimegirl: Huh. It sounds like you have extremely low self-esteem. I find that...quite attractive, actually.
+        <<jump otheranimegirlFlirt>>
+
+===
+
+title: otheranimegirlFlirt
+tags:
+position: -32,-518
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 2>>
+otheranimegirl: So...what are you doing later? I was hoping we could go see a movie...
+    -> The only movie I want to watch is Beverly Hills Chihuahua.
+        <<ChangeAffection GameManager otheranimegirl 40>>
+        <<SetCharacter GameManager otheranimegirl 1>>
+        otheranimegirl: That's so insanely weird...
+        <<SetCharacter GameManager otheranimegirl 2>>
+        otheranimegirl: ...because that is my absolute FAVORITE movie ever!!! I knew we were meant to be together!!!
+        otheranimegirl: I'm updating all my socials so everyone knows we're dating. I can't WAIT to get married to you!
+        (I'm done for...)
+        <<jump LOSE_got_relationship_day2>>
+    -> I only watch Belgian arthouse films.
+        otheranimegirl: Yeah, I'm not into that. You have fun, though.
+        <<jump DAY_SUCCESS_day2>>
+    -> I'm actually going to see a movie with animegirl later.
+        <<ChangeAffection GameManager otheranimegirl -20>>
+        <<SetCharacter GameManager otheranimegirl 4>>
+        otheranimegirl: You're going out with my BEST FRIEND? You're scum. I can't believe you would do this to me.
+        otheranimegirl: I expected this from her because she's a terrible person, but you? You betrayed me. I will end you.
+        <<StartFPS GameManager>>
+
+===
+
+title: LOSE_got_relationship_day2
+position: -846,-52
+---
+The next few years feels like a blur...
+First, she decided to embrace a technology-free lifestyle. I now live by candlelight and have nearly died of E. coli four times from eating unrefrigerated meats.
+Next, she committed wire fraud in my name and demanded I take the fall for it. I spent twelve years in prison.
+Those twelve years were probably the highlight of my life...
+After my release from prison, she insisted that we refinance our home to start a business making artisinal cheeses.
+Three weeks after the failure of Oasis Meadow Moonglow Cheeses© due to multiple food poisoning-related deaths, she left the back door open and my dog ran away.
+I haven't seen him since...
+It makes me wonder...wonder what life would be like if I never got into a relationship.
+
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+...
+GASP
+omg, what happened?
+what a nightmare... I got into a relationship??
+I hope that never happens again...
+<<jump Day2>>
+===
+
+
+title: transitionBack_day2
+position: -288,-555
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+<<RefreshHealth GameManager -1>>
+...
+GASP
+omg, what happened?
+what a nightmare... I remembered fighting something??
+That's probably just a bad dream... Anyways I should get back!
+<<jump Day2>>
+===
+
+title: EnterFPS_day2
+position: -521,-719
+---
+<<Checkpoint GameManager>>
+...
+Aghhh! These girls are feisty!
+Next Line
+<<ResumeFPS GameManager>>
+===
+
+title: ExitFPS_day2
+position: -289,-723
+---
+<<Checkpoint GameManager>>
+yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
+    -> I admit defeat, I am, in fact, trash.
+        <<EndFPS GameManager false>>
+    -> As long as you're happy, I can be anything. Please, give me one more chance.
+        // -1 here represents setting to StartingHealth
+        <<RefreshHealth GameManager -1>>
+        <<ResumeFPS GameManager>>
+===
+
+title: FPS_SUCCESS_animegirl_day2
+position: -757,-721
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager classroom>>
+animegirl: ...
+animegirl: wait, I think I spaced out.. what happened??
+    -> No idea.
+        animegirl: oh, teehee!
+        animegirl: anyways...
+    -> You went insane and tried to kill me!!
+        animegirl: i don't remember that at all...
+        animegirl: anyways...
+<<ContinueFromPreFPSNode GameManager>>
+===
+
+title: FPS_SUCCESS_otheranimegirl_day2
+position: -757,-721
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager classroom>>
+otheranimegirl: ...
+otheranimegirl: zomglol, im confuzzled? wut happened uwu??
+    -> Bruh.
+        otheranimegirl: uwuwuwu
+        otheranimegirl: anyways...
+    -> You went insane and tried to kill me!!
+        otheranimegirl: oWo? otheranimegirl doesn't remember that...
+        otheranimegirl: anyways...
+<<ContinueFromPreFPSNode GameManager>>
+===
+
+title: DAY_SUCCESS_day2
+position: 194,777
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager me>>
+bell: ring ring ring , yuh
+...
+class is over?
+couldn't end sooner!
+
+<<SetBackground GameManager home>>
+<<SetCharacter GameManager me>>
+Wait...it's the end of the semester.
+And I'm...still single! I did it!
+I can follow my dreams now...
+I can invest in crypto!
+I can buy NFTs!
+I can play video games all I want!
+And best of all...I can stop spending 40 hours a week training at the gym just so I can have a chance at defending myself against these girls!
+For the first time in ages, the future feels bright...
+<<ProgressDay GameManager>>
+===
+
+title: INTERRUPT_LOW_AFFECTION_animegirl_day2
+position: -978,-725
+---
+<<Checkpoint GameManager>>
+animegirl: you know what playerName, you're actually kind of DISGUSTING.
+animegirl: I need to wipe you off the face of this earth.
+-> Oh no.
+-> Oh no.
+-> Oh no.
+-> Oh no.
+<<StartFPS GameManager>>
+===
+
+title: INTERRUPT_LOW_AFFECTION_otheranimegirl_day2
+position: -981,-574
+---
+<<Checkpoint GameManager>>
+otheranimegirl: u know, i'm kinda weird with the uwo owo stuff, but you're even weirder
+otheranimegirl: Looks like the only next step is to hurt you <3<3 physically ~ <3
+-> Oh no.
+-> Oh no.
+-> Oh no.
+-> Oh no.
 <<StartFPS GameManager>>
 ===

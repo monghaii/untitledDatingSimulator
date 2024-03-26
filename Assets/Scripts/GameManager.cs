@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private string currentNode = "Start";       // for returning to dialogue after successfully exiting FPS
     private int dialogueLineToReturn = 0;   // for returning to dialogue after successfully exiting FPS
     private string dialogueNodeToReturn = "";   // for returning to dialogue after successfully exiting FPS
+    private string dialogueNodeSelect = "";
+    private string levelToLoad = "";
 
     [Header("GAME FEATURE FLAGS (IMPORTANT)")]
     public bool FLAG_ENABLE_AFFECTION_INTERRUPT;
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
     // Magic numbers here are placeholders
     [Header("Attributes")] 
     public int currentDay = 1;
-    public const int MaxDays = 1;
+    public const int MaxDays = 2;
     // NOTE: naming convention for different day dialogues
     // dialogueDay + Number
     // e.g. dialogueDay2
@@ -113,6 +115,18 @@ public class GameManager : MonoBehaviour
         currentLikability = StartingLikability;
         dayStart_health = currentHealth;
         dayStart_likability = currentLikability;
+        levelToLoad = GameObject.Find("MainMenuCanvas").GetComponent<MainMenu>().GetSelectedLevel();
+        currentDay = GameObject.Find("MainMenuCanvas").GetComponent<MainMenu>().GetSelectedDay();
+        SceneManager.UnloadSceneAsync("MainMenu");
+        if (levelToLoad != "")
+        {
+            currentNode = levelToLoad;
+        }
+        else
+        {
+            currentNode = "dialogueDay1";
+        }
+        dialogueRunnerInstance.StartDialogue(currentNode);
         
         Analytics.LogAnalyticEvent("Gameplay Started");
     }
@@ -380,13 +394,16 @@ public class GameManager : MonoBehaviour
         if (currentDay == MaxDays)
         {
             // TODO: determine winning and losing, showing winning as default now.
-            ShowEndScreen("winning");
+            dialogueRunnerInstance.Dialogue.DialogueCompleteHandler();
+            //ShowEndScreen("winning");
+            SceneManager.LoadScene("WinGame", LoadSceneMode.Additive);
         }
         else
         {
             currentDay++;
             dayStart_health = currentHealth;
             dayStart_likability = currentLikability;
+            dialogueRunnerInstance.Stop();
             dialogueRunnerInstance.StartDialogue("dialogueDay" + currentDay);
         }
     }

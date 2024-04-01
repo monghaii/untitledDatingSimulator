@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
         damage = data.damage;
         maxHealth = data.maxHealth;
         currentHealth = maxHealth;
-
+        agent.speed = data.moveSpeed;
     }
     
     void Update()

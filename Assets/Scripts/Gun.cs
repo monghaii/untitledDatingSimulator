@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -11,13 +12,24 @@ public class Gun : MonoBehaviour
     public float range = 100f;
     public float knockbackForce = 30f;
     public float fireRate = 15f;
+    public float maxAmmo = 10f;
+    private float ammo;
+    public TMP_Text ammoUI;
+    public GameObject reloadMsg;
     private float nextTimeToFire = 0f;
+    public float reloadTime = 1f;
     private List<GameObject> bulletPool;    //this is for if we want actual bullets, rn its just playing an effect at hit location :')
     
     [Header("Effects")]
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
 
+    void Start()
+    {
+        ammo = maxAmmo;
+        reloadMsg.SetActive(false);
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,15 +37,36 @@ public class Gun : MonoBehaviour
         {
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButton("Fire1"))
         {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            Shoot();
+            if (ammo <= 0)
+            {
+                // play empty gun sfx
+                // display reload message
+                StartCoroutine(PlayReloadMessage());
+            }
+            else if (Time.time >= nextTimeToFire)
+            {
+                // shooting
+                nextTimeToFire = Time.time + 1f / fireRate;
+                Shoot();
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            // reload
+            ammo = maxAmmo;
+            ammoUI.text = "" + ammo;
+            nextTimeToFire = reloadTime;
         }
     }
 
     private void Shoot()
     {
+        // decrease ammo
+        ammo--;
+        ammoUI.text = "" + ammo;
+        
         //play sfx
         AudioManager.Instance.PlaySFX(AudioManager.Instance.sfx_GunFire, this.gameObject);
         
@@ -62,5 +95,12 @@ public class Gun : MonoBehaviour
             Destroy(vfxImpact, 0.2f);
         }
 
+    }
+
+    IEnumerator PlayReloadMessage()
+    {
+        reloadMsg.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        reloadMsg.SetActive(false);
     }
 }

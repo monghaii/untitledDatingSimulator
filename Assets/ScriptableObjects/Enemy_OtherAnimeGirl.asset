@@ -15,6 +15,7 @@ MonoBehaviour:
   name: otheranimegirl
   meleeRange: 0
   rangedRange: 5
-  timeBetweenAttacks: 0.2
-  damage: 5
-  maxHealth: 150
+  timeBetweenAttacks: 1
+  damage: 20
+  maxHealth: 100
+  moveSpeed: 20

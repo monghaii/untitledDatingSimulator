@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
@@ -138,6 +139,7 @@ public class Tutorial : MonoBehaviour
                     {
                         queuedInvoke = true;
                         Invoke("EndGameUI", 2.0f);
+                        Invoke("LoadFPS", 4.0f);
                     }
                 }
                 else if (!queuedInvoke)
@@ -173,5 +175,11 @@ public class Tutorial : MonoBehaviour
     {
         slides[currSlideIdx].SetActive(false);
         slides[slides.Length-1].SetActive(true);
+    }
+
+    void LoadFPS()
+    {
+        SceneManager.UnloadSceneAsync("FPSTutorial");
+        SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
     }
 }

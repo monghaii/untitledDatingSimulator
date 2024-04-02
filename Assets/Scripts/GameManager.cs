@@ -84,7 +84,9 @@ public class GameManager : MonoBehaviour
     // Analytics
     private int analytics_dayCounter = 1;
     private int analytics_timesFPSEnteredThisDay = 0;
-    
+
+    //for tutorial use 
+    private bool firstFPS = true;
 
     private void Awake()
     {
@@ -219,13 +221,24 @@ public class GameManager : MonoBehaviour
         backgroundImage.enabled = false;
 
         dialogueRunnerInstance.Stop();
-        // load in fps scene
-        SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
-        
-        //switch music
-        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
-        PauseFPS();
-        dialogueRunnerInstance.StartDialogue("EnterFPS");
+
+        if (firstFPS)
+        {
+            //load tutorial first
+            SceneManager.LoadScene("FPSTutorial", LoadSceneMode.Additive);
+            Cursor.lockState = CursorLockMode.Locked;
+            firstFPS = false;
+        }
+        else
+        {
+            // load in fps scene
+            SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
+
+            //switch music
+            MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
+            PauseFPS();
+            dialogueRunnerInstance.StartDialogue("EnterFPS");
+        }
     }
 
     public void ExitDialogue()

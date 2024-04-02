@@ -226,6 +226,17 @@ public class GameManager : MonoBehaviour
         MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
         PauseFPS();
         dialogueRunnerInstance.StartDialogue("EnterFPS");
+        
+        // analytics: get level name
+        GameObject player = GameObject.Find("Player");
+        FirstPersonController playerController = player.GetComponent<FirstPersonController>();
+        if (playerController)
+        {
+            Debug.Log("heat map: resetting level name");
+            playerController.playerHeatMap.levelName = SceneManager.GetActiveScene().name;
+        }
+
+        
     }
 
     public void ExitDialogue()
@@ -293,6 +304,23 @@ public class GameManager : MonoBehaviour
         // unload fps scene
         Cursor.lockState = CursorLockMode.None;
         SceneManager.UnloadSceneAsync("FPSScene");
+        
+        // analytics: submit the heatmap analytics for the FPS session
+        GameObject player = GameObject.Find("Player");
+        if (player)
+        {
+            FirstPersonController playerController = player.GetComponent<FirstPersonController>();
+            if (playerController.playerHeatMap.playerPosition.Count > 0)
+            {
+                Debug.Log("heat map: sending heatmap data to mixpanel");
+                var props = new Value();
+                string jsonData = JsonUtility.ToJson(playerController.playerHeatMap);
+                props["heatmap"] = jsonData;
+                Analytics.LogAnalyticEvent("position heatmap per level", props);
+                playerController.playerHeatMap.playerPosition.Clear();
+                playerController.playerHeatMap.levelName = "";
+            }
+        }
     }
 
     [YarnCommand("ContinueFromPreFPSNode")]

@@ -21,6 +21,9 @@ public class FirstPersonManager : MonoBehaviour
 
     public DialogueRunner dialogueRunnerInstance;
 
+    [SerializeField]
+    private bool isTutorial = false;
+
     private void Awake()
     {
         instance = this;
@@ -33,7 +36,11 @@ public class FirstPersonManager : MonoBehaviour
         //Time.timeScale = 0;
         // Todo: have it read from the game manager instead??
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        enemyInstance = GameObject.Find("Enemy").GetComponent<Enemy>();
+        if(!isTutorial)
+        {
+            enemyInstance = GameObject.Find("Enemy").GetComponent<Enemy>();
+        }
+        
         /*else
         {
             currentHealth = maxHealth;
@@ -52,10 +59,14 @@ public class FirstPersonManager : MonoBehaviour
             gm.currentHealth = 0.01f;
             GameManager.instance.ExitDialogue();
         }
-        if (enemyInstance.currentHealth <= 0.0f)
+        if(!isTutorial)
         {
-            isDead = true;
+            if (enemyInstance.currentHealth <= 0.0f)
+            {
+                isDead = true;
+            }
         }
+
         
         if (isDead)
         {

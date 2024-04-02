@@ -69,7 +69,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void SetMasterVolume(float volume)

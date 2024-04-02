@@ -19,6 +19,10 @@ public class Tutorial : MonoBehaviour
     }
     private TutorialStep curStep = TutorialStep.NotStarted;
     private Dictionary<KeyCode, bool> inputDetected;
+    bool wDetected = false;
+    bool aDetected = false;
+    bool sDetected = false;
+    bool dDetected = false;
     private bool queuedInvoke = false;
     public TextMeshProUGUI Movement;
     public TextMeshProUGUI Shoot;
@@ -51,28 +55,32 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("cur step: " + curStep);
+        //Debug.Log("cur step: " + curStep);
         switch (curStep)
         {
             case TutorialStep.Movement:
                 //slides[currSlideIdx++].SetActive(true);
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    inputDetected[KeyCode.W] = true;
+                    //inputDetected[KeyCode.W] = true;
+                    wDetected = true;
                 }
                 if (Input.GetKeyDown(KeyCode.A))
                 {
-                    inputDetected[KeyCode.A] = true;
+                    aDetected = true;
+                    //inputDetected[KeyCode.A] = true;
                 }
                 if (Input.GetKeyDown(KeyCode.S))
                 {
-                    inputDetected[KeyCode.S] = true;
+                    sDetected = true;
+                    //inputDetected[KeyCode.S] = true;
                 }
                 if (Input.GetKeyDown(KeyCode.D))
                 {
-                    inputDetected[KeyCode.D] = true;
+                    dDetected = true;
+                    //inputDetected[KeyCode.D] = true;
                 }
-                if (inputDetected[KeyCode.W] && inputDetected[KeyCode.A] && inputDetected[KeyCode.S] && inputDetected[KeyCode.D])
+                if (wDetected && aDetected && sDetected && dDetected)
                 {
                     Movement.color = Pass;
                     if (!queuedInvoke)

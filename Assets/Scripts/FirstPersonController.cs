@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using mixpanel;
+using UnityEngine.SceneManagement;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -36,10 +37,15 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 move;
     public float jumpHeight;
 
+    public HeatmapData playerHeatMap;
+    private float heatMapTimer = 4.0f;
+
 
     void Start()
     {
         startScale = transform.localScale.y;
+        playerHeatMap = new HeatmapData();
+        playerHeatMap.levelName = SceneManager.GetActiveScene().name;
     }
     
     // Update is called once per frame
@@ -60,6 +66,18 @@ public class FirstPersonController : MonoBehaviour
         // apply updates to player controller
         controller.Move(move * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+        
+        // analytics: add player position data every 8 seconds
+        if (!FirstPersonManager.isFpsPaused)
+        {
+            heatMapTimer -= Time.deltaTime;
+            if (heatMapTimer <= 0.0f)
+            {
+                Debug.Log("heat map: LOGGING PLAYER POSITION");
+                heatMapTimer = 4.0f;
+                playerHeatMap.playerPosition.Add(transform.position);
+            }
+        }
     }
 
     void CheckState()
@@ -95,11 +113,6 @@ public class FirstPersonController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         move = transform.right * x + transform.forward * z;
-        
-        // track the first person position during FPS mode to make a heatmap
-        var props = new Value();
-        props["Player FPS Position on Map"] = transform.position;
-        Analytics.LogAnalyticEvent("Player FPS Position on Map", props);
     }
 
     void Jump()

@@ -36,3 +36,10 @@ public class Analytics : MonoBehaviour
         Mixpanel.Track(eventName, properties);
     }
 }
+
+public class HeatmapData
+{
+    public List<Vector3> playerPosition = new List<Vector3>();
+    public string levelName;
+}
+

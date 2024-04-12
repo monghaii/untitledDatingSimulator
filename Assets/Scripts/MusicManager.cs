@@ -31,13 +31,12 @@ public class MusicManager : MonoBehaviour
     
     public void PlayMusic(AudioClip musicClip)
     {
-        // TODO UNCOMMENT LATER
-        // if (musicSource.isPlaying)
-        // {
-        //     musicSource.Stop();
-        // }
-        // musicSource.clip = musicClip;
-        // musicSource.Play();
+        if (musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+        musicSource.clip = musicClip;
+        musicSource.Play();
     }
     
     // Start is called before the first frame update

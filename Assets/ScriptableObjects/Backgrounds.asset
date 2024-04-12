@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundList:
   - backgroundName: classroom
-    backgroundImage: {fileID: 21300000, guid: 89ed0927ca96b4f91b281d92df5a2dba, type: 3}
+    backgroundImage: {fileID: 21300000, guid: 81432ca36b2839740962636ba1f1387d, type: 3}
   - backgroundName: courtyard
-    backgroundImage: {fileID: 21300000, guid: 78c52490b9f744ea2aaf7ee6d03b55d4, type: 3}
+    backgroundImage: {fileID: 21300000, guid: 5f388605a75c7a0499706ef1f9aaa6d8, type: 3}
   - backgroundName: home
     backgroundImage: {fileID: 21300000, guid: 0e0586d9de8cb40f4898e37a06366db1, type: 3}
+  - backgroundName: black
+    backgroundImage: {fileID: 21300000, guid: a8a103e9d1f28ce45a2d76e0f89f0715, type: 3}

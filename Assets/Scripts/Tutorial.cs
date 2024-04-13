@@ -123,7 +123,7 @@ public class Tutorial : MonoBehaviour
                 }
                 break;
             case TutorialStep.Crouch:
-                if (Input.GetKeyDown(KeyCode.LeftControl))
+                if (Input.GetKeyDown(KeyCode.C))
                 {
                     Crouch.color = Pass;
                     CrouchHint.color = Pass;

@@ -22,7 +22,7 @@ public class FirstPersonController : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
-    private bool isGrounded;
+    public bool isGrounded;
 
     [Header("Movement")] 
     public MoveState moveState;
@@ -88,7 +88,7 @@ public class FirstPersonController : MonoBehaviour
             moveState = MoveState.Sprint;
             speed = sprintSpeed;
         }
-        else if (isGrounded && Input.GetKeyDown(KeyCode.LeftControl))
+        else if (isGrounded && Input.GetKeyDown(KeyCode.C))
         {
             // CROUCHING (hold)
             moveState = MoveState.Crouch;
@@ -126,7 +126,7 @@ public class FirstPersonController : MonoBehaviour
     void Crouch()
     {
         //Debug.Log("called crouch() function");
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             //Debug.Log("entered crouch");
             transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
@@ -134,7 +134,7 @@ public class FirstPersonController : MonoBehaviour
             //this.GetComponent<Rigidbody>().AddForce(Vector3.down * 3f, ForceMode.Impulse);
             
         }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.C))
         {
             transform.localScale = new Vector3(transform.localScale.x, startScale, transform.localScale.z);
         }

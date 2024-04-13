@@ -131,9 +131,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -459,9 +471,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -657,6 +681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_01_01
       objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -731,9 +759,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -969,6 +1009,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cardboard_01_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 142210, guid: f11674a0af2df92499b933f6332f1ffb, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 435564, guid: f11674a0af2df92499b933f6332f1ffb, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.848418
@@ -1203,6 +1247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cardboard_01_01
       objectReference: {fileID: 0}
+    - target: {fileID: 142210, guid: f11674a0af2df92499b933f6332f1ffb, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 435564, guid: f11674a0af2df92499b933f6332f1ffb, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.848419
@@ -1277,9 +1325,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -1397,7 +1457,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 704
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -1632,9 +1692,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -1867,9 +1939,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -2179,6 +2263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_01_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -2257,6 +2345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_01_01 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -2331,9 +2423,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -2409,9 +2513,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -2596,6 +2712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: School_bag_B_01_01
       objectReference: {fileID: 0}
+    - target: {fileID: 153508, guid: ad628aae90ba54a4d9b168c9a778b9a0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 406918, guid: ad628aae90ba54a4d9b168c9a778b9a0, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -2673,6 +2793,10 @@ PrefabInstance:
     - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_Name
       value: Floor_01_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
@@ -3125,9 +3249,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -3882,6 +4018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_01_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -3960,6 +4100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_01_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -4037,6 +4181,10 @@ PrefabInstance:
     - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_Name
       value: Floor_01_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
@@ -4190,9 +4338,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -4276,6 +4436,10 @@ PrefabInstance:
     - target: {fileID: 140218, guid: 22c100fbd1d37f445a5ea7935c024ef5, type: 3}
       propertyPath: m_Name
       value: Teachers_desk_01_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 140218, guid: 22c100fbd1d37f445a5ea7935c024ef5, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 484564, guid: 22c100fbd1d37f445a5ea7935c024ef5, type: 3}
       propertyPath: m_LocalScale.x
@@ -4433,6 +4597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_01_01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -4510,6 +4678,10 @@ PrefabInstance:
     - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_Name
       value: Floor_01_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 156920, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 450772, guid: 440bd9c14837fcc448a042ff4225f950, type: 3}
       propertyPath: m_LocalScale.x
@@ -4741,9 +4913,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -5033,9 +5217,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -5721,10 +5917,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1747111816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 42.2}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 50.5}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786203383
 MonoBehaviour:
@@ -5746,10 +5942,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: need to reload!!!
+  m_text: press R to reload!!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bd1adc8fa8dc2a8469098a5fed37f272, type: 2}
+  m_sharedMaterial: {fileID: -3735075576563124390, guid: bd1adc8fa8dc2a8469098a5fed37f272, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5773,8 +5969,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5965,9 +6161,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -6092,8 +6300,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nMove: WASD          Crouch: Left Ctrl\nShoot: Left Mouse Button\nR:
-    Reload\t\t  \t\n\n"
+  m_text: "\nMove: WASD          Crouch: C\nShoot: Left Mouse Button\nReload: R\t\t 
+    \t\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd1adc8fa8dc2a8469098a5fed37f272, type: 2}
   m_sharedMaterial: {fileID: -3735075576563124390, guid: bd1adc8fa8dc2a8469098a5fed37f272, type: 2}
@@ -6787,9 +6995,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -6868,6 +7088,10 @@ PrefabInstance:
     - target: {fileID: 142210, guid: f11674a0af2df92499b933f6332f1ffb, type: 3}
       propertyPath: m_Name
       value: Cardboard_01_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 142210, guid: f11674a0af2df92499b933f6332f1ffb, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 435564, guid: f11674a0af2df92499b933f6332f1ffb, type: 3}
       propertyPath: m_LocalScale.x
@@ -7021,9 +7245,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -7099,9 +7335,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964857754}
     m_Modifications:
+    - target: {fileID: 124164, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_Name
       value: School_desk_chair_01_SS
+      objectReference: {fileID: 0}
+    - target: {fileID: 163432, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167620, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 465836, guid: 74a28fccea1800f4dbf955d0c25549d7, type: 3}
       propertyPath: m_LocalScale.x

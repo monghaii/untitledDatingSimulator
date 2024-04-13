@@ -15,7 +15,7 @@ MonoBehaviour:
   name: animegirl
   meleeRange: 0
   rangedRange: 10
-  timeBetweenAttacks: 0.25
+  timeBetweenAttacks: 5
   damage: 10
   maxHealth: 100
   moveSpeed: 7

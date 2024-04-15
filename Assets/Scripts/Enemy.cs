@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     private bool playerInMeleeRange, playerInRangedRange;
     public GameObject projectilePrefab;
     public float damage = 10f;
+    public List<GameObject> projectilePrefabs;
 
     [Header("Health")] 
     public float maxHealth = 100f;
@@ -66,6 +67,7 @@ public class Enemy : MonoBehaviour
         maxHealth = data.maxHealth;
         currentHealth = maxHealth;
         agent.speed = data.moveSpeed;
+        projectilePrefabs = data.projectilePrefabs;
     }
     
     void Update()
@@ -171,17 +173,17 @@ public class Enemy : MonoBehaviour
     
     void RangedAttack()
     {
+        // choose projectile
+        int projectileIndex = Random.Range(0, projectilePrefabs.Count - 1);
+        
         // spawn projectile
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefabs[projectileIndex], transform.position, Quaternion.identity);
         projectile.GetComponent<Projectile>().enemy = this;
         Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
         
         // shoot towards player
         projectileRB.AddForce(transform.forward * 32f, ForceMode.Impulse);
         projectileRB.AddForce(transform.up * 8f, ForceMode.Impulse);
-        
-        // destroy
-        Destroy(projectile, 2f);
         
         // reset
         alreadyAttacked = true;

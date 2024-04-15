@@ -31,6 +31,10 @@ public class FirstPersonController : MonoBehaviour
     public float crouchScale;
     private float startScale;
     public float sprintSpeed = 15f;
+    private float gunStartScale;
+    private float gunStartY;
+    private float gunCrouchY = -0.5f;
+    public GameObject gun;
     
     private float speed;
     private Vector3 velocity;
@@ -44,6 +48,8 @@ public class FirstPersonController : MonoBehaviour
     void Start()
     {
         startScale = transform.localScale.y;
+        gunStartScale = gun.transform.localScale.y;
+        gunStartY = gun.transform.localPosition.y;
         playerHeatMap = new HeatmapData();
         playerHeatMap.levelName = SceneManager.GetActiveScene().name;
     }
@@ -131,12 +137,16 @@ public class FirstPersonController : MonoBehaviour
             //Debug.Log("entered crouch");
             transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
             transform.position -= Vector3.down * startScale * crouchScale;
-            //this.GetComponent<Rigidbody>().AddForce(Vector3.down * 3f, ForceMode.Impulse);
-            
+            gun.transform.localScale = new Vector3(gun.transform.localScale.x, gunStartScale / crouchScale, gun.transform.localScale.z);
+            gun.transform.localPosition =
+                new Vector3(gun.transform.localPosition.x, gunCrouchY, gun.transform.localPosition.z);
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
             transform.localScale = new Vector3(transform.localScale.x, startScale, transform.localScale.z);
+            gun.transform.localScale = new Vector3(gun.transform.localScale.x, gunStartScale, gun.transform.localScale.z);
+            gun.transform.localPosition =
+                new Vector3(gun.transform.localPosition.x, gunStartY, gun.transform.localPosition.z);
         }
         
     }

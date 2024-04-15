@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4293430476982338814}
   - component: {fileID: 2169673212688026759}
   - component: {fileID: 3590797856672237776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 2
+  canSeePlayer: 1
   agent: {fileID: 2169673212688026759}
   player: {fileID: 0}
   groundMask:
@@ -129,6 +130,9 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 0
   rageSpeedMultiplier: 0
   walkPointRange: 5
@@ -136,8 +140,12 @@ MonoBehaviour:
   rangedRange: 10
   timeBetweenAttacks: 0.5
   projectilePrefab: {fileID: 8125584989314949478, guid: fa201bd10495c144fbbada5600378005, type: 3}
+  damage: 10
+  projectilePrefabs: []
   maxHealth: 100
   currentHealth: 0
+  healthBar: {fileID: 0}
+  enemySprite: {fileID: 0}
 --- !u!1 &1034683564610764639
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6417634279524748449}
   - component: {fileID: 6377731047963879696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8026493707346704628}
   - component: {fileID: 2104013263940745873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

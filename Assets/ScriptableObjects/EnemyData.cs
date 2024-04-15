@@ -13,4 +13,5 @@ public class EnemyData : ScriptableObject
     public float maxHealth;
     public float moveSpeed;
     public List<GameObject> projectilePrefabs;
+    public bool weaponEnabled;
 }

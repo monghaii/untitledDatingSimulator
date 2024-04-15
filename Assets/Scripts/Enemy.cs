@@ -40,9 +40,9 @@ public class Enemy : MonoBehaviour
     public float timeBetweenAttacks;
     private bool alreadyAttacked;
     private bool playerInMeleeRange, playerInRangedRange;
-    public GameObject projectilePrefab;
     public float damage = 10f;
     public List<GameObject> projectilePrefabs;
+    public GameObject weapon;
 
     [Header("Health")] 
     public float maxHealth = 100f;
@@ -68,6 +68,7 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         agent.speed = data.moveSpeed;
         projectilePrefabs = data.projectilePrefabs;
+        weapon.SetActive(data.weaponEnabled);
     }
     
     void Update()

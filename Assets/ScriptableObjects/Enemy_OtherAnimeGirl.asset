@@ -20,4 +20,5 @@ MonoBehaviour:
   maxHealth: 100
   moveSpeed: 20
   projectilePrefabs:
-  - {fileID: 5280051109225172846, guid: 8f7337f43511fd64384768057753d393, type: 3}
+  - {fileID: 8547487269042828956, guid: e26532f2a59d7bb47932c17cfb1c1419, type: 3}
+  weaponEnabled: 1

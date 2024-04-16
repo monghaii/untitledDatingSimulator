@@ -12,25 +12,31 @@ position: 212,-726
 <<declare $has_health_buff = false>>
 <<declare $day = 1>>
 <<declare $met_otheranimegirl = false>>
+<<declare $fps_won = 0>>
+<<declare $got_relationship = 0>>
 
 <<if $day == 1>>
 <<SetBackground GameManager black>>
     Mysterious Voice: Welcome to Untitled Dating Simulator...
-    Mysterious Voice: You are playerName, a high school student who just wants to get home without getting into a relationship...
-    Mysterious Voice: To play, you must navigate through the day and avoid flirtatious advances...
-    Mysterious Voice: The people at this school are persistent and well-trained in combat. Be careful when rejecting them...
-    Mysterious Voice: If your behavior is too repulsive, you'll be attacked and forced to fight for your life...
-    Mysterious Voice: If you accidentally court someone or happen to die, you will wake up at the beginning of the day...
-        -> That doesn't sound like fun.
-            Mysterious Voice: Well, you're the one who signed up for this...
-    Mysterious Voice: At any time, you can refer to the controls by pressing the ESC key and clicking the help button...
-    Mysterious Voice: Do you understand? You are stuck here until you do... (click dialogue options to continue...)
-        -> I understand.
-            Mysterious Voice: thank you for your patronage...
-        -> No. Please explain again.
-            Mysterious Voice: ...what don't you understand?? Fine, I'll explain it again...
-            <<jump dialogueDay1>>
-    Mysterious Voice: Now.... it's time to wake up......
+        -> I know how to play! Just show me the girls already!
+            Mysterious Voice: Okay, okay! Damn!
+            <<jump BeginDay>>
+        -> Woah...
+            Mysterious Voice: You are playerName, a high school student who just wants to get home without getting into a relationship...
+            Mysterious Voice: You must navigate through the day and avoid flirtatious advances...
+            Mysterious Voice: The people at this school are persistent and well-trained in combat. Be careful when rejecting them...
+            Mysterious Voice: If your behavior is too repulsive, you'll be attacked and forced to fight for your life...
+            Mysterious Voice: If you accidentally court someone or happen to die, you will wake up at the beginning of the day...
+                -> That doesn't sound like fun.
+                    Mysterious Voice: Well, you're the one who signed up for this...
+            Mysterious Voice: At any time, you can refer to the controls by pressing the ESC key and clicking the help button...
+            Mysterious Voice: Do you understand? You are stuck here until you do... (click dialogue options to continue...)
+                -> I understand.
+                    Mysterious Voice: thank you for your patronage...
+                -> No. Please explain again.
+                    Mysterious Voice: ...what don't you understand?? Fine, I'll explain it again...
+                    <<jump dialogueDay1>>
+            Mysterious Voice: Now.... it's time to wake up......
 <<endif>>
 <<SetBackground GameManager home>>
 ...
@@ -280,6 +286,9 @@ otheranimegirl: Maybe we can hang out sometime!
 title: LOSE_got_relationship
 position: -846,-52
 ---
+<<SetCharacter GameManager me>>
+<<SetBackground GameManager kids>>
+<<set $got_relationship = $got_relationship + 1>>
 The next few years feels like a blur...
 First, she threw out all of my gaming consoles and forced me to get into hiking instead. Every day is torture.
 Next, she demanded that I major in Economics instead of Computer Science - Games.
@@ -302,6 +311,9 @@ I hope that never happens again...
 title: LOSE_got_relationship_otheranimegirl
 position: -846,-52
 ---
+<<SetCharacter GameManager me>>
+<<SetBackground GameManager cheese>>
+<<set $got_relationship = $got_relationship + 1>>
 The next few years feels like a blur...
 First, she decided to embrace a technology-free lifestyle. I now live by candlelight and have nearly died of E. coli four times from eating unrefrigerated meats.
 Next, she committed wire fraud in my name and demanded I take the fall for it. I spent twelve years in prison.
@@ -318,7 +330,12 @@ It makes me wonder...wonder what life would be like if I never got into a relati
 *gasp* What happened?
 What a nightmare...I got into a relationship?!
 I hope that never happens again...
-<<jump BeginDay>>
+<<if $day == 1>>
+    <<jump BeginDay>>
+<<endif>>
+<<if $day == 2>>
+    <<jump Day2>>
+<<endif>>
 ===
 
 title: transitionBack
@@ -363,6 +380,7 @@ position: -757,-721
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
+<<set $fps_won = $fps_won + 1>>
 animegirl: ...
 animegirl: Wait, I think I spaced out...what happened??
     -> No idea.
@@ -379,6 +397,7 @@ position: -757,-721
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
+<<set $fps_won = $fps_won + 1>>
 otheranimegirl: ...
 otheranimegirl: Heehee, what happened? I'm all dizzy...
     -> Bruh.
@@ -600,6 +619,7 @@ position: 211,-726
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
 <<SetBackground GameManager classroom>>
+<<set $day = 2>>
 otheranimegirl: Oh, hey! It's you! I've heard a lot about you...
     -> Let me guess, you heard about the expired milk thing. <<if $has_gross_buff == true>>
         <<jump EwThatWasTrue>>
@@ -724,7 +744,7 @@ otheranimegirl: So...what are you doing later? I was hoping we could go see a mo
         otheranimegirl: ...because that is my absolute FAVORITE movie ever!!! I knew we were meant to be together!!!
         otheranimegirl: I'm updating all my socials so everyone knows we're dating. I can't WAIT to get married to you!
         (I'm done for...)
-        <<jump LOSE_got_relationship_day2>>
+        <<jump LOSE_got_relationship_otheranimegirl>>
     -> I only watch Belgian arthouse films.
         otheranimegirl: Yeah, I'm not into that. You have fun, though.
         <<jump DAY_SUCCESS_day2>>
@@ -840,17 +860,58 @@ position: 194,777
 The bell rang.
 ...
 Class is over! I gotta get home!
-
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 Wait...it's the end of the semester.
 And I'm...still single! I did it!
 I can follow my dreams now...
+<<if $fps_won > 2>>
+    <<jump fight_ending>>
+<<endif>>
+<<if $got_relationship > 2>>
+    <<jump rich_ending>>
+<<endif>>
 I can invest in crypto!
 I can buy NFTs!
-I can play video games all I want!
 And best of all...I can stop spending 40 hours a week training at the gym just so I can have a chance at defending myself against these girls!
 For the first time in ages, the future feels bright...
+<<SetBackground GameManager beach>>
+Years pass. I ended up amassing a fortune in cryptocurrency.
+Using my newfound wealth, I bought a chateau in Barcelona and spend my days sipping wine and strolling on the beach.
+Although I love my life, I wonder what would've happened if I did things a little differently...
+What if I was a better fighter? What if I flirted some more?
+What other paths could my life had taken?
+Either way, I'm happy.
+<<ProgressDay GameManager>>
+===
+
+title: fight_ending
+position: 194,777
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager me>>
+<<SetBackground GameManager dojo>>
+I fought my way throughout high school...and I want to help others do the same.
+I opened up my own dojo for those looking to defend their singlehood.
+It's located on a tall mountain in rural Bulgaria, but still, hundreds of people make the pilgrimage here each year...
+Of course, some of those people don't have the best intentions. An average of six people still ask for my number each week.
+But still...the ones that come here to learn how to fight to stay single...they make my life worthwhile.
+I would never have been able to accomplish this if I got in a relationship!
+<<ProgressDay GameManager>>
+===
+
+title: rich_ending
+position: 194,777
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager me>>
+<<SetBackground GameManager running>>
+Years later...I became the CEO of a successful company.
+I also became extremely attractive after high school. Like, ridiculously so.
+The amount of romantic advances I have to face each day are overwhelming, but it only bolsters my resolve to stay single.
+Looking back, I always had this problem. I always said or did the wrong thing, and people fell in love with me...
+If I could go back, maybe I could be more insulting. Or chosen my words more carefully...maybe then, I'd have a different life.
+But honestly, I don't know if I'd want a different life. Being super rich and handsome is actually pretty cool. 
 <<ProgressDay GameManager>>
 ===
 

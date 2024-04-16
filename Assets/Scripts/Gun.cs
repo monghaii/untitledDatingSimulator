@@ -16,6 +16,8 @@ public class Gun : MonoBehaviour
     private float ammo;
     public TMP_Text ammoUI;
     public GameObject reloadMsg;
+    public GameObject reloadingMsg;
+    private bool isReloading = false;
     private float nextTimeToFire = 0f;
     public float reloadTime = 1f;
     private List<GameObject> bulletPool;    //this is for if we want actual bullets, rn its just playing an effect at hit location :')
@@ -28,6 +30,7 @@ public class Gun : MonoBehaviour
     {
         ammo = maxAmmo;
         reloadMsg.SetActive(false);
+        reloadingMsg.SetActive(false);
     }
     
     // Update is called once per frame
@@ -55,9 +58,10 @@ public class Gun : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.R))
         {
             // reload
-            ammo = maxAmmo;
-            ammoUI.text = "" + ammo;
-            nextTimeToFire = reloadTime;
+            if (!isReloading)
+            {
+                StartCoroutine(Reloading());
+            }
         }
     }
 
@@ -102,5 +106,17 @@ public class Gun : MonoBehaviour
         reloadMsg.SetActive(true);
         yield return new WaitForSeconds(2f);
         reloadMsg.SetActive(false);
+    }
+
+    IEnumerator Reloading()
+    {
+        isReloading = true;
+        reloadingMsg.SetActive(true);
+        nextTimeToFire = Time.time + reloadTime;
+        yield return new WaitForSeconds(reloadTime);
+        isReloading = false;
+        reloadingMsg.SetActive(false);
+        ammo = maxAmmo;
+        ammoUI.text = "" + ammo;
     }
 }

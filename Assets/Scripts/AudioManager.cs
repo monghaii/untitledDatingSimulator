@@ -29,6 +29,11 @@ public class AudioManager : MonoBehaviour
     
     [Header("Music And SFX Scriptable Object")]
     [SerializeField] public MusicAndSFX musicAndSfxSO;
+    
+    
+    // List to store AudioSource components
+    private List<AudioSource> audioSources = new List<AudioSource>();
+
 
     private void Awake()
     {
@@ -74,11 +79,11 @@ public class AudioManager : MonoBehaviour
     [YarnCommand("playSound")]
     public void PlaySound(bool isLooping, string name)
     {
-        AudioSource sfxSource = GetComponent<AudioSource>();
-        if (!sfxSource)
-        {
-            sfxSource = gameObject.AddComponent<AudioSource>();
-        }
+        // Create a new AudioSource component
+        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
+        
+        // Add the new AudioSource to the list
+        audioSources.Add(sfxSource);
 
         // Find the AudioClip with the specified name
         AudioClip sfxClip = null;
@@ -104,5 +109,16 @@ public class AudioManager : MonoBehaviour
 
         // Play the sound
         sfxSource.Play();
+
+        // Start coroutine to remove AudioSource after playback
+        StartCoroutine(RemoveAudioSourceAfterPlayback(sfxSource));
+    }
+
+    // Coroutine to remove AudioSource after playback
+    private IEnumerator RemoveAudioSourceAfterPlayback(AudioSource audioSource)
+    {
+        yield return new WaitForSeconds(audioSource.clip.length);
+        audioSources.Remove(audioSource);
+        Destroy(audioSource);
     }
 }

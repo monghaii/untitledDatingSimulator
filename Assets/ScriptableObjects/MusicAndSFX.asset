@@ -21,3 +21,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 87621ca5f40d64c5d9db4a59df92c713, type: 3}
   - name: main_theme
     audioClip: {fileID: 8300000, guid: 87621ca5f40d64c5d9db4a59df92c713, type: 3}
+  - name: mysterious_voice
+    audioClip: {fileID: 8300000, guid: 3b36f1a6ec29b481489a3c79cca8b313, type: 3}
+  - name: home
+    audioClip: {fileID: 8300000, guid: 3b36f1a6ec29b481489a3c79cca8b313, type: 3}

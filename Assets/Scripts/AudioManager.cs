@@ -34,18 +34,6 @@ public class AudioManager : MonoBehaviour
     {
         _instance = this;
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlaySFX(AudioClip sfxClip, GameObject sfxCaller)
     {
@@ -79,6 +67,42 @@ public class AudioManager : MonoBehaviour
 
         AudioClip sfxClip = sfx_DialogueReaction;
         sfxSource.clip = sfxClip;
+        sfxSource.Play();
+    }
+    
+    // Call this to play music that is listed in the MusicAndSFX ScriptableObject. First variable is whether it loops.
+    [YarnCommand("playSound")]
+    public void PlaySound(bool isLooping, string name)
+    {
+        AudioSource sfxSource = GetComponent<AudioSource>();
+        if (!sfxSource)
+        {
+            sfxSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Find the AudioClip with the specified name
+        AudioClip sfxClip = null;
+        foreach (var sound in musicAndSfxSO.audioClips)
+        {
+            if (sound.name == name)
+            {
+                sfxClip = sound.audioClip;
+                break;
+            }
+        }
+
+        // Check if AudioClip is found
+        if (sfxClip == null)
+        {
+            Debug.LogError("AudioClip with name " + name + " not found in MusicAndSFX ScriptableObject.");
+            return;
+        }
+
+        // Set AudioClip and loop mode
+        sfxSource.clip = sfxClip;
+        sfxSource.loop = isLooping;
+
+        // Play the sound
         sfxSource.Play();
     }
 }

@@ -110,8 +110,6 @@ public class GameManager : MonoBehaviour
         // This may not be the best practice...
         dialogueRunnerInstance = FindAnyObjectByType<DialogueRunner>();
         
-        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
-        
         // Initializing attributes
         currentHealth = StartingHealth;
         currentLikability = StartingLikability;
@@ -235,7 +233,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
 
             //switch music
-            MusicManager.Instance.PlayMusic(MusicManager.Instance.music_FPS);
+            AudioManager.Instance.PlaySound(true, "fps_theme");
             PauseFPS();
             dialogueRunnerInstance.StartDialogue("EnterFPS");
         }
@@ -292,6 +290,7 @@ public class GameManager : MonoBehaviour
         {
             // trigger transition back dialogue
             dialogueRunnerInstance.StartDialogue("transitionBack");
+            AudioManager.Instance.PlaySound(true, "home");
         }
         else
         {
@@ -299,9 +298,10 @@ public class GameManager : MonoBehaviour
             dialogueRunnerInstance.StartDialogue("FPS_SUCCESS_" + currentCharacter);
             SetCharacter(currentCharacter, 0);
             currentHealth = StartingHealth;
+            AudioManager.Instance.PlaySound(true, "classroom");
         }
         
-        MusicManager.Instance.PlayMusic(MusicManager.Instance.music_classroom);
+        
         
         // unload fps scene
         Cursor.lockState = CursorLockMode.None;

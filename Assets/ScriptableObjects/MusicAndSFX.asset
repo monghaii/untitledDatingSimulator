@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - name: classroom
-    audioClip: {fileID: 8300000, guid: a73434fbb6f04b4418caf31433a20857, type: 3}
+    audioClip: {fileID: 8300000, guid: 04a426963acbe4f66b91cd4450600485, type: 3}
   - name: fps_theme
     audioClip: {fileID: 8300000, guid: 7ab7ca2da87e6294ab3af791a534aa1b, type: 3}
   - name: title_theme

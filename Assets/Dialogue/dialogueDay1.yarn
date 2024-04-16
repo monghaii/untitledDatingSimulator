@@ -17,6 +17,7 @@ position: 212,-726
 
 <<if $day == 1>>
 <<SetBackground GameManager black>>
+<<playSound AudioManager true mysterious_voice>>
     Mysterious Voice: Welcome to Untitled Dating Simulator...
         -> I know how to play! Just show me the girls already!
             Mysterious Voice: Okay, okay! Damn!
@@ -46,10 +47,12 @@ position: 212,-726
                     <<jump dialogueDay1>>
             Mysterious Voice: Now.... it's time to wake up......
 <<endif>>
+<<playSound AudioManager false rooster>>
 <<SetBackground GameManager home>>
 ...
 ...
 ...
+<<playSound AudioManager true home>>
 Summer's over already?
 I can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Edition again.
 <<jump BeginDay>>
@@ -61,6 +64,7 @@ position: 212,-726
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
 <<SetCharacter GameManager me>>
 Ah, another day, another dol- I mean chance to ruin my life and get in a relationship...
 I can't wait to keep playing Wii Sports Resort again!
@@ -80,6 +84,7 @@ Okay playerName, just take it one day at a time. Avoid all the flirty students s
 ...WITH NO RELATIONSHIP.
 Well, here goes nothing.
 <<SetBackground GameManager classroom>>
+<<playSound AudioManager true classroom>>
 ...
 <<SetCharacter GameManager animegirl 2>>
 <<jump GoToClass>>

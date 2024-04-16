@@ -20,8 +20,6 @@ position: 212,-726
     Mysterious Voice: Welcome to Untitled Dating Simulator...
         -> I know how to play! Just show me the girls already!
             Mysterious Voice: Okay, okay! Damn!
-<<<<<<< Updated upstream
-=======
             <<playSound AudioManager false rooster>>
             <<SetBackground GameManager home>>
             ...
@@ -30,7 +28,6 @@ position: 212,-726
             <<playSound AudioManager true home>>
             Summer's over already?
             I can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Edition again.
->>>>>>> Stashed changes
             <<jump BeginDay>>
         -> Woah...
             Mysterious Voice: You are playerName, a high school student who just wants to get home without getting into a relationship...
@@ -630,10 +627,7 @@ position: 211,-726
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
 <<SetBackground GameManager classroom>>
-<<<<<<< Updated upstream
-=======
 <<playSound AudioManager true classroom>>
->>>>>>> Stashed changes
 <<set $day = 2>>
 otheranimegirl: Oh, hey! It's you! I've heard a lot about you...
     -> Let me guess, you heard about the expired milk thing. <<if $has_gross_buff == true>>

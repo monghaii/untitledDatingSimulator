@@ -100,7 +100,7 @@ public class Gun : MonoBehaviour
     IEnumerator PlayReloadMessage()
     {
         reloadMsg.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         reloadMsg.SetActive(false);
     }
 }

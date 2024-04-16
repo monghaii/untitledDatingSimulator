@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     public LayerMask groundMask, playerMask, obstacleMask;
     public float speed;
     public float rageSpeedMultiplier;
+    public Transform eye;
     
     [Header("Patrol")]
     public float walkPointRange;
@@ -81,8 +82,8 @@ public class Enemy : MonoBehaviour
         
         // check if player in sight
         RaycastHit hit;
-        Vector3 directionToCast = player.transform.position - transform.position;
-        if (Physics.Raycast(transform.position, directionToCast, out hit, Mathf.Infinity, obstacleMask))
+        Vector3 directionToCast = player.transform.position - eye.position;
+        if (Physics.Raycast(eye.position, directionToCast, out hit, Mathf.Infinity, obstacleMask))
         {
             canSeePlayer = false;
         }
@@ -92,9 +93,9 @@ public class Enemy : MonoBehaviour
         }
         
         // check ranges
-        playerInMeleeRange = Physics.CheckSphere(transform.position, meleeRange, playerMask);
+        // playerInMeleeRange = Physics.CheckSphere(transform.position, meleeRange, playerMask);
         playerInRangedRange = Physics.CheckSphere(transform.position, rangedRange, playerMask);
-        if ((playerInMeleeRange || playerInRangedRange) && canSeePlayer)
+        if (playerInRangedRange)
         {
             currentState = EnemyState.Attack;
         }
@@ -151,11 +152,11 @@ public class Enemy : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            if (playerInMeleeRange)
+            /*if (playerInMeleeRange)
             {
                 MeleeAttack();
-            }
-            else if (playerInRangedRange)
+            }*/
+            if (playerInRangedRange)
             {
                 RangedAttack();
             }

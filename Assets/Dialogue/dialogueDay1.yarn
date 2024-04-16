@@ -34,6 +34,7 @@ position: 212,-726
     Mysterious Voice: Now.... it's time to wake up......
 <<endif>>
 <<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
 ...
 ...
 ...
@@ -48,6 +49,7 @@ position: 212,-726
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
 <<SetCharacter GameManager me>>
 Ah, another day, another dol- I mean chance to ruin my life and get in a relationship...
 I can't wait to keep playing Wii Sports Resort again!
@@ -67,6 +69,7 @@ Okay playerName, just take it one day at a time. Avoid all the flirty students s
 ...WITH NO RELATIONSHIP.
 Well, here goes nothing.
 <<SetBackground GameManager classroom>>
+<<playSound AudioManager true classroom>>
 ...
 <<SetCharacter GameManager animegirl 2>>
 <<jump GoToClass>>
@@ -601,6 +604,7 @@ position: 211,-726
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
 <<SetBackground GameManager classroom>>
+<<playSound AudioManager true classroom>>
 otheranimegirl: Oh, hey! It's you! I've heard a lot about you...
     -> Let me guess, you heard about the expired milk thing. <<if $has_gross_buff == true>>
         <<jump EwThatWasTrue>>

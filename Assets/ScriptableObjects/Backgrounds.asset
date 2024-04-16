@@ -21,3 +21,13 @@ MonoBehaviour:
     backgroundImage: {fileID: 21300000, guid: 477f612660ff9254fa2566f96a9fe8fb, type: 3}
   - backgroundName: black
     backgroundImage: {fileID: 21300000, guid: a8a103e9d1f28ce45a2d76e0f89f0715, type: 3}
+  - backgroundName: beach
+    backgroundImage: {fileID: 21300000, guid: 7df8973f2293c984c8ceeeafadc79dc3, type: 3}
+  - backgroundName: running
+    backgroundImage: {fileID: 21300000, guid: 1fc70cf61192c804c807cf3715cda2ba, type: 3}
+  - backgroundName: kids
+    backgroundImage: {fileID: 21300000, guid: 3b3f134e97dbe9446ae3b895a1d2f55b, type: 3}
+  - backgroundName: dojo
+    backgroundImage: {fileID: 21300000, guid: 9e9d0ba66b8d6324fa568125c57e2af7, type: 3}
+  - backgroundName: cheese
+    backgroundImage: {fileID: 21300000, guid: 4bc1bf981a82f0040b1af063bc79c249, type: 3}

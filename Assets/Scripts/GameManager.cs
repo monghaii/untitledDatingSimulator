@@ -224,6 +224,7 @@ public class GameManager : MonoBehaviour
         {
             //load tutorial first
             SceneManager.LoadScene("FPSTutorial", LoadSceneMode.Additive);
+            AudioManager.Instance.PlaySound(true, "fps_theme");
             Cursor.lockState = CursorLockMode.Locked;
             firstFPS = false;
         }

@@ -24,4 +24,6 @@ MonoBehaviour:
   - name: mysterious_voice
     audioClip: {fileID: 8300000, guid: 3b36f1a6ec29b481489a3c79cca8b313, type: 3}
   - name: home
-    audioClip: {fileID: 8300000, guid: 3b36f1a6ec29b481489a3c79cca8b313, type: 3}
+    audioClip: {fileID: 8300000, guid: 9976e38460ad546459cecfcc55583152, type: 3}
+  - name: rooster
+    audioClip: {fileID: 8300000, guid: 05b265bee5fa34e94bd83e1bca3d0fcb, type: 3}

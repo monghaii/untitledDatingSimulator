@@ -56,6 +56,10 @@ public class Tutorial : MonoBehaviour
     void Update()
     {
         //Debug.Log("cur step: " + curStep);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            LoadFPS();
+        }
         switch (curStep)
         {
             case TutorialStep.Movement:

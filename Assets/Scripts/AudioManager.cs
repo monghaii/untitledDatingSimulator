@@ -26,6 +26,9 @@ public class AudioManager : MonoBehaviour
     [Header("Foley SFX")] 
     [SerializeField] public AudioClip sfx_HurtVocal;
     [SerializeField] public AudioClip sfx_DialogueReaction;
+    
+    [Header("Music And SFX Scriptable Object")]
+    [SerializeField] public MusicAndSFX musicAndSfxSO;
 
     private void Awake()
     {

@@ -536,4 +536,9 @@ public class GameManager : MonoBehaviour
     {
         return enemies.Find(e => e.name == currentCharacter);
     }
+
+    public void UnpauseGame()
+    {
+        pauseMenu = false;
+    }
 }

@@ -318,7 +318,12 @@ It makes me wonder...wonder what life would be like if I never got into a relati
 *gasp* What happened?
 What a nightmare...I got into a relationship?!
 I hope that never happens again...
-<<jump BeginDay>>
+<<if $day == 1>>
+    <<jump BeginDay>>
+<<endif>>
+<<if $day == 2>>
+    <<jump Day2>>
+<<endif>>
 ===
 
 title: LOSE_got_relationship_otheranimegirl
@@ -362,7 +367,12 @@ position: -288,-555
 *gasp* What happened?
 What a nightmare...I remembered fighting something?!
 That's probably just a bad dream...anyways, I should get ready for school!
-<<jump BeginDay>>
+<<if $day == 1>>
+    <<jump BeginDay>>
+<<endif>>
+<<if $day == 2>>
+    <<jump Day2>>
+<<endif>>
 ===
 
 title: EnterFPS
@@ -576,41 +586,11 @@ otheranimegirl: Oh, I love that game!
     -> I know, right? It's the best game ever!
         <<SetCharacter GameManager otheranimegirl 2>>
         otheranimegirl: Let's play it together tonight, just you and me, boyfriend!
-        <<jump LOSE_got_relationship>>
+        <<jump LOSE_got_relationship_otheranimegirl>>
     -> ... I was just kidding. I don't even know what that game is.
         <<SetCharacter GameManager otheranimegirl 1>>
         otheranimegirl: Oh, okay. I'll see you later, then.
         <<jump DAY_SUCCESS>>
-===
-
-title: INTERRUPT_LOW_AFFECTION_animegirl
-position: -978,-725
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager animegirl 3>>
-animegirl: You know what playerName, you're actually kind of DISGUSTING.
-<<SetCharacter GameManager animegirl 4>>
-animegirl: I need to wipe you off the face of this earth.
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
-===
-
-title: INTERRUPT_LOW_AFFECTION_otheranimegirl
-position: -981,-574
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 3>>
-otheranimegirl: You know, I'm kinda weird with the pickme stuff, but you're even weirder.
-<<SetCharacter GameManager otheranimegirl 4>>
-otheranimegirl: Looks like the only next step is to hurt you physically!
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
 ===
 
 title: awkward
@@ -772,100 +752,6 @@ otheranimegirl: So...what are you doing later? I was hoping we could go see a mo
 
 ===
 
-title: LOSE_got_relationship_day2
-position: -846,-52
----
-The next few years feels like a blur...
-First, she decided to embrace a technology-free lifestyle. I now live by candlelight and have nearly died of E. coli four times from eating unrefrigerated meats.
-Next, she committed wire fraud in my name and demanded I take the fall for it. I spent twelve years in prison.
-Those twelve years were probably the highlight of my life...
-After my release from prison, she insisted that we refinance our home to start a business making artisinal cheeses.
-Three weeks after the failure of Oasis Meadow Moonglow Cheeses© due to multiple food poisoning-related deaths, she left the back door open and my dog ran away.
-I haven't seen my sweet doggy boy since...
-It makes me wonder...wonder what life would be like if I never got into a relationship.
-
-<<Checkpoint GameManager>>
-<<SetBackground GameManager home>>
-<<SetCharacter GameManager me>>
-...
-GASP
-omg, what happened?
-what a nightmare... I got into a relationship??
-I hope that never happens again...
-<<jump Day2>>
-===
-
-
-title: transitionBack_day2
-position: -288,-555
----
-<<Checkpoint GameManager>>
-<<SetBackground GameManager home>>
-<<SetCharacter GameManager me>>
-<<RefreshHealth GameManager -1>>
-...
-GASP
-omg, what happened?
-what a nightmare... I remembered fighting something??
-That's probably just a bad dream... Anyways I should get back!
-<<jump Day2>>
-===
-
-title: EnterFPS_day2
-position: -521,-719
----
-<<Checkpoint GameManager>>
-...
-Aghhh! These girls are feisty!
-Next Line
-<<ResumeFPS GameManager>>
-===
-
-title: ExitFPS_day2
-position: -289,-723
----
-<<Checkpoint GameManager>>
-yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
-    -> I admit defeat, I am, in fact, trash.
-        <<EndFPS GameManager false>>
-    -> As long as you're happy, I can be anything. Please, give me one more chance.
-        // -1 here represents setting to StartingHealth
-        <<RefreshHealth GameManager -1>>
-        <<ResumeFPS GameManager>>
-===
-
-title: FPS_SUCCESS_animegirl_day2
-position: -757,-721
----
-<<Checkpoint GameManager>>
-<<SetBackground GameManager classroom>>
-animegirl: ...
-animegirl: Wait, I think I spaced out...what happened?
-    -> No idea.
-        animegirl: Oh, teehee!
-        animegirl: Anyways...
-    -> You went insane and tried to kill me!!
-        animegirl: I don't remember that at all...
-        animegirl: Anyways...
-<<ContinueFromPreFPSNode GameManager>>
-===
-
-title: FPS_SUCCESS_otheranimegirl_day2
-position: -757,-721
----
-<<Checkpoint GameManager>>
-<<SetBackground GameManager classroom>>
-otheranimegirl: ...
-otheranimegirl: Woah, what happened? I'm confused.
-    -> Bruh.
-        otheranimegirl: Teehee!
-        otheranimegirl: Anyways...
-    -> You went insane and tried to kill me!!
-        otheranimegirl: No wayyy! I'd never do that!
-        otheranimegirl: Anyways...
-<<ContinueFromPreFPSNode GameManager>>
-===
-
 title: DAY_SUCCESS_day2
 position: 194,777
 ---
@@ -927,30 +813,4 @@ Looking back, I always had this problem. I always said or did the wrong thing, a
 If I could go back, maybe I could be more insulting. Or chosen my words more carefully...maybe then, I'd have a different life.
 But honestly, I don't know if I'd want a different life. Being super rich and handsome is actually pretty cool. 
 <<ProgressDay GameManager>>
-===
-
-title: INTERRUPT_LOW_AFFECTION_animegirl_day2
-position: -978,-725
----
-<<Checkpoint GameManager>>
-animegirl: You know what playerName, you're actually kind of DISGUSTING.
-animegirl: I need to wipe you off the face of this earth.
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
-===
-
-title: INTERRUPT_LOW_AFFECTION_otheranimegirl_day2
-position: -981,-574
----
-<<Checkpoint GameManager>>
-otheranimegirl: Actually, I don't know why I'm trying so hard with you.
-otheranimegirl: You're mean and a loser and I hate you. Get ready.
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
 ===

@@ -31,3 +31,5 @@ MonoBehaviour:
     backgroundImage: {fileID: 21300000, guid: 9e9d0ba66b8d6324fa568125c57e2af7, type: 3}
   - backgroundName: cheese
     backgroundImage: {fileID: 21300000, guid: 4bc1bf981a82f0040b1af063bc79c249, type: 3}
+  - backgroundName: cafeteria
+    backgroundImage: {fileID: 21300000, guid: 4e5b39c219daf4defaea249ef26afc88, type: 3}

@@ -445,7 +445,7 @@ zzz
 <<ProgressDay GameManager>>
 ===
 title: PostShove
-position: -1337,218
+position: -1146,17
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 3>>
@@ -744,7 +744,7 @@ otheranimegirl: So...what are you doing later? I was hoping we could go see a mo
 ===
 
 title: LOSE_got_relationship_day2
-position: -1104,-664
+position: -1034,-597
 ---
 The next few years feels like a blur...
 First, she decided to embrace a technology-free lifestyle. I now live by candlelight and have nearly died of E. coli four times from eating unrefrigerated meats.

@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     
     
     // List to store AudioSource components
+    public AudioSource loopingPlaybackAudioSource;
     private List<AudioSource> audioSources = new List<AudioSource>();
 
 
@@ -79,12 +80,6 @@ public class AudioManager : MonoBehaviour
     [YarnCommand("playSound")]
     public void PlaySound(bool isLooping, string name)
     {
-        // Create a new AudioSource component
-        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
-        
-        // Add the new AudioSource to the list
-        audioSources.Add(sfxSource);
-
         // Find the AudioClip with the specified name
         AudioClip sfxClip = null;
         foreach (var sound in musicAndSfxSO.audioClips)
@@ -102,6 +97,29 @@ public class AudioManager : MonoBehaviour
             Debug.LogError("AudioClip with name " + name + " not found in MusicAndSFX ScriptableObject.");
             return;
         }
+        
+        if (isLooping)
+        {
+            // we want to make it so that looping sounds are mutually exclusive
+            // Check if there's an existing sound playing on the looping AudioSource
+            if (loopingPlaybackAudioSource.isPlaying) {
+                // If it's playing, stop it
+                loopingPlaybackAudioSource.Stop();
+            }
+
+            // Set the new clip to the AudioSource and play it
+            loopingPlaybackAudioSource.clip = sfxClip;
+            loopingPlaybackAudioSource.loop = true;  // Ensure looping is enabled
+            loopingPlaybackAudioSource.Play();
+
+            return;
+        }
+        
+        // Create a new AudioSource component
+        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
+        
+        // Add the new AudioSource to the list
+        audioSources.Add(sfxSource);
 
         // Set AudioClip and loop mode
         sfxSource.clip = sfxClip;

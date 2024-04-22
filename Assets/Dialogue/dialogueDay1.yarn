@@ -70,8 +70,52 @@ Ah, another day, another dol- I mean chance to ruin my life and get in a relatio
 I can't wait to keep playing Wii Sports Resort again!
 I just have to make sure I don't end up on a date, then it'll all be over...
 No matter what, I'll fight to stay single!
-<<jump Day2>>
 ===
+
+
+title: dialogueDay3
+tags:
+position: 306,-1324
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+<<SetCharacter GameManager me>>
+OMG, what happened?
+...
+<<SetBackground GameManager black>>
+<<playSound AudioManager true mysterious_voice>>
+mysterious_voice: You're in day 3. I thought you knew how this game works by now.
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+Oh right.
+Well, here goes nothing. At least I'm halfway through the week...
+===
+
+
+title: dialogueDay4
+tags:
+position: 528,-1326
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+<<SetCharacter GameManager me>>
+day 4 dialogue
+===
+
+
+title: dialogueDay5
+tags:
+position: 748,-1326
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+<<SetCharacter GameManager me>>
+day 5 dialogue
+===
+
 
 title: BeginDay
 tags:

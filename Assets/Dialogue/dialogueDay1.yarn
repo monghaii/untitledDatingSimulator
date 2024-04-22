@@ -1,6 +1,6 @@
 title: dialogueDay1
 tags:
-position: 212,-726
+position: -131,-1324
 ---
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
@@ -60,7 +60,7 @@ I can't wait to keep playing Doki Doki Literature Club Plus! Premium Physical Ed
 
 title: dialogueDay2
 tags:
-position: 212,-726
+position: 89,-1326
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
@@ -75,7 +75,7 @@ No matter what, I'll fight to stay single!
 
 title: BeginDay
 tags:
-position: -32,-518
+position: -301,-663
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
@@ -92,7 +92,7 @@ Well, here goes nothing.
 
 title: GoToClass
 tags:
-position: -209,-361
+position: -412,-435
 ---
 <<Checkpoint GameManager>>
 animegirl: Oh, hello!
@@ -122,7 +122,7 @@ animegirl: So, what are you up to? Teehee!
 
 title: GrossGoAway
 tags:
-position: -327,-115
+position: -561,-209
 ---
 <<Checkpoint GameManager>>
         <<SetCharacter GameManager animegirl 3>>
@@ -168,7 +168,7 @@ position: -327,-115
 
 title: dotdotdot
 tags:
-position: -589,-186
+position: -823,-280
 ---
 <<Checkpoint GameManager>>
 animegirl: Wow, the strong silent type. This actually makes me like you more!
@@ -199,7 +199,7 @@ animegirl: Wow, the strong silent type. This actually makes me like you more!
 ===
 
 title: Outside
-position: -129,302
+position: -286,445
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 2>>
@@ -227,7 +227,7 @@ animegirl: I know you said not to follow you, but I got bored waiting so I did i
 ===
 
 title: otheranimegirl
-position: -390,264
+position: -624,170
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
@@ -274,7 +274,7 @@ otheranimegirl: So...what are we?
 ===
 
 title: otheranimegirlAvoid
-position: -390,264
+position: -1213,571
 ---
 <<Checkpoint GameManager>>
 otheranimegirl: Maybe we can hang out sometime!
@@ -297,7 +297,7 @@ otheranimegirl: Maybe we can hang out sometime!
 ===
 
 title: LOSE_got_relationship
-position: -846,-52
+position: -1321,-656
 ---
 <<SetCharacter GameManager me>>
 <<SetBackground GameManager kids>>
@@ -322,7 +322,7 @@ I hope that never happens again...
 ===
 
 title: LOSE_got_relationship_otheranimegirl
-position: -846,-52
+position: -1318,-518
 ---
 <<SetCharacter GameManager me>>
 <<SetBackground GameManager cheese>>
@@ -352,7 +352,7 @@ I hope that never happens again...
 ===
 
 title: transitionBack
-position: -288,-555
+position: -879,-843
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
@@ -366,7 +366,7 @@ That's probably just a bad dream...anyways, I should get ready for school!
 ===
 
 title: EnterFPS
-position: -521,-719
+position: -879,-1134
 ---
 <<Checkpoint GameManager>>
 ...
@@ -376,7 +376,7 @@ Next Line
 ===
 
 title: ExitFPS
-position: -289,-723
+position: -878,-989
 ---
 <<Checkpoint GameManager>>
 yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
@@ -389,7 +389,7 @@ yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
 ===
 
 title: FPS_SUCCESS_animegirl
-position: -757,-721
+position: -876,-1483
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
@@ -406,7 +406,7 @@ animegirl: Wait, I think I spaced out...what happened??
 ===
 
 title: FPS_SUCCESS_otheranimegirl
-position: -757,-721
+position: -878,-1338
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
@@ -423,7 +423,7 @@ otheranimegirl: Heehee, what happened? I'm all dizzy...
 ===
 
 title: DAY_SUCCESS
-position: 194,777
+position: 1434,170
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
@@ -445,7 +445,7 @@ zzz
 <<ProgressDay GameManager>>
 ===
 title: PostShove
-position: -812,296
+position: -1337,218
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 3>>
@@ -474,7 +474,7 @@ animegirl: I'm not going to let some silly little boy talk to me like that.
         <<jump LOSE_got_relationship>>
 ===
 title: mitochondria
-position: -70,-149
+position: -304,-243
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 2>>
@@ -485,7 +485,7 @@ animegirl: Ooh, you're so smart and funny!
         <<jump PowerYourCells>>
 ===
 title: PowerYourCells
-position: 124,267
+position: 198,240
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager animegirl 0>>
@@ -516,7 +516,7 @@ animegirl: ...Okay! So, what are you doing tonight?
         <<jump PostShove>>
 ===
 title: WhatsWrong
-position: -569,536
+position: -768,561
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 1>>
@@ -564,7 +564,7 @@ otheranimegirl: You just screamed out loud all of a sudden...
         <<jump LOSE_got_relationship_otheranimegirl>>
 ===
 title: OMGILoveThatGame
-position: -483,786
+position: -483,897
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 0>>
@@ -583,38 +583,9 @@ otheranimegirl: Oh, I love that game!
         <<jump DAY_SUCCESS>>
 ===
 
-title: INTERRUPT_LOW_AFFECTION_animegirl
-position: -978,-725
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager animegirl 3>>
-animegirl: You know what playerName, you're actually kind of DISGUSTING.
-<<SetCharacter GameManager animegirl 4>>
-animegirl: I need to wipe you off the face of this earth.
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
-===
-
-title: INTERRUPT_LOW_AFFECTION_otheranimegirl
-position: -981,-574
----
-<<Checkpoint GameManager>>
-<<SetCharacter GameManager otheranimegirl 3>>
-otheranimegirl: You know, I'm kinda weird with the pickme stuff, but you're even weirder.
-<<SetCharacter GameManager otheranimegirl 4>>
-otheranimegirl: Looks like the only next step is to hurt you physically!
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
-===
 
 title: awkward
-position: -981,-574
+position: -987,261
 ---
 <<Checkpoint GameManager>>
 animegirl: ...So what now?
@@ -627,7 +598,7 @@ animegirl: ...So what now?
 
 title: Day2
 tags:
-position: 211,-726
+position: 203,-1025
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
@@ -648,7 +619,7 @@ otheranimegirl: Oh, hey! It's you! I've heard a lot about you...
 
 title: Pineapple
 tags:
-position: -32,-518
+position: -10,-820
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 1>>
@@ -665,7 +636,7 @@ otheranimegirl: Pineapple...?
 
 title: Tattle
 tags:
-position: -32,-518
+position: 601,-582
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 1>>
@@ -687,7 +658,7 @@ otheranimegirl: Oh no! Poor baby...who bullies you?
 
 title: DontWantGirlfriend
 tags:
-position: -32,-518
+position: 413,-772
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 1>>
@@ -710,7 +681,7 @@ otheranimegirl: I don't understand...are you saying you don't like me? Don't you
 
 title: EwThatWasTrue
 tags:
-position: -32,-518
+position: 383,-336
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 1>>
@@ -725,7 +696,7 @@ otheranimegirl: This whole time...I thought you were cute and cool. Now I'm tota
 
 title: Danger
 tags:
-position: -32,-518
+position: 313,-181
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 4>>
@@ -744,7 +715,7 @@ otheranimegirl: You are SUCH a loser. I can't believe I wanted to ask you out!
 
 title: otheranimegirlFlirt
 tags:
-position: -32,-518
+position: 31,-339
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
@@ -773,7 +744,7 @@ otheranimegirl: So...what are you doing later? I was hoping we could go see a mo
 ===
 
 title: LOSE_got_relationship_day2
-position: -846,-52
+position: -1104,-664
 ---
 The next few years feels like a blur...
 First, she decided to embrace a technology-free lifestyle. I now live by candlelight and have nearly died of E. coli four times from eating unrefrigerated meats.
@@ -797,7 +768,7 @@ I hope that never happens again...
 
 
 title: transitionBack_day2
-position: -288,-555
+position: -642,-845
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
@@ -812,7 +783,7 @@ That's probably just a bad dream... Anyways I should get back!
 ===
 
 title: EnterFPS_day2
-position: -521,-719
+position: -642,-1133
 ---
 <<Checkpoint GameManager>>
 ...
@@ -822,7 +793,7 @@ Next Line
 ===
 
 title: ExitFPS_day2
-position: -289,-723
+position: -640,-989
 ---
 <<Checkpoint GameManager>>
 yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
@@ -835,7 +806,7 @@ yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
 ===
 
 title: FPS_SUCCESS_animegirl_day2
-position: -757,-721
+position: -645,-1480
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
@@ -851,7 +822,7 @@ animegirl: Wait, I think I spaced out...what happened?
 ===
 
 title: FPS_SUCCESS_otheranimegirl_day2
-position: -757,-721
+position: -644,-1337
 ---
 <<Checkpoint GameManager>>
 <<SetBackground GameManager classroom>>
@@ -867,7 +838,7 @@ otheranimegirl: Woah, what happened? I'm confused.
 ===
 
 title: DAY_SUCCESS_day2
-position: 194,777
+position: 1657,167
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
@@ -900,7 +871,7 @@ Either way, I'm happy.
 ===
 
 title: fight_ending
-position: 194,777
+position: -39,877
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
@@ -915,7 +886,7 @@ I would never have been able to accomplish this if I got in a relationship!
 ===
 
 title: rich_ending
-position: 194,777
+position: 160,515
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
@@ -929,28 +900,3 @@ But honestly, I don't know if I'd want a different life. Being super rich and ha
 <<ProgressDay GameManager>>
 ===
 
-title: INTERRUPT_LOW_AFFECTION_animegirl_day2
-position: -978,-725
----
-<<Checkpoint GameManager>>
-animegirl: You know what playerName, you're actually kind of DISGUSTING.
-animegirl: I need to wipe you off the face of this earth.
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
-===
-
-title: INTERRUPT_LOW_AFFECTION_otheranimegirl_day2
-position: -981,-574
----
-<<Checkpoint GameManager>>
-otheranimegirl: Actually, I don't know why I'm trying so hard with you.
-otheranimegirl: You're mean and a loser and I hate you. Get ready.
--> Oh no.
--> Oh no.
--> Oh no.
--> Oh no.
-<<StartFPS GameManager>>
-===

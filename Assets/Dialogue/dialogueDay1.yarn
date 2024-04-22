@@ -318,7 +318,12 @@ It makes me wonder...wonder what life would be like if I never got into a relati
 *gasp* What happened?
 What a nightmare...I got into a relationship?!
 I hope that never happens again...
-<<jump BeginDay>>
+<<if $day == 1>>
+    <<jump BeginDay>>
+<<endif>>
+<<if $day == 2>>
+    <<jump Day2>>
+<<endif>>
 ===
 
 title: LOSE_got_relationship_otheranimegirl
@@ -362,7 +367,12 @@ position: -879,-843
 *gasp* What happened?
 What a nightmare...I remembered fighting something?!
 That's probably just a bad dream...anyways, I should get ready for school!
-<<jump BeginDay>>
+<<if $day == 1>>
+    <<jump BeginDay>>
+<<endif>>
+<<if $day == 2>>
+    <<jump Day2>>
+<<endif>>
 ===
 
 title: EnterFPS
@@ -576,13 +586,12 @@ otheranimegirl: Oh, I love that game!
     -> I know, right? It's the best game ever!
         <<SetCharacter GameManager otheranimegirl 2>>
         otheranimegirl: Let's play it together tonight, just you and me, boyfriend!
-        <<jump LOSE_got_relationship>>
+        <<jump LOSE_got_relationship_otheranimegirl>>
     -> ... I was just kidding. I don't even know what that game is.
         <<SetCharacter GameManager otheranimegirl 1>>
         otheranimegirl: Oh, okay. I'll see you later, then.
         <<jump DAY_SUCCESS>>
 ===
-
 
 title: awkward
 position: -987,261
@@ -743,100 +752,6 @@ otheranimegirl: So...what are you doing later? I was hoping we could go see a mo
 
 ===
 
-title: LOSE_got_relationship_day2
-position: -1034,-597
----
-The next few years feels like a blur...
-First, she decided to embrace a technology-free lifestyle. I now live by candlelight and have nearly died of E. coli four times from eating unrefrigerated meats.
-Next, she committed wire fraud in my name and demanded I take the fall for it. I spent twelve years in prison.
-Those twelve years were probably the highlight of my life...
-After my release from prison, she insisted that we refinance our home to start a business making artisinal cheeses.
-Three weeks after the failure of Oasis Meadow Moonglow Cheeses© due to multiple food poisoning-related deaths, she left the back door open and my dog ran away.
-I haven't seen my sweet doggy boy since...
-It makes me wonder...wonder what life would be like if I never got into a relationship.
-
-<<Checkpoint GameManager>>
-<<SetBackground GameManager home>>
-<<SetCharacter GameManager me>>
-...
-GASP
-omg, what happened?
-what a nightmare... I got into a relationship??
-I hope that never happens again...
-<<jump Day2>>
-===
-
-
-title: transitionBack_day2
-position: -642,-845
----
-<<Checkpoint GameManager>>
-<<SetBackground GameManager home>>
-<<SetCharacter GameManager me>>
-<<RefreshHealth GameManager -1>>
-...
-GASP
-omg, what happened?
-what a nightmare... I remembered fighting something??
-That's probably just a bad dream... Anyways I should get back!
-<<jump Day2>>
-===
-
-title: EnterFPS_day2
-position: -642,-1133
----
-<<Checkpoint GameManager>>
-...
-Aghhh! These girls are feisty!
-Next Line
-<<ResumeFPS GameManager>>
-===
-
-title: ExitFPS_day2
-position: -640,-989
----
-<<Checkpoint GameManager>>
-yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
-    -> I admit defeat, I am, in fact, trash.
-        <<EndFPS GameManager false>>
-    -> As long as you're happy, I can be anything. Please, give me one more chance.
-        // -1 here represents setting to StartingHealth
-        <<RefreshHealth GameManager -1>>
-        <<ResumeFPS GameManager>>
-===
-
-title: FPS_SUCCESS_animegirl_day2
-position: -645,-1480
----
-<<Checkpoint GameManager>>
-<<SetBackground GameManager classroom>>
-animegirl: ...
-animegirl: Wait, I think I spaced out...what happened?
-    -> No idea.
-        animegirl: Oh, teehee!
-        animegirl: Anyways...
-    -> You went insane and tried to kill me!!
-        animegirl: I don't remember that at all...
-        animegirl: Anyways...
-<<ContinueFromPreFPSNode GameManager>>
-===
-
-title: FPS_SUCCESS_otheranimegirl_day2
-position: -644,-1337
----
-<<Checkpoint GameManager>>
-<<SetBackground GameManager classroom>>
-otheranimegirl: ...
-otheranimegirl: Woah, what happened? I'm confused.
-    -> Bruh.
-        otheranimegirl: Teehee!
-        otheranimegirl: Anyways...
-    -> You went insane and tried to kill me!!
-        otheranimegirl: No wayyy! I'd never do that!
-        otheranimegirl: Anyways...
-<<ContinueFromPreFPSNode GameManager>>
-===
-
 title: DAY_SUCCESS_day2
 position: 1657,167
 ---
@@ -899,4 +814,3 @@ If I could go back, maybe I could be more insulting. Or chosen my words more car
 But honestly, I don't know if I'd want a different life. Being super rich and handsome is actually pretty cool. 
 <<ProgressDay GameManager>>
 ===
-

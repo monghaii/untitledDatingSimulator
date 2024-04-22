@@ -1,0 +1,33 @@
+# Blender 3.3.0 MTL File: 'diorama.blend'
+# www.blender.org
+
+newmtl PETAL
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd K:/Artes Digitais/02 - Modelagem 3D/Textures/Diversos/leafes/petal.png
+
+newmtl Sc_Conifer_bush_A_bark
+Ns 39.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.023651 0.016193 0.011120
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl tree
+Ka 1.000000 1.000000 1.000000
+Ks 0.036364 0.036364 0.036364
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures/Tree_baseColor.jpg
+map_Ns textures/Tree_roughness.jpg
+map_Bump -bm 1.000000 textures/Tree_normal.png

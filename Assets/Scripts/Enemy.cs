@@ -184,8 +184,11 @@ public class Enemy : MonoBehaviour
         Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
         
         // shoot towards player
-        projectileRB.AddForce(transform.forward * 32f, ForceMode.Impulse);
-        projectileRB.AddForce(transform.up * 8f, ForceMode.Impulse);
+        /*projectileRB.AddForce(transform.forward * 32f, ForceMode.Impulse);
+        projectileRB.AddForce(transform.up * 8f, ForceMode.Impulse);*/
+        
+        Vector3 direction = (player.position - transform.position).normalized;
+        projectileRB.velocity = direction * 32f;
         
         // reset
         alreadyAttacked = true;

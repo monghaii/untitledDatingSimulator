@@ -70,8 +70,8 @@ Ah, another day, another dol- I mean chance to ruin my life and get in a relatio
 I can't wait to keep playing Wii Sports Resort again!
 I just have to make sure I don't end up on a date, then it'll all be over...
 No matter what, I'll fight to stay single!
+<<jump Day2>>
 ===
-
 
 title: dialogueDay3
 tags:
@@ -481,6 +481,7 @@ position: 1434,170
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
+<<playSound GameManager false school_bell>>
 The bell just rang.
 ...
 Class is finally over!
@@ -651,7 +652,7 @@ animegirl: ...So what now?
 
 title: Day2
 tags:
-position: 203,-1025
+position: 240,-1001
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
@@ -801,6 +802,7 @@ position: 1657,167
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
+<<playSound GameManager false school_bell>>
 The bell rang.
 ...
 Class is over! I gotta get home!

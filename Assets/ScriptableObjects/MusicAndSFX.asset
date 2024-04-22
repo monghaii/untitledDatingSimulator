@@ -27,3 +27,5 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 9976e38460ad546459cecfcc55583152, type: 3}
   - name: rooster
     audioClip: {fileID: 8300000, guid: 05b265bee5fa34e94bd83e1bca3d0fcb, type: 3}
+  - name: school_bell
+    audioClip: {fileID: 8300000, guid: 5b4231551415a46c3bd6ec1e41e74835, type: 3}

@@ -357,6 +357,7 @@ It makes me wonder...wonder what life would be like if I never got into a relati
 
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
 <<SetCharacter GameManager me>>
 ...
 *gasp* What happened?
@@ -388,6 +389,7 @@ It makes me wonder...wonder what life would be like if I never got into a relati
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
+<<playSound AudioManager true home>>
 ...
 *gasp* What happened?
 What a nightmare...I got into a relationship?!
@@ -407,6 +409,7 @@ position: -879,-843
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 <<RefreshHealth GameManager -1>>
+<<playSound AudioManager true home>>
 ...
 *gasp* What happened?
 What a nightmare...I remembered fighting something?!
@@ -481,18 +484,21 @@ position: 1434,170
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
-<<playSound GameManager false school_bell>>
+<<playSound AudioManager false school_bell>>
 The bell just rang.
 ...
 Class is finally over!
 
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
+<<playSound AudioManager true home>>
 Ah, nice to be back home.
 Good thing I didn't get into a relationship today.
 ...
 Oh man, would you look at the time?
 I should get ready for bed...
+<<SetBackground  GameManager black>>
+<<playSound AudioManager true mysterious_voice>>
 zzz
 zzz
 zzz
@@ -802,11 +808,12 @@ position: 1657,167
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
-<<playSound GameManager false school_bell>>
+<<playSound AudioManager false school_bell>>
 The bell rang.
 ...
 Class is over! I gotta get home!
 <<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
 <<SetCharacter GameManager me>>
 Wait...it's the end of the semester.
 And I'm...still single! I did it!

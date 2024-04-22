@@ -261,7 +261,7 @@ animegirl: I know you said not to follow you, but I got bored waiting so I did i
                 animegirl: Stop playing with my heart! You can't just insult someone like that.
                 animegirl puts on her brass knuckles.
                 animegirl: ...especially not ME!
-                <<StartFPS GameManager>>
+                <<StartFPS GameManager true>>
             -> No, I just wanted to be alone...my goldfish died
                 <<SetCharacter GameManager animegirl 1>>
                 animegirl: Oh, I'm so sorry...I'll leave you alone.

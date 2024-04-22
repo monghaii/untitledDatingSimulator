@@ -192,6 +192,9 @@ public class Tutorial : MonoBehaviour
     void LoadFPS()
     {
         SceneManager.UnloadSceneAsync("FPSTutorial");
-        SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
+        if (GameManager.backgroundIsCourtyard)
+            SceneManager.LoadScene("FPSScene_yard", LoadSceneMode.Additive);
+        else
+            SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
     }
 }

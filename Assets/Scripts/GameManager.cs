@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     [Header("Background")]
     public Image backgroundImage;
     public Backgrounds backgroundSO;
+    public static bool backgroundIsCourtyard = false; // This is for tutorial level to know
 
     //for exit dialogue in FPS mode
     public int FPScounter = 0;
@@ -204,8 +205,9 @@ public class GameManager : MonoBehaviour
     }
 
     [YarnCommand("StartFPS")]
-    public void StartFPS()
+    public void StartFPS(bool isCourtyard = false)
     {
+        backgroundIsCourtyard = isCourtyard;
         fpsLoaded = true;
         if(FPScounter >= 2)
         {
@@ -231,8 +233,11 @@ public class GameManager : MonoBehaviour
         else
         {
             // load in fps scene
-            SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
-
+            if (isCourtyard)
+                SceneManager.LoadScene("FPSScene_yard", LoadSceneMode.Additive);
+            else
+                SceneManager.LoadScene("FPSScene", LoadSceneMode.Additive);
+            
             //switch music
             AudioManager.Instance.PlaySound(true, "fps_theme");
             PauseFPS();

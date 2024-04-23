@@ -31,9 +31,9 @@ MonoBehaviour:
     characterAffection: 50
   - characterName: animedude
     characterImage:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 15a39f3d22fbe46e3b1759661c7c3900, type: 3}
     - {fileID: 21300000, guid: 08331ecaa909442e5898a99618e029e2, type: 3}
-    - {fileID: 0}
+    - {fileID: 21300000, guid: b5177eae5ecb14c248aea56f9b712ee7, type: 3}
     - {fileID: 21300000, guid: 7de0f37f8b918490bba4a52ba8c75528, type: 3}
     - {fileID: 21300000, guid: ff945ec9898e24db9a091a02288a2acd, type: 3}
     characterAffection: 50

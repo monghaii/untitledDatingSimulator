@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     // Magic numbers here are placeholders
     [Header("Attributes")] 
     public int currentDay = 1;
-    public const int MaxDays = 2;
+    public const int MaxDays = 3;
     // NOTE: naming convention for different day dialogues
     // dialogueDay + Number
     // e.g. dialogueDay2
@@ -123,7 +123,10 @@ public class GameManager : MonoBehaviour
         if (levelToLoad != "")
         {
             currentNode = levelToLoad;
+            if (currentNode == "day3_otheranimegirl") currentDay = 3;
+            else if (currentNode == "dialogueDay2") currentDay = 2;
             levelSelected = true;
+            firstFPS = false;
         }
         else
         {
@@ -192,6 +195,7 @@ public class GameManager : MonoBehaviour
         {
             dialogueNodeToReturn = currentNodeName;
             currentLine = 0;
+            Debug.Log(dialogueNodeToReturn);
         }
         else
         {
@@ -199,6 +203,12 @@ public class GameManager : MonoBehaviour
         }            
         // Debugging current node and line number
         // Debug.Log("//////// line debug: " + currentNode + ", " + currentLine);
+    }
+
+    [YarnCommand("ForceCheckpoint")]
+    public void ForceCheckpoint(string currentNodeName)
+    {
+        dialogueNodeToReturn = currentNodeName;
     }
 
     public bool GetFpsLoaded()

@@ -16,9 +16,9 @@ MonoBehaviour:
   meleeRange: 0
   rangedRange: 3
   timeBetweenAttacks: 1.5
-  damage: 30
+  damage: 20
   maxHealth: 100
-  moveSpeed: 15
+  moveSpeed: 6
   projectilePrefabs:
   - {fileID: 8547487269042828956, guid: e26532f2a59d7bb47932c17cfb1c1419, type: 3}
   weaponEnabled: 0

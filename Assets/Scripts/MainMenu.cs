@@ -41,6 +41,10 @@ public class MainMenu : MonoBehaviour
         {
             levelToLoad = "GoToClass";
         }
+        else if(selectedDay == 3)
+        {
+            levelToLoad = "day3_otheranimegirl";
+        }
         else
         {
             levelToLoad = "dialogueDay" + name;

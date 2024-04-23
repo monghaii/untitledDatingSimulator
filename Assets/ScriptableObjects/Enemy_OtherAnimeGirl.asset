@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: otheranimegirl
   meleeRange: 0
-  rangedRange: 5
+  rangedRange: 3
   timeBetweenAttacks: 1.25
-  damage: 20
+  damage: 10
   maxHealth: 100
-  moveSpeed: 20
+  moveSpeed: 9
   projectilePrefabs:
   - {fileID: 8547487269042828956, guid: e26532f2a59d7bb47932c17cfb1c1419, type: 3}
   weaponEnabled: 1

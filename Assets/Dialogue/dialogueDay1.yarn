@@ -82,44 +82,257 @@ tags:
 position: 306,-1324
 ---
 <<Checkpoint GameManager>>
-<<SetBackground GameManager home>>
-<<playSound AudioManager true home>>
+<<SetBackground  GameManager black>>
+<<SetCharacter GameManager me>>
+<<playSound AudioManager true mysterious_voice>>
+zzz
+zzz
+zzz
 <<SetCharacter GameManager me>>
 OMG, what happened?
 ...
-<<SetBackground GameManager black>>
-<<playSound AudioManager true mysterious_voice>>
-mysterious_voice: You're in day 3. I thought you knew how this game works by now.
+Mysterious Voice: You're in day 3. I thought you knew how this game works by now.
 <<SetBackground GameManager home>>
 <<playSound AudioManager true home>>
 Oh right.
-Well, here goes nothing. At least I'm halfway through the week...
+It's the last day. I'm so close...true freedom is just within reach!
+<<jump day3_otheranimegirl>>
 ===
 
-
-title: dialogueDay4
+title: day3_otheranimegirl
 tags:
-position: 528,-1326
+position: 306,-1324
+---
+<<SetCharacter GameManager me>>
+<<SetBackground GameManager courtyard>>
+<<playSound AudioManager true classroom>>
+<<set $day = 3>>
+<<Checkpoint GameManager>>
+Ahh, the last day before summer break. It's beautiful. Walking through the courtyard is so peaceful.
+Hm...who's there? Uh oh...
+<<ForceCheckpoint GameManager day3_otheranimegirl>>
+<<SetCharacter GameManager otheranimegirl 0>>
+otheranimegirl: PlayerName~! Don't think I've forgotten about the talk we had yesterday...
+otheranimegirl: It's the last day of school! Don't you want to have a summer romance?
+otheranimegirl: Or are you planning on asking that HARLOT animegirl out?
+    -> Please otheranimegirl, just leave me alone...
+        otheranimegirl: All I heard was "please". That's so polite of you! You are the sweetest guy ever!
+        otheranimegirl: Since you asked so nicely, yes! I will go out with you.
+        (I forgot...she has selective hearing. And I was so close to starting summer single...)
+        <<jump LOSE_got_relationship_otheranimegirl>>
+    -> Why do you say such mean things about animegirl? She's your friend!
+        <<SetCharacter GameManager otheranimegirl 3>>
+        otheranimegirl: Why are you defending her? She says horrible things about everyone all the time!
+        otheranimegirl: I can't be with a man that defends other women. I deserve a boyfriend who is loyal to me and only me!
+        <<SetCharacter GameManager otheranimegirl 4>>
+        otheranimegirl: For breaking my heart, I challenge you to a fight to the death!
+        <<StartFPS GameManager true>>
+    -> Baby go poo poo in pants.
+        <<SetCharacter GameManager otheranimegirl 1>>
+        <<if $has_gross_buff == true>>
+            otheranimegirl: Yeah, I'm sure you did. You do weird things like chug expired milk.
+            <<SetCharacter GameManager otheranimegirl 2>>
+            otheranimegirl: Everybody knows about that. And I STILL flirt with you! That's how compassionate I am.
+        <<endif>>
+        <<if $has_gross_buff == false>>
+            otheranimegirl: ...I'm not gonna lie, I wasn't expecting that.
+            otheranimegirl: I guess the rumors about you being gross are true. I didn't want to believe it, but I'll try to look past it.
+        <<endif>>
+        <<jump poopoo>>
+===
+
+title: poopoo
+tags:
+position: -301,-663
 ---
 <<Checkpoint GameManager>>
-<<SetBackground GameManager home>>
-<<playSound AudioManager true home>>
-<<SetCharacter GameManager me>>
-day 4 dialogue
+<<SetCharacter GameManager otheranimegirl 1>>
+otheranimegirl: Besides! I love to take care of people. Especially boyfriends!
+<<if $has_health_buff == true>>
+    otheranimegirl: Remember when I gave you those black market performance enhancing drugs to increase your health points?
+    otheranimegirl: I'm a very caring person!
+<<endif>>
+otheranimegirl: So don't think that pooping your pants is gonna deter me!
+    -> What about peepee in pants?
+        <<SetCharacter GameManager otheranimegirl 3>>
+        otheranimegirl: I already told you I don't care!
+        <<SetCharacter GameManager otheranimegirl 1>>
+        otheranimegirl: Unless...you're saying that because you know it doesn't bother me?
+        otheranimegirl: Are you trying to appeal to my unwarranted sense of superiority for accepting behaviors other girls would be put off by?
+        <<SetCharacter GameManager otheranimegirl 2>>
+        otheranimegirl: I see now...you're trying to ask me to be your girlfriend, you're just too shy.
+        otheranimegirl: Oh, playerName! Of course I'll date you!
+        (I should try to listen to the things they say...this could've been avoided.)
+        <<jump LOSE_got_relationship_otheranimegirl>>
+    -> I just don't have time to date. I play video games constantly.
+        <<SetCharacter GameManager otheranimegirl 1>>
+        otheranimegirl: Oh...
+        <<SetCharacter GameManager otheranimegirl 2>>
+        otheranimegirl: I also LOVE video games! What's your favorite game?
+            -> Halo Reach Legendary Edition
+                otheranimegirl: Oh, you mean my FAVORITE GAME EVER?
+                otheranimegirl: What are we even doing here? This is a sign!
+                otheranimegirl: I have the local pastor on speed dial. We're eloping NOW.
+                (Maybe if I asked around a bit three days ago, I would've known that was her favorite game...)
+                (Now I'm doomed...)
+                <<jump LOSE_got_relationship_otheranimegirl>>
+            -> Minecraft Pocket Edition
+                otheranimegirl: I love that game! It's not my favorite, but I love it! I haven't been able to play since my phone broke, though...
+                otheranimegirl: Do you play on iOS or Android?
+                    -> iOS.
+                        otheranimegirl: Don't you see? We're meant for each other. We even have the same phone!
+                        (I think she might've mentioned she was an iPhone user yesterday...I should've paid more attention.)
+                    -> Android.
+                        <<SetCharacter GameManager otheranimegirl 1>>
+                        otheranimegirl: ...
+                        otheranimegirl: Well, have a nice summer, I guess.
+                        <<jump lastDayOfClass>>
+            -> Spider Solitaire
+                <<SetCharacter GameManager otheranimegirl 1>>
+                otheranimegirl: Oh...that's not really what I was imagining when you said you liked video games.
+                otheranimegirl: Um...see you next semester, okay? Bye!
+                <<jump lastDayOfClass>>
 ===
 
-
-title: dialogueDay5
+title: lastDayOfClass
 tags:
-position: 748,-1326
+position: -301,-663
 ---
 <<Checkpoint GameManager>>
-<<SetBackground GameManager home>>
-<<playSound AudioManager true home>>
+<<SetBackground GameManager classroom>>
 <<SetCharacter GameManager me>>
-day 5 dialogue
+Ugh...finally, its the last class of the day.
+I've managed to dodge these vixens so far...I'm so close to finally getting home and starting my summer vacation!
+<<SetCharacter GameManager animegirl 2>>
+animegirl: PlayerName! I've been looking all over for you!
+(She's not even in this class!)
+animegirl: I heard you rejected otheranimegirl this morning. That was really mean of you.
+    -> She says horrible things about you behind your back.
+        <<SetCharacter GameManager animegirl 1>>
+        animegirl: ...Wait, really?
+            -> Yeah. She constantly drags your name through the mud.
+                animegirl: ...
+                <<SetCharacter GameManager animegirl 4>>
+                animegirl: I'm gonna BODYSLAM HER when I see her after school today.
+                animegirl: And then I'll cast a spell on her to make all her teeth fall out.
+                    -> I'm so sorry, animegirl. You're awesome. You don't deserve this.
+                        <<SetCharacter GameManager animegirl 1>>
+                        animegirl: See, usually saying something really nice to a girl in this game would get you the bad ending, but...
+                        animegirl: You did a really decent thing by warning me about that snake. So...I'm gonna let you go. Enjoy your summer.
+                        (Huh.)
+                        <<jump afterSchool>>
+                    -> I don't really care about this girl drama.
+                        <<SetCharacter GameManager animegirl 1>>
+                        animegirl: Okay, that sounded kind of misogynistic, playerName.
+                        animegirl: I think you might've forgotten about me being the archetypal bully character.
+                        animegirl: As such, I am legally obligated to do this.
+                        animegirl shoves you.
+                        <<set $been_shoved = true>>
+                        <<TakeDamage GameManager 10>>
+                        <<SetCharacter GameManager animegirl 3>>
+                        animegirl: Now apologize.
+                        <<jump apologizeToAnimegirl>>
+            -> Nah, I'm just a shit stirrer. Teehee.
+                <<SetCharacter GameManager animegirl 1>>
+                animegirl: Why are you trying to come between me and my best friend?
+                animegirl: Are you jealous?
+                    -> Yes, m'lady. I wish to be close bosom friends with you.
+                        <<SetCharacter GameManager animegirl 4>>
+                        animegirl: UGH!!! Everyone knows I hate weird affectations like that! Stop it!
+                        animegirl: Actually, no. This is day 3. You should've known better!!!
+                        <<StartFPS GameManager>>
+                    -> *start full body sobbing*
+                        <<SetCharacter GameManager animegirl 1>>
+                        animegirl: Woah. Dial it back.
+                        animegirl: Ugh, forget you. You're so weird.
+                        <<jump afterSchool>>
+                    -> No way!
+                        <<SetCharacter GameManager animegirl 2>>
+                        animegirl: I don't believe you~!
+                        animegirl: I mean, your first thought when I came in the room was "she's not even in this class".
+                        animegirl: If you didn't like me, why would you keep track of my schedule?
+                        (She can read minds???)
+                        animegirl: Sure can! I'm an eighteenth-generation sorceress, baby!
+                        animegirl: Now, get ready for my love spell. One, two, three...
+                        (Oh no!)
+                        <<jump LOSE_got_relationship>>
+    -> She sucks.
+        <<SetCharacter GameManager animegirl 3>>
+        animegirl: Hey, that's my BEST FRIEND.
+        animegirl: I'm gonna give you 10 seconds to apologize. Do it!
+        <<jump apologizeToAnimegirl>>
 ===
 
+title: apologizeToAnimegirl
+tags:
+position: -301,-663
+---
+<<Checkpoint GameManager>>
+animegirl: So? Are you gonna apologize?
+    -> No! I'm tired of you bossing me around!
+        <<SetCharacter GameManager animegirl 1>>
+        animegirl: ...
+        animegirl: Not gonna lie, I respected that you stood up to me.
+        animegirl: However, I'm not interested in guys that I can't boss around. So...
+        animegirl: Have a nice life?
+        (I'm free!)
+        <<jump afterSchool>>
+    -> Fine, I apologize! I'm sorry!
+        <<SetCharacter GameManager animegirl 2>>
+        animegirl: Aww, I love it when they grovel!
+        animegirl: You just tick all of the boxes, don't you, playerName? The more I talk to you, the more I like you!
+        (Uh oh...)
+        animegirl: Ditch this class! Let's go hang out at the arcade.
+        (Well, at least that sounds kind of fun.)
+        <<jump LOSE_got_relationship>>
+===
+
+title: afterSchool
+tags:
+position: -301,-663
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager me>>
+Well, time to actually sit down and learn. On the last day of the semester. Kind of dumb that we have to do that.
+...
+...
+<<playSound AudioManager false school_bell>>
+The bell just rang.
+It's over! I'm free! I'm--
+<<SetCharacter GameManager animeboy 1>>
+animeboy: PlayerName!
+(NO!!!)
+animeboy: Please, playerName. I just want to talk. I feel horrible about how we left things yesterday.
+    -> *step on his shoe*
+        animeboy: ...
+        animeboy: Wow, you're going full aggro right off the bat, huh?
+        <<StartFPS GameManager>>
+    -> I'll never trust you again. You betrayed the Grass Grazing Code.
+        animeboy: I'm sorry! It's just...the more time I spend hanging around this school...
+        <<SetCharacter GameManager animeboy 2>>
+        animeboy: ...the more the idea of relationships appeals to me.
+            -> Maybe you should try being in a relationship with someone else.
+                animeboy: True...but you're SO much cooler, playerName!
+                animeboy: Besides, every time I walk in this school, at least three people approach me and try to start a relationship.
+                animeboy: It's just nice to be the one doing the pursuing for once.
+                    -> Feel.
+                        animeboy: Right?! Come on! Let's go to 7-Eleven and get some Slurpees.
+                        (I'm tired. I'm just gonna roll with it.)
+                        <<jump LOSE_got_relationship_animeboy>>
+                    -> Can't relate. You're the same as everybody else.
+                        animeboy: Wow. I never thought of it like that. Now I feel like an asshole.
+                        animeboy: Okay. I respect your decision. I'm gonna go ask animegirl if she's free tonight.
+                        <<jump DAY_SUCCESS_day3>>
+            -> You are a conniving louse!
+                animeboy: Hey now, there's no need for insults. I'm just being true to my feelings.
+                animeboy: And saying my gamertag out loud in public is actually really embarrassing and not cool of you.
+                animeboy: You picked the obvious FPS option, so...I guess we're gonna fight now.
+                <<StartFPS GameManager>>
+            -> I'm just...not really into shoes, my guy.
+                animeboy: Oh. Yeah, that's kind of a dealbreaker.
+                animeboy: Okay. Enjoy your summer. Let me know if you want to play Animal Crossing together.
+                <<jump DAY_SUCCESS_day3>>
+===
 
 title: BeginDay
 tags:
@@ -440,6 +653,10 @@ I hope that never happens again...
 <<if $day == 2>>
     <<jump Day2>>
 <<endif>>
+<<if $day == 3>>
+    <<jump day3_otheranimegirl>>
+<<endif>>
+
 ===
 
 title: LOSE_got_relationship_otheranimegirl
@@ -470,6 +687,9 @@ I hope that never happens again...
 <<endif>>
 <<if $day == 2>>
     <<jump Day2>>
+<<endif>>
+<<if $day == 3>>
+    <<jump day3_otheranimegirl>>
 <<endif>>
 ===
 
@@ -504,6 +724,9 @@ I hope that never happens again...
 <<if $day == 2>>
     <<jump Day2>>
 <<endif>>
+<<if $day == 3>>
+    <<jump day3_otheranimegirl>>
+<<endif>>
 ===
 
 title: transitionBack
@@ -524,6 +747,9 @@ That's probably just a bad dream...anyways, I should get ready for school!
 <<endif>>
 <<if $day == 2>>
     <<jump Day2>>
+<<endif>>
+<<if $day == 3>>
+    <<jump day3_otheranimegirl>>
 <<endif>>
 ===
 
@@ -581,6 +807,22 @@ otheranimegirl: Heehee, what happened? I'm all dizzy...
     -> You went insane and tried to kill me!!
         otheranimegirl: Don't be silly! I'd never do something like that!
         otheranimegirl: Anyways...
+<<ContinueFromPreFPSNode GameManager>>
+===
+
+title: FPS_SUCCESS_animeboy
+position: -878,-1338
+---
+<<Checkpoint GameManager>>
+<<set $fps_won = $fps_won + 1>>
+animeboy: ...
+animeboy: Huh, what's going on? My head hurts...
+    -> Bruh.
+        animeboy: I hope I didn't like. Attack you or anything.
+        animeboy: Anyways...
+    -> You went insane and tried to kill me!!
+        animeboy: No way, I don't believe I'd do that!
+        animeboy: Anyways...
 <<ContinueFromPreFPSNode GameManager>>
 ===
 
@@ -733,7 +975,7 @@ otheranimegirl: You just screamed out loud all of a sudden...
         otheranimegirl: If you ever wanna talk...I'm here.
         <<jump DAY_SUCCESS>>
     -> I just want to play Halo Reach Legendary Edition Limited Edition Box Set. Please leave me alone.
-        <<jump OMGILoveThatGame>>
+        <<jump OMGMyFavoriteGame>>
     -> No. but honestly a cheeseburger sounds really good right now.
         <<SetCharacter GameManager otheranimegirl 2>>
         otheranimegirl: Mmm, I think so too! Let's go together!
@@ -745,6 +987,26 @@ position: -483,897
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 0>>
 otheranimegirl: Oh, I love that game!
+    -> ...That game sucks, I hate it.
+        <<SetCharacter GameManager otheranimegirl 4>>
+        otheranimegirl: Those are fighting words. Get ready.
+        <<StartFPS GameManager>>
+    -> I know, right? It's the best game ever!
+        <<SetCharacter GameManager otheranimegirl 2>>
+        otheranimegirl: Let's play it together tonight, just you and me, boyfriend!
+        <<jump LOSE_got_relationship_otheranimegirl>>
+    -> ... I was just kidding. I don't even know what that game is.
+        <<SetCharacter GameManager otheranimegirl 1>>
+        otheranimegirl: Oh, okay. I'll see you later, then.
+        <<jump DAY_SUCCESS>>
+===
+
+title: OMGMyFavoriteGame
+position: -483,897
+---
+<<Checkpoint GameManager>>
+<<SetCharacter GameManager otheranimegirl 0>>
+otheranimegirl: That's my FAVORITE game, playerName!
     -> ...That game sucks, I hate it.
         <<SetCharacter GameManager otheranimegirl 4>>
         otheranimegirl: Those are fighting words. Get ready.
@@ -789,6 +1051,7 @@ otheranimegirl: Oh, hey! It's you!
     I'd better be careful...
     <<set $met_otheranimegirl = true>>
 <<endif>>
+otheranimegirl: I cracked my iPhone screen, so I can't bedrot and play mobile games all day. I've just been hanging out at school gossiping.
 otheranimegirl: I've heard a lot about you...
     -> Let me guess, you heard about the expired milk thing. <<if $has_gross_buff == true>>
         <<jump EwThatWasTrue>>
@@ -1083,11 +1346,6 @@ Good thing I didn't get into a relationship today.
 ...
 Oh man, would you look at the time?
 I should get ready for bed...
-<<SetBackground  GameManager black>>
-<<playSound AudioManager true mysterious_voice>>
-zzz
-zzz
-zzz
 <<LogDayEndAnalytics GameManager>>
 <<ProgressDay GameManager>>
 ===
@@ -1097,15 +1355,13 @@ position: 1657,167
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
-<<playSound AudioManager false school_bell>>
-The bell rang.
 ...
+Finally...
 The school day is over! I gotta get home!
 <<SetBackground GameManager home>>
 <<playSound AudioManager true home>>
 <<SetCharacter GameManager me>>
-Wait...it's the end of the semester.
-And I'm...still single! I did it!
+I'm...still single! I did it!
 I can follow my dreams now...
 <<if $fps_won > 2>>
     <<jump fight_ending>>

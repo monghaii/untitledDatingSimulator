@@ -311,7 +311,10 @@ public class GameManager : MonoBehaviour
         
         // unload fps scene
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.UnloadSceneAsync("FPSScene");
+        if (backgroundIsCourtyard)
+            SceneManager.UnloadSceneAsync("FPSScene_yard");
+        else
+            SceneManager.UnloadSceneAsync("FPSScene");
     }
 
     [YarnCommand("ContinueFromPreFPSNode")]

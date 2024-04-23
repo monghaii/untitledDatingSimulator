@@ -19,8 +19,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 3166ef34d78aa4858a7e435b14dbb00a, type: 3}
     - {fileID: 21300000, guid: 7982435e9e5a4481682edac6bf9bbb90, type: 3}
     - {fileID: 21300000, guid: 0966590057df546d6bdaf0d0027142f3, type: 3}
-    - {fileID: 21300000, guid: 2ede1ae82a3b60346b8d723de47fdfed, type: 3}
-    characterAffection: 19
+    - {fileID: 21300000, guid: e843cf0afd8ed4f6b9e24541486e22ee, type: 3}
+    characterAffection: 50
   - characterName: otheranimegirl
     characterImage:
     - {fileID: 21300000, guid: 21ab4f5dc2b45442a91874450f36159a, type: 3}

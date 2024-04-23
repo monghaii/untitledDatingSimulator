@@ -267,7 +267,16 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    
+    [YarnCommand("LogLastChance")]
+    public void LogLastChance(bool isSuccessful)
+    {
+        //analytics for last chance
+        var props = new Value();
+        props["Last Chance Result"] = isSuccessful;
+        Analytics.LogAnalyticEvent("Last Chance Result", props);
+    }
+    
     [YarnCommand("EndFPS")]
     public void EndFPS(bool didDefeatEnemy)
     {
@@ -320,7 +329,10 @@ public class GameManager : MonoBehaviour
         
         // unload fps scene
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.UnloadSceneAsync("FPSScene");
+        if (backgroundIsCourtyard)
+            SceneManager.UnloadSceneAsync("FPSScene_yard");
+        else
+            SceneManager.UnloadSceneAsync("FPSScene");
     }
 
     [YarnCommand("ContinueFromPreFPSNode")]

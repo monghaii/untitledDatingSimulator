@@ -543,9 +543,11 @@ position: -878,-989
 <<Checkpoint GameManager>>
 yourenemygirl: ONE LAST CHANCE! ADMIT YOU ARE TRASH!!!
     -> I admit defeat, I am, in fact, trash.
+        <<LogLastChance GameManager false>>
         <<EndFPS GameManager false>>
     -> As long as you're happy, I can be anything. Please, give me one more chance.
         // -1 here represents setting to StartingHealth
+        <<LogLastChance GameManager true>>
         <<RefreshHealth GameManager -1>>
         <<ResumeFPS GameManager>>
 ===

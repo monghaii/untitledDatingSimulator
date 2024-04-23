@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private string dialogueNodeSelect = "";
     private string levelToLoad = "";
     private bool levelSelected = false;
+    bool fps_tutorial = true;
 
     [Header("GAME FEATURE FLAGS (IMPORTANT)")]
     public bool FLAG_ENABLE_AFFECTION_INTERRUPT;
@@ -314,7 +315,7 @@ public class GameManager : MonoBehaviour
         datingSimEventSystem.enabled = true;
         
         dialogueRunnerInstance.Stop();
-        if(firstFPS)
+        if(firstFPS && fps_tutorial)
         {
             firstFPS = false;
             dialogueRunnerInstance.StartDialogue("firstFPSOver");
@@ -329,6 +330,11 @@ public class GameManager : MonoBehaviour
         else
         {
             // reload back into FPS_SUCCESS node
+            if(fps_tutorial)
+            {
+                fps_tutorial = false;
+                return;
+            }
             dialogueRunnerInstance.StartDialogue("FPS_SUCCESS_" + currentCharacter);
             SetCharacter(currentCharacter, 0);
             currentHealth = StartingHealth;

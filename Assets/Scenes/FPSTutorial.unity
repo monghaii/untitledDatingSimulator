@@ -2430,7 +2430,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Slide 2\nDid you just ask \"Why am I here\"? \nDon't worry. \nYou've just
-    pissed off a girl, \nthat's all."
+    pissed off someone, \nthat's all."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd1adc8fa8dc2a8469098a5fed37f272, type: 2}
   m_sharedMaterial: {fileID: -3735075576563124390, guid: bd1adc8fa8dc2a8469098a5fed37f272, type: 2}

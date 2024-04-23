@@ -556,7 +556,6 @@ title: FPS_SUCCESS_animegirl
 position: -876,-1483
 ---
 <<Checkpoint GameManager>>
-<<SetBackground GameManager classroom>>
 <<set $fps_won = $fps_won + 1>>
 animegirl: ...
 animegirl: Wait, I think I spaced out...what happened??
@@ -573,7 +572,6 @@ title: FPS_SUCCESS_otheranimegirl
 position: -878,-1338
 ---
 <<Checkpoint GameManager>>
-<<SetBackground GameManager classroom>>
 <<set $fps_won = $fps_won + 1>>
 otheranimegirl: ...
 otheranimegirl: Heehee, what happened? I'm all dizzy...
@@ -1000,8 +998,8 @@ animeboy: Would you...be interested in going to dinner sometime?
     -> You are the absolute lowest of the low. You disgust me.
         <<SetCharacter GameManager animeboy 3>>
         animeboy: I can't control my feelings, playerName. Maybe YOU'RE the weird one for being so insistent on avoiding relationships!
-        animeboy: Fine, you want to insult me? Let's settle this like men!
-        <<StartFPS GameManager>>
+        animeboy: Fine, you want to insult me? Let's take this outside!
+        <<StartFPS GameManager true>>
     -> I'm sorry bro, but I can't introduce you to my parents. You're a high school delinquent.
         <<SetCharacter GameManager animeboy 3>>
         animeboy: What is that supposed to mean? You think I'm not good enough for your family?
@@ -1012,7 +1010,8 @@ animeboy: Would you...be interested in going to dinner sometime?
                 animeboy: Anyways, you probably knew that was the FPS dialogue option. Let's just get it over with.
                 <<SetCharacter GameManager animeboy 3>>
                 animeboy: I'm gonna beat the crap out of you now.
-                <<StartFPS GameManager>>
+                animeboy: First we gotta go outside, though. I don't want to get arrested.
+                <<StartFPS GameManager true>>
             -> Sorry. I'm just not interested in...you.
                 <<jump convince>>
             -> My stomach hurts...*gurgle gurgle* <<if $has_gross_buff == true>>
@@ -1053,7 +1052,8 @@ animeboy: I mean, what else do you have to do right now?
         animeboy: You can call me ugly...you can call me stupid...you can call me any name you want...
         <<SetCharacter GameManager animeboy 4>>
         animeboy: But you can NEVER INSULT MY SNEAKS.
-        <<StartFPS GameManager>>
+        animeboy: I'M TAKING YOU OUTSIDE.
+        <<StartFPS GameManager true>>
     -> I have to go home and play video games.
         animeboy: ...Which video game?
             -> League of Legends.

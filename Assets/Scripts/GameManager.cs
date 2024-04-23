@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     public Image characterImage;
     public Characters characterSO;
     public int characterInterruptWithFPSAffectionThreshhold = 70;
-    public List<EnemyData> enemies;
+    [SerializeField] public List<EnemyData> enemies;
     
     [Header("Dialogue")]
     private List<string> protectedNodeNames = new List<string> { "LOSE_", "INTERRUPT_", "FPS_", "EnterFPS", "ExitFPS", "DAY_" };

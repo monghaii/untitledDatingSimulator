@@ -114,6 +114,47 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(RemoveAudioSourceAfterPlayback(sfxSource));
     }
 
+    // Call this to play music that is listed in the MusicAndSFX ScriptableObject. First variable is whether it loops.
+    [YarnCommand("stopSound")]
+    public void StopSound(bool isLooping, string name)
+    {
+        // Create a new AudioSource component
+        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
+
+        // Add the new AudioSource to the list
+        audioSources.Add(sfxSource);
+
+        // Find the AudioClip with the specified name
+        AudioClip sfxClip = null;
+        foreach (var sound in musicAndSfxSO.audioClips)
+        {
+            if (sound.name == name)
+            {
+                sfxClip = sound.audioClip;
+                break;
+            }
+        }
+
+        // Check if AudioClip is found
+        if (sfxClip == null)
+        {
+            Debug.LogError("AudioClip with name " + name + " not found in MusicAndSFX ScriptableObject.");
+            return;
+        }
+
+        // Set AudioClip and loop mode
+        sfxSource.clip = sfxClip;
+        sfxSource.loop = isLooping;
+
+        // Play the sound
+        sfxSource.Play();
+
+        // Start coroutine to remove AudioSource after playback
+        StartCoroutine(RemoveAudioSourceAfterPlayback(sfxSource));
+    }
+
+
+
     // Coroutine to remove AudioSource after playback
     private IEnumerator RemoveAudioSourceAfterPlayback(AudioSource audioSource)
     {

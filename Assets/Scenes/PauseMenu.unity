@@ -160,6 +160,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1259534300570215767, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259534300570215767, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -248,6 +252,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4640550792438515995, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640550792438515995, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -283,6 +291,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6320291605828708778, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320291605828708778, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.26005554
+      objectReference: {fileID: 0}
     - target: {fileID: 7433010490601976719, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -293,6 +309,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7433010490601976719, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433010490601976719, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7433010490601976719, guid: 1c7d2b153590dbe489665ec86029ab42, type: 3}

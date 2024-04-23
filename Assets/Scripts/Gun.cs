@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
     public Camera fpsCam;
+    public Transform muzzle;
 
     [Header("Stats")]
     public float damage = 10f;
@@ -25,6 +27,8 @@ public class Gun : MonoBehaviour
     [Header("Effects")]
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
+    public TrailRenderer bulletTrail;
+    public float trailSpeed;
 
     void Start()
     {
@@ -97,6 +101,9 @@ public class Gun : MonoBehaviour
             // more effects
             GameObject vfxImpact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(vfxImpact, 0.2f);
+            TrailRenderer trail = Instantiate(bulletTrail, muzzle.transform.position, Quaternion.identity);
+            MoveTrail moveTrail = trail.GetComponent<MoveTrail>();
+            moveTrail.hitpoint = hit.point;
         }
 
     }

@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinGame.unity
     guid: e29f8e080aa8de840ad26994c0ef24bc
+  - enabled: 1
+    path: Assets/Scenes/FPSScene_yard.unity
+    guid: 95f17b9e6ed5e8147bba49a46982b47f
   m_configObjects: {}

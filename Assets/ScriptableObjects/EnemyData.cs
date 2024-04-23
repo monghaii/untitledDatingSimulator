@@ -14,4 +14,5 @@ public class EnemyData : ScriptableObject
     public float moveSpeed;
     public List<GameObject> projectilePrefabs;
     public bool weaponEnabled;
+    public GameObject model;
 }

@@ -50,8 +50,11 @@ public class Enemy : MonoBehaviour
     public float currentHealth;
     public HealthBar healthBar;
 
-    [Header("Sprite")]
+    [Header("Sprite")] 
     public GameObject enemySprite;
+
+    [Header("Animation")] 
+    public Animator animator;
 
     
     
@@ -70,6 +73,8 @@ public class Enemy : MonoBehaviour
         agent.speed = data.moveSpeed;
         projectilePrefabs = data.projectilePrefabs;
         weapon.SetActive(data.weaponEnabled);
+        Instantiate(data.model, this.transform);
+        animator = GetComponentInChildren<Animator>();
     }
     
     void Update()
@@ -138,6 +143,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     void Chase()
     {
+        animator.SetTrigger("Run");
         agent.SetDestination(player.position);
     }
 
@@ -146,6 +152,9 @@ public class Enemy : MonoBehaviour
     /// </summary>
     void Attack()
     {
+        // set animation
+        animator.SetTrigger("Attack");
+        
         // stop moving when attacking
         agent.SetDestination(transform.position);
         transform.LookAt(player);

@@ -37,7 +37,14 @@ public class MainMenu : MonoBehaviour
     public void LoadSelectedLevel(string name)
     {
         selectedDay = int.Parse(name);
-        levelToLoad = "dialogueDay" + name;
+        if(selectedDay == 1)
+        {
+            levelToLoad = "GoToClass";
+        }
+        else
+        {
+            levelToLoad = "dialogueDay" + name;
+        }
         eventSystem.SetActive(false);
         SceneManager.LoadScene("Main", LoadSceneMode.Additive);
     }

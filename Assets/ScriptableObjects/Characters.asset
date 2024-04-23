@@ -20,7 +20,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 9d6568375326dd14c8d9352aa8912737, type: 3}
     - {fileID: 21300000, guid: a551ebfba0f4d324a9a92b0065b731f9, type: 3}
     - {fileID: 21300000, guid: 2ede1ae82a3b60346b8d723de47fdfed, type: 3}
-    characterAffection: 50
+    characterAffection: 80
   - characterName: otheranimegirl
     characterImage:
     - {fileID: 21300000, guid: fcadbd99acd78ab48bd32424abcef52c, type: 3}
@@ -28,8 +28,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 04810d2fa27ce8140a5bd6efbc58c256, type: 3}
     - {fileID: 21300000, guid: aca6ba59f7fd5254f9e31a3167285307, type: 3}
     - {fileID: 21300000, guid: 89292891dd31d6a4eb722dd735f51628, type: 3}
-    characterAffection: 50
-  - characterName: animedude
+    characterAffection: 70
+  - characterName: animeboy
     characterImage:
     - {fileID: 21300000, guid: e5d3909ed18a4d44c99d881736616d58, type: 3}
     - {fileID: 21300000, guid: e7beeab6e803efc4fa167149604cd2f3, type: 3}

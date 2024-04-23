@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     private string dialogueNodeToReturn = "";   // for returning to dialogue after successfully exiting FPS
     private string dialogueNodeSelect = "";
     private string levelToLoad = "";
+    private bool levelSelected = false;
 
     [Header("GAME FEATURE FLAGS (IMPORTANT)")]
     public bool FLAG_ENABLE_AFFECTION_INTERRUPT;
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
         if (levelToLoad != "")
         {
             currentNode = levelToLoad;
+            levelSelected = true;
         }
         else
         {
@@ -228,7 +230,8 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("FPSTutorial", LoadSceneMode.Additive);
             AudioManager.Instance.PlaySound(true, "fps_theme");
             Cursor.lockState = CursorLockMode.Locked;
-            firstFPS = false;
+            if (levelSelected) firstFPS = false;
+            //firstFPS = false;
         }
         else
         {
@@ -292,7 +295,13 @@ public class GameManager : MonoBehaviour
         datingSimEventSystem.enabled = true;
         
         dialogueRunnerInstance.Stop();
-        if (!didDefeatEnemy)
+        if(firstFPS)
+        {
+            firstFPS = false;
+            dialogueRunnerInstance.StartDialogue("firstFPSOver");
+            AudioManager.Instance.PlaySound(true, "classroom");
+        }
+        else if (!didDefeatEnemy)
         {
             // trigger transition back dialogue
             dialogueRunnerInstance.StartDialogue("transitionBack");

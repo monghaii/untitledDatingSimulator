@@ -340,6 +340,10 @@ public class GameManager : MonoBehaviour
     {
         dialogueRunnerInstance.Stop();
         dialogueRunnerInstance.StartDialogue(dialogueNodeToReturn);
+        if(backgroundIsCourtyard)
+        {
+            SetBackground("courtyard");
+        }
     }
     
     [YarnCommand("SetCharacter")]

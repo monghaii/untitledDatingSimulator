@@ -73,6 +73,50 @@ No matter what, I'll fight to stay single!
 <<jump Day2>>
 ===
 
+title: dialogueDay3
+tags:
+position: 306,-1324
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+<<SetCharacter GameManager me>>
+OMG, what happened?
+...
+<<SetBackground GameManager black>>
+<<playSound AudioManager true mysterious_voice>>
+mysterious_voice: You're in day 3. I thought you knew how this game works by now.
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+Oh right.
+Well, here goes nothing. At least I'm halfway through the week...
+===
+
+
+title: dialogueDay4
+tags:
+position: 528,-1326
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+<<SetCharacter GameManager me>>
+day 4 dialogue
+===
+
+
+title: dialogueDay5
+tags:
+position: 748,-1326
+---
+<<Checkpoint GameManager>>
+<<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
+<<SetCharacter GameManager me>>
+day 5 dialogue
+===
+
+
 title: BeginDay
 tags:
 position: -301,-663
@@ -217,7 +261,7 @@ animegirl: I know you said not to follow you, but I got bored waiting so I did i
                 animegirl: Stop playing with my heart! You can't just insult someone like that.
                 animegirl puts on her brass knuckles.
                 animegirl: ...especially not ME!
-                <<StartFPS GameManager>>
+                <<StartFPS GameManager true>>
             -> No, I just wanted to be alone...my goldfish died
                 <<SetCharacter GameManager animegirl 1>>
                 animegirl: Oh, I'm so sorry...I'll leave you alone.
@@ -313,6 +357,7 @@ It makes me wonder...wonder what life would be like if I never got into a relati
 
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
 <<SetCharacter GameManager me>>
 ...
 *gasp* What happened?
@@ -344,6 +389,7 @@ It makes me wonder...wonder what life would be like if I never got into a relati
 <<Checkpoint GameManager>>
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
+<<playSound AudioManager true home>>
 ...
 *gasp* What happened?
 What a nightmare...I got into a relationship?!
@@ -363,6 +409,7 @@ position: -879,-843
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
 <<RefreshHealth GameManager -1>>
+<<playSound AudioManager true home>>
 ...
 *gasp* What happened?
 What a nightmare...I remembered fighting something?!
@@ -437,17 +484,21 @@ position: 1434,170
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
+<<playSound AudioManager false school_bell>>
 The bell just rang.
 ...
 Class is finally over!
 
 <<SetBackground GameManager home>>
 <<SetCharacter GameManager me>>
+<<playSound AudioManager true home>>
 Ah, nice to be back home.
 Good thing I didn't get into a relationship today.
 ...
 Oh man, would you look at the time?
 I should get ready for bed...
+<<SetBackground  GameManager black>>
+<<playSound AudioManager true mysterious_voice>>
 zzz
 zzz
 zzz
@@ -607,7 +658,7 @@ animegirl: ...So what now?
 
 title: Day2
 tags:
-position: 203,-1025
+position: 240,-1001
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager otheranimegirl 2>>
@@ -757,10 +808,12 @@ position: 1657,167
 ---
 <<Checkpoint GameManager>>
 <<SetCharacter GameManager me>>
+<<playSound AudioManager false school_bell>>
 The bell rang.
 ...
 Class is over! I gotta get home!
 <<SetBackground GameManager home>>
+<<playSound AudioManager true home>>
 <<SetCharacter GameManager me>>
 Wait...it's the end of the semester.
 And I'm...still single! I did it!

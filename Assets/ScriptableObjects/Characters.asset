@@ -15,19 +15,19 @@ MonoBehaviour:
   characterList:
   - characterName: animegirl
     characterImage:
-    - {fileID: 21300000, guid: 42466f96813451446885d8b9c5e224cc, type: 3}
-    - {fileID: 21300000, guid: 2170b0dc24fd89b43942c00d91d07aba, type: 3}
+    - {fileID: 21300000, guid: 7982435e9e5a4481682edac6bf9bbb90, type: 3}
+    - {fileID: 21300000, guid: 3166ef34d78aa4858a7e435b14dbb00a, type: 3}
     - {fileID: 21300000, guid: 7982435e9e5a4481682edac6bf9bbb90, type: 3}
     - {fileID: 21300000, guid: 0966590057df546d6bdaf0d0027142f3, type: 3}
     - {fileID: 21300000, guid: 2ede1ae82a3b60346b8d723de47fdfed, type: 3}
-    characterAffection: 50
+    characterAffection: 19
   - characterName: otheranimegirl
     characterImage:
-    - {fileID: 21300000, guid: fcadbd99acd78ab48bd32424abcef52c, type: 3}
-    - {fileID: 21300000, guid: c852f3faf738bca468dbfe19d874c6ac, type: 3}
-    - {fileID: 21300000, guid: 04810d2fa27ce8140a5bd6efbc58c256, type: 3}
-    - {fileID: 21300000, guid: aca6ba59f7fd5254f9e31a3167285307, type: 3}
-    - {fileID: 21300000, guid: 89292891dd31d6a4eb722dd735f51628, type: 3}
+    - {fileID: 21300000, guid: 21ab4f5dc2b45442a91874450f36159a, type: 3}
+    - {fileID: 21300000, guid: 457751c38dc574a09bfc3eb859866f29, type: 3}
+    - {fileID: 21300000, guid: 21ab4f5dc2b45442a91874450f36159a, type: 3}
+    - {fileID: 21300000, guid: 3e13ae7f7d08c4f578c5188205efca5c, type: 3}
+    - {fileID: 21300000, guid: d207bcd6c214144908322144bf603f62, type: 3}
     characterAffection: 50
   - characterName: animedude
     characterImage:
